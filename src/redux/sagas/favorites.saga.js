@@ -21,8 +21,25 @@ function* fetchFavorites() {
   }
 }
 
+// worker Saga: will be fired on "DELETE_FAVORITE" actions
+function* deleteFavorite(action) {
+  console.log("deleting fav");
+  try {
+    const response = yield axios.delete(
+      `/api/favorites/${action.payload}`
+    );
+    console.log("delete favorite:", response.data);
+    yield put({
+      type: "FETCH_FAVORITES",
+    });
+  } catch (error) {
+    console.log("error in deleteFavorite:", error);
+  }
+}
+
 function* favoritesSaga() {
   yield takeLatest("FETCH_FAVORITES", fetchFavorites);
+  yield takeLatest("DELETE_FAVORITE", deleteFavorite);
 }
 
 export default favoritesSaga;
