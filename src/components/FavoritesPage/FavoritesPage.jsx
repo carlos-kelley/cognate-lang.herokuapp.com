@@ -37,7 +37,7 @@ function FavoritesPage() {
           return (
             <div
               // duplicate keys
-              id={favorite.id}
+              id={index}
               key={index}
             >
               {/* display the favorite in english */}
@@ -54,7 +54,7 @@ function FavoritesPage() {
                 onClick={() => {
                   dispatch({
                     type: "DELETE_FAVORITE",
-                    id: favorite.id,
+                    payload: favorite.id,
                   });
                 }}
               >
