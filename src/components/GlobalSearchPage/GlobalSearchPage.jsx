@@ -43,7 +43,7 @@ function GlobalSearchPage() {
       {/* create a button that console logs globalSearch */}
       <button
         onClick={() => {
-          console.log(globalSearch);
+          console.log("global:", globalSearch);
         }}
       >
         Log Global Search
