@@ -9,6 +9,7 @@ import {
 
 import { useHistory } from "react-router-dom";
 import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
+import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -36,6 +37,7 @@ function FavoritesPage() {
     <div className="container">
       <h1>Favorites Page</h1>
       <GlobalSearch />
+      {/* <FavoritesSearch /> */}
       <section className="favorites">
         {/* loop through our favorites and display them */}
         {favorites.map((favorite, index) => {

@@ -25,6 +25,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import WordPage from "../WordPage/WordPage";
+import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
 
 import "./App.css";
 
