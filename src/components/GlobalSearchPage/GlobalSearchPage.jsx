@@ -15,24 +15,39 @@ import { useHistory } from "react-router-dom";
 // or even care what the redux state is
 
 function GlobalSearchPage() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
+  const globalSearch = useSelector(
+    (store) => store.globalSearch
+  );
+
   //fetch words on mount
   useEffect(() => {
     dispatch({ type: "FETCH_WORDS" });
     console.log(event.currentTarget);
+    console.log("global", globalSearch);
   }, []);
   return (
     <div className="container">
       <p>Global Search Page</p>
       <input
         type="text"
-              placeholder="Global Search"
-              onChange={(event) => {
-                  dispatch({ type: "SET_GLOBAL_SEARCH", payload: event.target.value });
-              }
-                }
+        placeholder="Global Search"
+        onChange={(event) => {
+          dispatch({
+            type: "SET_GLOBAL_SEARCH",
+            payload: event.target.value,
+          });
+        }}
       />
+      {/* create a button that console logs globalSearch */}
+      <button
+        onClick={() => {
+          console.log(globalSearch);
+        }}
+      >
+        Log Global Search
+      </button>
     </div>
   );
 }

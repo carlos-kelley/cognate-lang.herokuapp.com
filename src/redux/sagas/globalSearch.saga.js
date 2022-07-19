@@ -4,6 +4,7 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 
+
 // worker Saga: will be fired on "FETCH_WORDS" actions
 function* fetchWords() {
   console.log("fetching words");
