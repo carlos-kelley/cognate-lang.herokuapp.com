@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 // or even care what the redux state is
 
 function FavoritesPage() {
+
   const dispatch = useDispatch();
   const history = useHistory();
   const favorites = useSelector(
@@ -32,6 +33,20 @@ function FavoritesPage() {
       <p>Favorites Page</p>
       {/* stringify the favorites array */}
       <p>{JSON.stringify(favorites)}</p>
+      <section className="favorites">
+        {/* loop through our favorites and display them */}
+        {favorites.map((favorite) => {
+          return (
+            <div
+              id={favorite.id}
+              key={favorite.id}
+            >
+              {/* display the favorite in english */}
+              <h3>{favorite.english}</h3>
+            </div>
+          );
+        })}
+      </section>
     </div>
   );
 }
