@@ -15,6 +15,9 @@ import { useHistory } from "react-router-dom";
 // or even care what the redux state is
 
 function FavoritesPage() {
+  const navToWord = () => {
+    history.push("/word");
+  }
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -41,11 +44,12 @@ function FavoritesPage() {
               key={index}
             >
               {/* display the favorite in english */}
-              <h3>
-                {favorite.english},{" "}
-                {favorite.french},{" "}
-                {favorite.italian},{" "}
-                {favorite.spanish},{" "}
+              {/* help */}
+              <h3 onClick = {navToWord}>
+                {favorite.english},
+                {favorite.french},
+                {favorite.italian},
+                {favorite.spanish},
                 {favorite.portuguese}
               </h3>
               {/* render a delete button */}
