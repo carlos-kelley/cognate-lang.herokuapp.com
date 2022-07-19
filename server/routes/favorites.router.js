@@ -20,6 +20,7 @@ ON favorites_word.favorites_id = favorites.id;
     });
 });
 // delete word from favorites -this is not quite right 
+//need req params?
 router.delete("/delete", (req, res) => {
       pool
         .query(
