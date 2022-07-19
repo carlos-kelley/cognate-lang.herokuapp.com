@@ -19,23 +19,23 @@ ON favorites_word.favorites_id = favorites.id;
       res.sendStatus(500);
     });
 });
-// delete word from favorites -this is not quite right 
+// delete word from favorites -this is not quite right
 //need req params?
 router.delete("/delete", (req, res) => {
-      pool
-        .query(
-          `DELETE FROM "favorites_word" WHERE "id" = $1;`, 
-          [req.query.id]
-        )
-        .then((result) => {
-          res.sendStatus(200);
-        })
-        .catch((error) => {
-          console.log(
-            `ERROR: Delete Favorite: ${error}`
-          );
-          res.sendStatus(500);
-        });
+  pool
+    .query(
+      `DELETE FROM "favorites_word" WHERE "id" = $1;`,
+      [req.query.id]
+    )
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(
+        `ERROR: Delete Favorite: ${error}`
+      );
+      res.sendStatus(500);
+    });
 });
-  
+
 module.exports = router;
