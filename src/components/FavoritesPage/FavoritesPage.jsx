@@ -20,7 +20,7 @@ function FavoritesPage() {
   const favorites = useSelector(
     (store) => store.favorites
   );
-
+  //if i pull all the words can i map them with a filter?
   //fetch words on mount
   useEffect(() => {
     dispatch({ type: "FETCH_FAVORITES" });
@@ -30,6 +30,8 @@ function FavoritesPage() {
   return (
     <div className="container">
       <p>Favorites Page</p>
+      {/* stringify the favorites array */}
+      <p>{JSON.stringify(favorites)}</p>
     </div>
   );
 }
