@@ -22,7 +22,8 @@ import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
-import Forvo from "../Forvo/Forvo";
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 
 import "./App.css";
 
@@ -70,6 +71,22 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows FavoritesPage else shows LoginPage
+            exact
+            path="/favorites"
+          >
+            <FavoritesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows GlobalSearchPage else shows LoginPage
+            exact
+            path="/globalsearch"
+          >
+            <GlobalSearchPage />
           </ProtectedRoute>
 
           <Route exact path="/login">
