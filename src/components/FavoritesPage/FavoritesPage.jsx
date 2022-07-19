@@ -30,9 +30,7 @@ function FavoritesPage() {
   }, []);
   return (
     <div className="container">
-      <p>Favorites Page</p>
-      {/* stringify the favorites array */}
-      <p>{JSON.stringify(favorites)}</p>
+      <h1>Favorites Page</h1>
       <section className="favorites">
         {/* loop through our favorites and display them */}
         {favorites.map((favorite, index) => {
@@ -44,8 +42,24 @@ function FavoritesPage() {
             >
               {/* display the favorite in english */}
               <h3>
-                {favorite.english}, {favorite.french}, {favorite.italian}, {favorite.spanish}, {favorite.portuguese} 
+                {favorite.english},{" "}
+                {favorite.french},{" "}
+                {favorite.italian},{" "}
+                {favorite.spanish},{" "}
+                {favorite.portuguese}
               </h3>
+              {/* render a delete button */}
+              <button
+                className="btn btn_sizeSm"
+                onClick={() => {
+                  dispatch({
+                    type: "DELETE_FAVORITE",
+                    id: favorite.id,
+                  });
+                }}
+              >
+                Delete
+              </button>
             </div>
           );
         })}
