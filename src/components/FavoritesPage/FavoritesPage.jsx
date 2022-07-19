@@ -8,6 +8,7 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
+import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -34,6 +35,7 @@ function FavoritesPage() {
   return (
     <div className="container">
       <h1>Favorites Page</h1>
+      <GlobalSearch />
       <section className="favorites">
         {/* loop through our favorites and display them */}
         {favorites.map((favorite, index) => {

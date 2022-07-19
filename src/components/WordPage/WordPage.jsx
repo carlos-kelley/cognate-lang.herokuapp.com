@@ -8,6 +8,7 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
+import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -29,7 +30,8 @@ function WordPage() {
   }, []);
   return (
     <div className="container">
-      <h1>Words Page</h1>
+          <h1>Words Page</h1>
+            <GlobalSearch />
       
     </div>
   );

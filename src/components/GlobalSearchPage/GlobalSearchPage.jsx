@@ -29,7 +29,6 @@ function GlobalSearchPage() {
   }, []);
   return (
     <div className="container">
-      <p>Global Search Page</p>
       <input
         type="text"
         placeholder="Global Search"
