@@ -24,6 +24,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
+import WordPage from "../WordPage/WordPage";
 
 import "./App.css";
 
@@ -63,6 +64,13 @@ function App() {
             path="/user"
           >
             <UserPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/word"
+          >
+            <WordPage />
           </ProtectedRoute>
 
           <ProtectedRoute
