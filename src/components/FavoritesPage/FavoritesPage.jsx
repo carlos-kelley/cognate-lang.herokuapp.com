@@ -35,11 +35,12 @@ function FavoritesPage() {
       <p>{JSON.stringify(favorites)}</p>
       <section className="favorites">
         {/* loop through our favorites and display them */}
-        {favorites.map((favorite) => {
+        {favorites.map((favorite, index) => {
           return (
             <div
+              // duplicate keys
               id={favorite.id}
-              key={favorite.id}
+              key={index}
             >
               {/* display the favorite in english */}
               <h3>{favorite.english}</h3>
