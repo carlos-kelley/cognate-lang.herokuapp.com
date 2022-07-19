@@ -19,4 +19,22 @@ ON favorites_word.favorites_id = favorites.id;
       res.sendStatus(500);
     });
 });
+// delete word from favorites -this is not quite right 
+router.delete("/:id", (req, res) => {
+  const query = `DELETE FROM favorites_word WHERE favorites_id = $1 AND word_id = $2`;
+  const favoritesId = req.params.id;
+  const wordId = req.query.wordId;
+  pool
+    .query(query, [favoritesId, wordId])
+    .then((result) => {
+      res.sendStatus(200);
+    }
+  )
+    .catch((err) => {
+      console.log("ERROR: Delete word from favorites", err);
+      res.sendStatus(500);
+    }
+  );
+}
+);
 module.exports = router;
