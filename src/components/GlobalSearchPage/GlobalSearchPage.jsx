@@ -10,7 +10,8 @@ function GlobalSearchPage() {
   const history = useHistory();
   return (
     <div className="container">
-      <p>Global Search Page</p>
+          <p>Global Search Page</p>
+          <input type="text" placeholder="Global Search" />
     </div>
   );
 }
