@@ -43,7 +43,9 @@ function FavoritesPage() {
               key={index}
             >
               {/* display the favorite in english */}
-              <h3>{favorite.english}</h3>
+              <h3>
+                {favorite.english}, {favorite.french}, {favorite.italian}, {favorite.spanish}, {favorite.portuguese} 
+              </h3>
             </div>
           );
         })}
