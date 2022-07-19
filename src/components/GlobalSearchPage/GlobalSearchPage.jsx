@@ -27,7 +27,11 @@ function GlobalSearchPage() {
       <p>Global Search Page</p>
       <input
         type="text"
-        placeholder="Global Search"
+              placeholder="Global Search"
+              onChange={(event) => {
+                  dispatch({ type: "SET_GLOBAL_SEARCH", payload: event.target.value });
+              }
+                }
       />
     </div>
   );
