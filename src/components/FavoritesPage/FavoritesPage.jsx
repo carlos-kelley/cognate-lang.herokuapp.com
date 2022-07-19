@@ -45,7 +45,7 @@ function FavoritesPage() {
             >
               {/* display the favorite in english */}
               {/* help */}
-              <h3 onClick = {navToWord}>
+              <h3 onClick={navToWord}>
                 {favorite.english},
                 {favorite.french},
                 {favorite.italian},
