@@ -1,6 +1,6 @@
-const globalSearchReducer = (state = {}, action) => {
+const globalSearchReducer = (state = [], action) => {
   switch (action.type) {
-    case "SET_GLOBAL_SEARCH":
+    case "SET_WORDS":
       return action.payload;
     default:
       return state;

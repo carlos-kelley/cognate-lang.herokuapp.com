@@ -1,7 +1,5 @@
 import {
-  all,
-  takeEvery,
-  put,
+  all
 } from "redux-saga/effects";
 import ReactDOM from "react-dom";
 import loginSaga from "./login.saga";
@@ -9,7 +7,6 @@ import registrationSaga from "./registration.saga";
 import userSaga from "./user.saga";
 import globalSearchSaga from "./globalSearch.saga";
 import favoritesSaga from "./favorites.saga";
-import axios from "axios";
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -25,21 +22,4 @@ export default function* rootSaga() {
     globalSearchSaga(),
     favoritesSaga(),
   ]);
-  //   yield takeEvery("FETCH_WORDS", fetchWords);
-  // }
-
-  // function* fetchWords() {
-  //   console.log("fetching words");
-  //   // try {
-  //   //   const response = yield axios.get(
-  //   //     "/api/words"
-  //   //   );
-  //   //   console.log("get all words:", words.data);
-  //   //   yield put({
-  //   //     type: "SET_WORDS",
-  //   //     payload: words.data,
-  //   //   });
-  //   // } catch (error) {
-  //   //   console.log("error in fetchWords:", error);
-  //   // }
 }

@@ -8,13 +8,9 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
-import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
 import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+
 
 function FavoritesPage() {
   const navToWord = () => {
@@ -41,7 +37,6 @@ function FavoritesPage() {
         <div>
           <div className="favoritesDiv">
             <h1>Favorites Page</h1>
-            <GlobalSearch />
             {/* <FavoritesSearch /> */}
           </div>
           <section className="favoritesSection">

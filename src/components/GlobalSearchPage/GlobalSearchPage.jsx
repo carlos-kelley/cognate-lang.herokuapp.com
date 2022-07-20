@@ -9,12 +9,13 @@ import {
 
 import { useHistory } from "react-router-dom";
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+
 
 function GlobalSearchPage() {
+  const navToWord = () => {
+    history.push("/word");
+  };
+
   const dispatch = useDispatch();
   const history = useHistory();
   const globalSearch = useSelector(
@@ -22,18 +23,19 @@ function GlobalSearchPage() {
   );
 
   useEffect(() => {
-    //action.payload at end of url
+
   }, []);
+
   return (
     <div className="container">
       <input
         type="text"
         placeholder="Global Search"
         onChange={(event) => {
-          // dispatch({
-          //   type: "SET_GLOBAL_SEARCH",
-          //   payload: event.target.value,
-          // });
+          dispatch({
+            type: "SET_GLOBAL_SEARCH",
+            payload: event.target.value,
+          });
           dispatch({
             type: "FETCH_WORDS",
             payload: event.target.value,
@@ -48,16 +50,40 @@ function GlobalSearchPage() {
           );
         }}
       />
+      <div className="globalSearchDiv">
+        <h1>Global Search Page</h1>
+        <section className="globalSearchSection">
+          {/* loop through our globalSearch and display them */}
+          {globalSearch.map((word) => {
+            return (
+              <div
+                // duplicate keys
+                key={word.id}
+              >
+                {/* display the words in globalSearch array */}
+                <h3 onClick={navToWord}>
+                  {word.english},{word.french},
+                  {word.italian},{word.spanish},
+                  {word.portuguese}
+                </h3>
+              </div>
+            );
+          })}
+        </section>
+      </div>
+    </div>
+  );
+}
+
       {/* create a button that console logs globalSearch */}
-      {/* <button
+      <button
         onClick={() => {
           console.log("global:", globalSearch);
         }}
       >
         Log Global Search
-      </button> */}
-    </div>
-  );
-}
+      </button>
+      //ignore this comment please
+   
 
 export default GlobalSearchPage;
