@@ -52,6 +52,10 @@ function GlobalSearchPage() {
         <section className="globalSearchSection">
           {/* loop through our globalSearch and display them */}
           {globalSearch.map((word) => {
+             dispatch({
+               type: "SET_ID",
+               payload: word.id,
+             });
             return (
               <div
                 // duplicate keys
@@ -59,17 +63,14 @@ function GlobalSearchPage() {
               >
                 {/* display the words in globalSearch array */}
                 <h3
-                  onClick={() =>
-                    // history.push(
-                    //   `/api/words?word=${word.english}`
-                    // )
-                    //dispatch a SET_ID action to set the id to the word.id
-                    dispatch({ 
-                      type: "SET_ID",
-                      payload: word.id,
-                    })
+                  // onChangText={() =>
+                  //   // history.push(
+                  //   //   `/api/words?word=${word.english}`
+                  //   // )
+                  //   //dispatch a SET_ID action to set the id to the word.id
+                   
               
-                  }
+                  // }
                 >
                   {word.english},{word.french},
                   {word.italian},{word.spanish},
