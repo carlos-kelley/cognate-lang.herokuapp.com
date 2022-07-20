@@ -13,12 +13,13 @@ function AddFavoriteButton() {
     );
 
     const handleAddFavorite = () => {
+        console.log("in handleAddFavorite")
         console.log("word in addfav: ", word);
-        console.log("id.id in addfav: ", id.id);
+        console.log("id in addfav: ", id);
         //make a POST request to add a favorite
         axios.post("/api/favorites", {
             favorites_id: 1,//this should be dynamic
-            word_id: id.id, //do i have to make the ID a reducer
+            word_id: id, //do i have to make the ID a reducer
         });
     }
 
