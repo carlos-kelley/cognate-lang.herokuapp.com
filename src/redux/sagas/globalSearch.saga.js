@@ -27,7 +27,7 @@ function* fetchWords(action) {
     console.log("error in fetchWords:", error);
   }
 }
-
+//ignore this comment
 function* globalSearchSaga() {
   yield takeLatest("FETCH_WORDS", fetchWords);
 }
