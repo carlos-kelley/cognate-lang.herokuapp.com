@@ -10,12 +10,10 @@ import {
 import { useHistory } from "react-router-dom";
 import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
 
-
-
 function FavoritesPage() {
   const navToWord = () => {
     history.push("/word");
-  }
+  };
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -23,7 +21,7 @@ function FavoritesPage() {
     (store) => store.favorites
   );
   //if i pull all the words can i map them with a filter?
-  //fetch words on mount - 
+  //fetch words on mount -
   useEffect(() => {
     dispatch({ type: "FETCH_FAVORITES" });
     console.log(event.currentTarget);
@@ -45,7 +43,7 @@ function FavoritesPage() {
               return (
                 <div
                   // duplicate keys
-                  
+
                   key={favorite.id}
                 >
                   {/* display the favorite in english */}
@@ -63,7 +61,7 @@ function FavoritesPage() {
                     onClick={() => {
                       dispatch({
                         type: "DELETE_FAVORITE",
-                        payload: favorite.id,
+                        payload: favorite.id, //i think this is wrong
                       });
                     }}
                   >
@@ -75,8 +73,8 @@ function FavoritesPage() {
           </section>
         </div>
       )}
-      </div>
-      );
-  }
+    </div>
+  );
+}
 
 export default FavoritesPage;

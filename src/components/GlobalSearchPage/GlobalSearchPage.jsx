@@ -55,7 +55,7 @@ function GlobalSearchPage() {
              dispatch({
                type: "SET_ID",
                payload: word.id,
-             });
+             }); //this needs to happen for each INDIVIDUAL word
             return (
               <div
                 // duplicate keys
