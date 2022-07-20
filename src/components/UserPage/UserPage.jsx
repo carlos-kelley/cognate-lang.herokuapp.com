@@ -16,7 +16,7 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       <SearchPageButton />
       <FavoritesPageButton />
-      <LogOutButton className="btn" />
+      {/* <LogOutButton className="btn" /> */}
     </div>
   );
 }
