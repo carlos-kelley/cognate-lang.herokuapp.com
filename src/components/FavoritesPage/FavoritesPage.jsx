@@ -27,7 +27,7 @@ function FavoritesPage() {
     (store) => store.favorites
   );
   //if i pull all the words can i map them with a filter?
-  //fetch words on mount
+  //fetch words on mount - 
   useEffect(() => {
     dispatch({ type: "FETCH_FAVORITES" });
     console.log(event.currentTarget);
@@ -35,45 +35,53 @@ function FavoritesPage() {
   }, []);
   return (
     <div className="container">
-      <h1>Favorites Page</h1>
-      <GlobalSearch />
-      {/* <FavoritesSearch /> */}
-      <section className="favorites">
-        {/* loop through our favorites and display them */}
-        {favorites.map((favorite, index) => {
-          return (
-            <div
-              // duplicate keys
-              id={index}
-              key={index}
-            >
-              {/* display the favorite in english */}
-              {/* help */}
-              <h3 onClick={navToWord}>
-                {favorite.english},
-                {favorite.french},
-                {favorite.italian},
-                {favorite.spanish},
-                {favorite.portuguese}
-              </h3>
-              {/* render a delete button */}
-              <button
-                className="btn btn_sizeSm"
-                onClick={() => {
-                  dispatch({
-                    type: "DELETE_FAVORITE",
-                    payload: favorite.id,
-                  });
-                }}
-              >
-                Delete
-              </button>
-            </div>
-          );
-        })}
-      </section>
-    </div>
-  );
-}
+      {favorites.length === 0 ? (
+        <p>loading...</p>
+      ) : (
+        <div>
+          <div className="favoritesDiv">
+            <h1>Favorites Page</h1>
+            <GlobalSearch />
+            {/* <FavoritesSearch /> */}
+          </div>
+          <section className="favoritesSection">
+            {/* loop through our favorites and display them */}
+            {favorites.map((favorite) => {
+              return (
+                <div
+                  // duplicate keys
+                  
+                  key={favorite.id}
+                >
+                  {/* display the favorite in english */}
+                  {/* help */}
+                  <h3 onClick={navToWord}>
+                    {favorite.english},
+                    {favorite.french},
+                    {favorite.italian},
+                    {favorite.spanish},
+                    {favorite.portuguese}
+                  </h3>
+                  {/* render a delete button */}
+                  <button
+                    className="btn btn_sizeSm"
+                    onClick={() => {
+                      dispatch({
+                        type: "DELETE_FAVORITE",
+                        payload: favorite.id,
+                      });
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </section>
+        </div>
+      )}
+      </div>
+      );
+  }
 
 export default FavoritesPage;
