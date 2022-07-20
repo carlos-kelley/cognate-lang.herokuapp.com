@@ -38,4 +38,26 @@ router.delete("/", (req, res) => {
     });
 });
 
+// add word to favorites
+router.post("/", (req, res) => {
+  console.log("req body: ", req.body);
+  pool
+    .query(
+      `INSERT INTO "favorites_word" ("favorites_id", "word_id")
+      VALUES (${req.body.favorites_id}, ${req.body.word_id});`,
+  )
+    .then((result) => {
+      res.sendStatus(200);
+    }
+  )
+    .catch((error) => {
+      console.log(
+        `ERROR: Add Favorite: ${error}`
+      );
+      res.sendStatus(500);
+    }
+  );
+}
+);
+
 module.exports = router;

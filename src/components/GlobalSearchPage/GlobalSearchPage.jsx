@@ -8,8 +8,7 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
-
-
+import AddFavoriteButton from "../AddFavoriteButton/AddFavoriteButton";
 
 function GlobalSearchPage() {
   const navToWord = () => {
@@ -22,9 +21,7 @@ function GlobalSearchPage() {
     (store) => store.globalSearch
   );
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="container">
@@ -63,13 +60,16 @@ function GlobalSearchPage() {
                 {/* display the words in globalSearch array */}
                 <h3
                   onClick={() =>
-                    console.log("Word ID: ", word.id)
+                    history.push(
+                      `/api/words?word=${word.english}`
+                    )
                   }
                 >
                   {word.english},{word.french},
                   {word.italian},{word.spanish},
                   {word.portuguese}, {word.id}
                 </h3>
+                <AddFavoriteButton />
               </div>
             );
           })}
@@ -79,15 +79,16 @@ function GlobalSearchPage() {
   );
 }
 
-      {/* create a button that console logs globalSearch */}
-      <button
-        onClick={() => {
-          console.log("global:", globalSearch);
-        }}
-      >
-        Log Global Search
-      </button>
-      //ignore this comment please
-   
+{
+  /* create a button that console logs globalSearch */
+}
+<button
+  onClick={() => {
+    console.log("global:", globalSearch);
+  }}
+>
+  Log Global Search
+</button>;
+//ignore this comment please
 
 export default GlobalSearchPage;
