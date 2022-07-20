@@ -60,9 +60,15 @@ function GlobalSearchPage() {
                 {/* display the words in globalSearch array */}
                 <h3
                   onClick={() =>
-                    history.push(
-                      `/api/words?word=${word.english}`
-                    )
+                    // history.push(
+                    //   `/api/words?word=${word.english}`
+                    // )
+                    //dispatch a SET_ID action to set the id to the word.id
+                    dispatch({ 
+                      type: "SET_ID",
+                      payload: word.id,
+                    })
+              
                   }
                 >
                   {word.english},{word.french},
