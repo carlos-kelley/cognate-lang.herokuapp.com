@@ -21,11 +21,11 @@ ON favorites_word.favorites_id = favorites.id;
 });
 // delete word from favorites -this is not quite right
 //need req params?
-router.delete("/delete", (req, res) => {
+router.delete("/", (req, res) => {
+  console.log("req query: ", req.query);
   pool
     .query(
-      `DELETE FROM "favorites_word" WHERE "id" = $1;`,
-      [req.query.id]
+      `DELETE FROM "favorites_word" WHERE "id" = ${req.query.id};`,
     )
     .then((result) => {
       res.sendStatus(200);
