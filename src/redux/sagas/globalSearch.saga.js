@@ -10,7 +10,7 @@ function* fetchWords() {
   console.log("fetching words");
   try {
     const response = yield axios.get(
-      "/api/words"
+      "/api/words?word="
     );
     console.log("get all words:", response.data);
     yield put({

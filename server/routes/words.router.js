@@ -3,10 +3,13 @@ const router = express.Router();
 const pool = require("../modules/pool");
 
 router.get("/", (req, res) => {
+  console.log("req param: ", req.params)
+  console.log("req query: ", req.query);
+
   //have to make diff if statements to order by language alphabetically?
   const query = `SELECT *
 FROM words
-WHERE english LIKE '%art%'
+WHERE english LIKE '%${req.query.word}%'
 `;
   pool
     .query(query)
