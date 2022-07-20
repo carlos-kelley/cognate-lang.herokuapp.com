@@ -21,14 +21,8 @@ function GlobalSearchPage() {
     (store) => store.globalSearch
   );
 
-  //fetch words on mount
   useEffect(() => {
-    //call this onChange input text
-    //add payload which is whatever the user typed in
     //action.payload at end of url
-    dispatch({ type: "FETCH_WORDS" });
-    console.log(event.currentTarget);
-    console.log("global", globalSearch);
   }, []);
   return (
     <div className="container">
@@ -36,10 +30,22 @@ function GlobalSearchPage() {
         type="text"
         placeholder="Global Search"
         onChange={(event) => {
+          // dispatch({
+          //   type: "SET_GLOBAL_SEARCH",
+          //   payload: event.target.value,
+          // });
           dispatch({
-            type: "SET_GLOBAL_SEARCH",
+            type: "FETCH_WORDS",
             payload: event.target.value,
           });
+          console.log(
+            "event.target.value: ",
+            event.target.value
+          );
+          console.log(
+            "globalSearch: ",
+            globalSearch
+          );
         }}
       />
       {/* create a button that console logs globalSearch */}
