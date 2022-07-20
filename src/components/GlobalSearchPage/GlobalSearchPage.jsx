@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 
 function GlobalSearchPage() {
   const navToWord = () => {
-    history.push("/word");
+    // history.push("/word/");
   };
 
   const dispatch = useDispatch();
@@ -61,10 +61,14 @@ function GlobalSearchPage() {
                 key={word.id}
               >
                 {/* display the words in globalSearch array */}
-                <h3 onClick={navToWord}>
+                <h3
+                  onClick={() =>
+                    console.log("Word ID: ", word.id)
+                  }
+                >
                   {word.english},{word.french},
                   {word.italian},{word.spanish},
-                  {word.portuguese}
+                  {word.portuguese}, {word.id}
                 </h3>
               </div>
             );
