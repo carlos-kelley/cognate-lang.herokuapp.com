@@ -43,6 +43,7 @@ router.delete("/", (req, res) => {
 // add word to favorites - NEXT STEP
 router.post("/", (req, res) => {
   console.log("req body: ", req.body);
+  res.send ("woof")
   pool
     .query(
       `INSERT INTO "favorites_word" ("favorites_id", "word_id")

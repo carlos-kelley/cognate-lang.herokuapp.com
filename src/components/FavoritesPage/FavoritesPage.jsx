@@ -12,10 +12,12 @@ import { useHistory } from "react-router-dom";
 
 
 function FavoritesPage() {
+  //handle pushing to word page onlick
   const navToWord = () => {
     history.push("/word");
   };
 
+  //declare variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
   const favorites = useSelector(
@@ -25,21 +27,13 @@ function FavoritesPage() {
     (store) => store.favoritesSearch
   );
 
+  //set search hook
   const [search, setSearch] = useState("");
 
-  // const checkLength = () => {
-  //   console.log(
-  //     "favoritesSearch reducer is",
-  //     favoritesSearch
-  //   );
-  //   if (search.length === 0) {
-  //     console.log("no search");
-  //   } else {
-  //     console.log("search:", search);
-  //   }
-  // };
+  
 
   //if i pull all the words can i map them with a filter?
+
   //fetch words on mount -
   useEffect(() => {
     dispatch({ type: "FETCH_FAVORITES" });
@@ -47,16 +41,18 @@ function FavoritesPage() {
     console.log("favs", favorites);
     console.log("favs search", favoritesSearch);
   }, []);
+
   return (
     <div className="container">
       <div>
         <div className="favoritesDiv">
-          <h1>Favorites Page</h1>
+          <h1>Favorites</h1>
         </div>
 
+        {/* Search favorites bar, dispatches FETCH_FAVORITES_SEARCH */}
         <input
           type="text"
-          placeholder="Search favorites"
+          placeholder="Search favorites..."
           onChange={(event) => {
             dispatch({
               type: "FETCH_FAVORITES_SEARCH",
@@ -65,11 +61,11 @@ function FavoritesPage() {
             setSearch(event.target.value);
           }}
         />
-        {/* only do this is search is equal to 0 */}
+
+        {/* only render fav list if nothing is in search bar */}
         {search === "" ? (
           <section className="favoritesSection">
             {/* loop through our favorites and display them */}
-
             {favorites.map((favorite) => {
               return (
                 <div
