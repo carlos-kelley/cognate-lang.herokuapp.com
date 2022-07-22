@@ -12,6 +12,8 @@ function AddFavoriteButton() {
         (store) => store.id
     );
 
+  
+  
     const handleAddFavorite = () => {
         console.log("in handleAddFavorite")
         console.log("word in addfav: ", word);
@@ -23,6 +25,7 @@ function AddFavoriteButton() {
         });
     }
 
+  
   
   return (
     //button that says AddFav that runs handleAddFavorite when clicked

@@ -17,18 +17,31 @@ function GlobalSearchPage() {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const globalSearch = useSelector(
+  let globalSearch = useSelector(
     (store) => store.globalSearch
+  );
+  let id = useSelector(
+    (store) => store.id
   );
 
   useEffect(() => {}, []);
 
   return (
     <div className="container">
+      <button
+        onClick={() => {
+          console.log("global:", globalSearch);
+          console.log("id: ", id);
+        }}
+      >
+        Log Global Search and ID
+      </button>
+      ;
       <input
         type="text"
         placeholder="Global Search"
-        onChange={(event) => {
+        onTextChange={(event) => {
+
           dispatch({
             type: "SET_GLOBAL_SEARCH",
             payload: event.target.value,
@@ -37,6 +50,13 @@ function GlobalSearchPage() {
             type: "FETCH_WORDS",
             payload: event.target.value,
           });
+          dispatch({
+            type: "CLEAR_ID",
+          });
+
+
+          console.log("IDs: ", { id });
+
           console.log(
             "event.target.value: ",
             event.target.value
@@ -52,10 +72,10 @@ function GlobalSearchPage() {
         <section className="globalSearchSection">
           {/* loop through our globalSearch and display them */}
           {globalSearch.map((word) => {
-             dispatch({
-               type: "SET_ID",
-               payload: word.id,
-             }); //this needs to happen for each INDIVIDUAL word
+            dispatch({
+              type: "SET_ID",
+              payload: word.id,
+            }); //this needs to happen for each INDIVIDUAL word
             return (
               <div
                 // duplicate keys
@@ -63,14 +83,13 @@ function GlobalSearchPage() {
               >
                 {/* display the words in globalSearch array */}
                 <h3
-                  // onChangText={() =>
-                  //   // history.push(
-                  //   //   `/api/words?word=${word.english}`
-                  //   // )
-                  //   //dispatch a SET_ID action to set the id to the word.id
-                   
-              
-                  // }
+                // onChangText={() =>
+                //   // history.push(
+                //   //   `/api/words?word=${word.english}`
+                //   // )
+                //   //dispatch a SET_ID action to set the id to the word.id
+
+                // }
                 >
                   {word.english},{word.french},
                   {word.italian},{word.spanish},
@@ -89,13 +108,7 @@ function GlobalSearchPage() {
 {
   /* create a button that console logs globalSearch */
 }
-<button
-  onClick={() => {
-    console.log("global:", globalSearch);
-  }}
->
-  Log Global Search
-</button>;
+
 //ignore this comment please
 
 export default GlobalSearchPage;

@@ -8,7 +8,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer>&copy; Carlos Kelley, 2022</footer>
+    <footer> Carlos Kelley &copy; 2022. All Rights Reserved. </footer>
   );
 }
 

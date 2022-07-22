@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { useHistory} from "react-router-dom";
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const login = (event) => {
     event.preventDefault();
@@ -32,10 +34,12 @@ function LoginForm() {
           {errors.loginMessage}
         </h3>
       )}
+      
       <div>
         <label htmlFor="username">
-          Username:
+          
           <input
+          placeholder = "Username"
             type="text"
             name="username"
             required
@@ -46,8 +50,9 @@ function LoginForm() {
       </div>
       <div>
         <label htmlFor="password">
-          Password:
+          
           <input
+          placeholder = "Password"
             type="password"
             name="password"
             required
@@ -59,6 +64,15 @@ function LoginForm() {
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
+      <button
+          type="button"
+          className="btn btn_asLink"
+          onClick={() => {
+            history.push('/registration');
+          }}
+        >
+          Create account
+        </button>
     </form>
   );
 }
