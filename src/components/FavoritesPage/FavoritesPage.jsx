@@ -26,17 +26,17 @@ function FavoritesPage() {
 
   const [search, setSearch] = useState("");
 
-  const checkLength = () => {
-    console.log(
-      "favoritesSearch reducer is",
-      favoritesSearch
-    );
-    if (search.length === 0) {
-      console.log("no search");
-    } else {
-      console.log("search:", search);
-    }
-  };
+  // const checkLength = () => {
+  //   console.log(
+  //     "favoritesSearch reducer is",
+  //     favoritesSearch
+  //   );
+  //   if (search.length === 0) {
+  //     console.log("no search");
+  //   } else {
+  //     console.log("search:", search);
+  //   }
+  // };
 
   //if i pull all the words can i map them with a filter?
   //fetch words on mount -
@@ -51,10 +51,8 @@ function FavoritesPage() {
       <div>
         <div className="favoritesDiv">
           <h1>Favorites Page</h1>
-          {/* <FavoritesSearch /> */}
         </div>
-        <button onClick={checkLength}></button>
-        {JSON.stringify({ favoritesSearch })};
+
         <input
           type="text"
           placeholder="Search favorites"
@@ -93,7 +91,7 @@ function FavoritesPage() {
                     onClick={() => {
                       dispatch({
                         type: "DELETE_FAVORITE",
-                        payload: favorite.id, //i think this is wrong
+                        payload: favorite.word_id, //i think this is wrong
                       });
                     }}
                   >
