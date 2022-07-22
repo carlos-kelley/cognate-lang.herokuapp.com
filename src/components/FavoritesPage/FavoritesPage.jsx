@@ -63,7 +63,7 @@ function FavoritesPage() {
             {/* loop through our favorites and display them */}
             {favorites.map((favorite) => {
               return (
-                <div >
+                <div>
                   {/* display the favorite in all its languages */}
                   <h3 onClick={navToWord}>
                     {favorite.english},

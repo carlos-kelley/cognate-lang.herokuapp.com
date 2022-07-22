@@ -26,6 +26,7 @@ function GlobalSearchPage() {
   //declare variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
+  const [search, setSearch] = useState("");
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
@@ -37,19 +38,19 @@ function GlobalSearchPage() {
 
   return (
     <div className="container">
-      
       {location.pathname === "/globalsearch" ? (
-       <div> <h2>Welcome!</h2>
-        <p className="welcomeText">
-          Search a word in English, French, Spanish,
-          Italian, or Portuguese to see its
-          cognates. Or, find a random word.
+        <div>
+          {" "}
+          <h2>Welcome!</h2>
+          <p className="welcomeText">
+            Search a word in English, French,
+            Spanish, Italian, or Portuguese to see
+            its cognates. Or, find a random word.
           </p>
-          </div>
-      )
-        : (
-          <h2>Not Global Search</h2>
-        )}
+        </div>
+      ) : (
+        <></>
+      )}
 
       {/* <button
         onClick={() => {
@@ -75,6 +76,7 @@ function GlobalSearchPage() {
                 type: "FETCH_WORDS",
                 payload: event.target.value,
               });
+              setSearch(event.target.value);
               // dispatch({
               //   type: "CLEAR_ID",
               // });
@@ -100,8 +102,10 @@ function GlobalSearchPage() {
       </button>
 
       <div className="globalSearchDiv">
+        {search !== "" ? (
         <section className="globalSearchSection">
           {/* loop through our globalSearch and display them */}
+
           {globalSearch.map((word) => {
             dispatch({
               type: "SET_ID",
@@ -127,7 +131,10 @@ function GlobalSearchPage() {
               </div>
             );
           })}
-        </section>
+          </section>
+        ) : (
+            <></>
+          )}
       </div>
     </div>
   );
