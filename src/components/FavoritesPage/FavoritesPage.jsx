@@ -10,9 +10,8 @@ import {
 
 import { useHistory } from "react-router-dom";
 
-
 function FavoritesPage() {
-  //handle pushing to word page onlick
+  //handle pushing to word page onclick
   const navToWord = () => {
     history.push("/word");
   };
@@ -29,10 +28,6 @@ function FavoritesPage() {
 
   //set search hook
   const [search, setSearch] = useState("");
-
-  
-
-  //if i pull all the words can i map them with a filter?
 
   //fetch words on mount -
   useEffect(() => {
@@ -68,13 +63,8 @@ function FavoritesPage() {
             {/* loop through our favorites and display them */}
             {favorites.map((favorite) => {
               return (
-                <div
-                  // duplicate keys
-
-                  key={favorite.id}
-                >
-                  {/* display the favorite in english */}
-                  {/* help */}
+                <div >
+                  {/* display the favorite in all its languages */}
                   <h3 onClick={navToWord}>
                     {favorite.english},
                     {favorite.french},
@@ -82,6 +72,7 @@ function FavoritesPage() {
                     {favorite.spanish},
                     {favorite.portuguese}
                   </h3>
+
                   {/* render a delete button */}
                   <button
                     className="btn btn_sizeSm"
@@ -99,19 +90,14 @@ function FavoritesPage() {
             })}
           </section>
         ) : (
+          //if there is a search term, render the filtered list
           <section className="favoritesSearchSection">
             {/* loop through our favoritesSearch and display them */}
-
             {favoritesSearch.map(
               (favoriteSearch) => {
                 return (
-                  <div
-                    // duplicate keys
-
-                    key={favoriteSearch.id}
-                  >
-                    {/* display the favoriteSearch in english */}
-                    {/* help */}
+                  <div key={favoriteSearch.id}>
+                    {/* display the favoriteSearch in all its languages */}
                     <h3 onClick={navToWord}>
                       {favoriteSearch.english},
                       {favoriteSearch.french},
@@ -126,7 +112,7 @@ function FavoritesPage() {
                         dispatch({
                           type: "DELETE_FAVORITE",
                           payload:
-                            favoriteSearch.id, //i think this is wrong maybet
+                            favoriteSearch.id,
                         });
                       }}
                     >

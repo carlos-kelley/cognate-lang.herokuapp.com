@@ -1,3 +1,4 @@
+//imports
 import React, {
   useEffect,
   useState,
@@ -12,10 +13,13 @@ import AddFavoriteButton from "../AddFavoriteButton/AddFavoriteButton";
 import "./GlobalSearchPage.css";
 
 function GlobalSearchPage() {
+
+  //handle pushing to word page onclick
   const navToWord = () => {
     // history.push("/word/");
   };
 
+//declare variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
   let globalSearch = useSelector(
@@ -23,6 +27,7 @@ function GlobalSearchPage() {
   );
   let id = useSelector((store) => store.id);
 
+  //useEffect
   useEffect(() => {}, []);
 
   return (
@@ -75,9 +80,12 @@ function GlobalSearchPage() {
           />
         </label>
       </div>
+
+      {/* random word button */}
       <button className="randomSearch">
         Random Word
       </button>
+
       <div className="globalSearchDiv">
         <section className="globalSearchSection">
           {/* loop through our globalSearch and display them */}
@@ -88,8 +96,7 @@ function GlobalSearchPage() {
             }); //this needs to happen for each INDIVIDUAL word
             return (
               <div
-                // duplicate keys
-                key={word.id}
+                
               >
                 {/* display the words in globalSearch array */}
                 <h3
@@ -115,10 +122,6 @@ function GlobalSearchPage() {
   );
 }
 
-{
-  /* create a button that console logs globalSearch */
-}
 
-//ignore this comment please
 
 export default GlobalSearchPage;
