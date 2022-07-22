@@ -1,0 +1,42 @@
+p.welcomeText {
+    color: #fff;
+    padding-left: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+input.searchField {
+    background: #fff !important;
+    color: #231F20 !important;
+}
+
+input.searchField::placeholder {
+    color:#231F20 !important;
+}
+
+button.randomSearch {
+    font-family: inherit;
+    width: 100%;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.searchContainer label:before {
+    height: 72px;
+    width: 60px;
+    border-radius: 0px 10px 10px 0px;
+    background-image: url('/Users/carloskelley/Documents/dorian/tier2/week18/auth/public/images/search.png');
+    background-color: #000;
+    display: block;
+    position: absolute;
+    z-index: 999;
+    content: " ";
+    background-size: 21px;
+    background-repeat: no-repeat;
+    right: 20px;
+    margin-top: 10px;
+    background-position: center;
+}
