@@ -11,11 +11,6 @@ import { useHistory } from "react-router-dom";
 import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
-
 function WordPage() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -26,19 +21,23 @@ function WordPage() {
   //to use the id and word from the url
   const params = useParams();
   const wordID = params.id;
-  const wordName = params.word;
+
+  const [word, setWord] = useState(null);
   //if i pull all the words can i map them with a filter?
-  //fetch words on mount
+
   useEffect(() => {
-    dispatch({ type: "FETCH_WORDS" });
-    console.log(event.currentTarget);
-    console.log("words", words);
+    //set and display current word id from params
+    setWord(wordID);
+    //send word id to saga to get word
+    dispatch({
+      type: "FETCH_THIS_WORD",
+      payload: Number(wordID),
+    });
   }, []);
   return (
     <div className="container">
-          <h1>Words Page</h1>
-            <GlobalSearch />
-      
+      <h1>Words Page</h1>
+      <GlobalSearch />
     </div>
   );
 }

@@ -32,6 +32,7 @@ app.use("/api/user", userRouter);
 app.use("/api/words", wordsRouter);
 app.use("/api/favorites", favoritesRouter);
 app.use("/api/favoritesSearch", favoritesSearchRouter);
+app.use("/api/thisWord", thisWordRouter);
 
 // Serve static files
 app.use(express.static("build"));

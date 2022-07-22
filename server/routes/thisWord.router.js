@@ -1,13 +1,11 @@
 //currently unused. attempt to use this to get the word from the database
-
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
 router.get("/", (req, res) => {
   console.log("req query: ", req.query);
-
-  //have to make diff if statements to order by language alphabetically?
+res.send ("hello");
   const query = `SELECT *
   FROM words
   WHERE id = '${req.query.id}'

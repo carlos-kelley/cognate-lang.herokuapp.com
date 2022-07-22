@@ -54,7 +54,7 @@ function App() {
           <Route exact path="/globalsearch">
             <GlobalSearchPage />
           </Route>
-          <ProtectedRoute exact path="/word">
+          <ProtectedRoute exact path="/word/:id">
             <WordPage />
           </ProtectedRoute>
 
