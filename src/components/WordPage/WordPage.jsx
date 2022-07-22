@@ -1,3 +1,4 @@
+//imports 
 import React, {
   useEffect,
   useState,
@@ -8,15 +9,22 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
-import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
+import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
+import {
+  Route,
+  useLocation,
+  Link,
+} from "react-router-dom";
 
 function WordPage() {
+  //import variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
   const thisWord = useSelector(
     (store) => store.thisWord
   );
+  const location = useLocation();
 
   //to use the id and word from the url
   const params = useParams();
@@ -38,7 +46,7 @@ function WordPage() {
   return (
     <div className="container">
       <h1>Words Page</h1>
-      <GlobalSearch />
+      <GlobalSearchPage />
       {/* map through thisWord array */}
       {thisWord.map((word) => {
         return(

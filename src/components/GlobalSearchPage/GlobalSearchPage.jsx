@@ -7,37 +7,54 @@ import {
   useDispatch,
   useSelector,
 } from "react-redux";
+import {
+  Route,
+  useLocation,
+  Link,
+} from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
 import AddFavoriteButton from "../AddFavoriteButton/AddFavoriteButton";
 import "./GlobalSearchPage.css";
 
 function GlobalSearchPage() {
-
   //handle pushing to word page onclick
   const navToWord = () => {
     // history.push("/word/");
   };
 
-//declare variables and stores
+  //declare variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
   let id = useSelector((store) => store.id);
+  const location = useLocation();
 
   //useEffect
   useEffect(() => {}, []);
 
   return (
     <div className="container">
-      <h2>Welcome!</h2>
-      <p className="welcomeText">
-        Search a word in English, French, Spanish,
-        Italian, or Portuguese to see its
-        cognates. Or, find a random word.
-      </p>
+      {/* {location.pathname === "/" ? (
+        <Link to="/contact">Contact</Link>
+      ) : (
+        <Link to="/">Back</Link>
+      )} */}
+      {JSON.stringify(location.pathname)}
+      {location.pathname === "/globalsearch" ? (
+        <h2>Welcome!</h2>
+        // <p className="welcomeText">
+        //   Search a word in English, French, Spanish,
+        //   Italian, or Portuguese to see its
+        //   cognates. Or, find a random word.
+        // </p>
+      )
+        : (
+          <h2>Not Global Search</h2>
+        )}
+
       {/* <button
         onClick={() => {
           console.log("global:", globalSearch);
@@ -95,9 +112,7 @@ function GlobalSearchPage() {
               payload: word.id,
             }); //this needs to happen for each INDIVIDUAL word
             return (
-              <div
-                
-              >
+              <div>
                 {/* display the words in globalSearch array */}
                 <h3
                 // onChangText={() =>
@@ -121,7 +136,5 @@ function GlobalSearchPage() {
     </div>
   );
 }
-
-
 
 export default GlobalSearchPage;
