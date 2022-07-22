@@ -23,12 +23,25 @@ function FavoritesPage() {
   let favoritesSearch = useSelector(
     (store) => store.favoritesSearch
   );
+
+  const [search, setSearch] = useState("");
+
+  const checkLength = () => {
+    console.log ("favoritesSearch reducer is", favoritesSearch);
+    if (search.length === 0) {
+      console.log("no search");
+    } else {
+      console.log("search:", search);
+    }
+  };
+
   //if i pull all the words can i map them with a filter?
   //fetch words on mount -
   useEffect(() => {
     dispatch({ type: "FETCH_FAVORITES" });
     console.log(event.currentTarget);
     console.log("favs", favorites);
+    console.log ("favs search", favoritesSearch);
   }, []);
   return (
     <div className="container">
@@ -40,6 +53,8 @@ function FavoritesPage() {
             <h1>Favorites Page</h1>
             {/* <FavoritesSearch /> */}
           </div>
+            <button onClick={checkLength}></button>
+            {JSON.stringify({ favoritesSearch })};
           <input
             type="text"
             placeholder="Search favorites"
@@ -48,6 +63,7 @@ function FavoritesPage() {
                 type: "FETCH_FAVORITES_SEARCH",
                 payload: event.target.value,
               });
+              setSearch(event.target.value);
             }}
           />
 
