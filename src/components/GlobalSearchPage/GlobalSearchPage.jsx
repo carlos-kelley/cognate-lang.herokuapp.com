@@ -9,6 +9,7 @@ import {
 
 import { useHistory } from "react-router-dom";
 import AddFavoriteButton from "../AddFavoriteButton/AddFavoriteButton";
+import "./GlobalSearchPage.css";
 
 function GlobalSearchPage() {
   const navToWord = () => {
@@ -26,7 +27,13 @@ function GlobalSearchPage() {
 
   return (
     <div className="container">
-      <button
+      <h2>Welcome!</h2>
+      <p className="welcomeText">
+        Search a word in English, French, Spanish,
+        Italian, or Portuguese to see its
+        cognates. Or, find a random word.
+      </p>
+      {/* <button
         onClick={() => {
           console.log("global:", globalSearch);
           console.log("id: ", id);
@@ -34,37 +41,44 @@ function GlobalSearchPage() {
       >
         Log Global Search and ID
       </button>
-      ;
-      <input
-        type="text"
-        placeholder="Global Search"
-        onChange={(event) => {
-          // dispatch({
-          //   type: "SET_GLOBAL_SEARCH",
-          //   payload: event.target.value,
-          // });
-          dispatch({
-            type: "FETCH_WORDS",
-            payload: event.target.value,
-          });
-          // dispatch({
-          //   type: "CLEAR_ID",
-          // });
+      ; */}
+      <div className="searchContainer">
+        <label>
+          <input
+            className="searchField"
+            type="text"
+            placeholder="Search word..."
+            onChange={(event) => {
+              // dispatch({
+              //   type: "SET_GLOBAL_SEARCH",
+              //   payload: event.target.value,
+              // });
+              dispatch({
+                type: "FETCH_WORDS",
+                payload: event.target.value,
+              });
+              // dispatch({
+              //   type: "CLEAR_ID",
+              // });
 
-          console.log("IDs: ", { id });
+              console.log("IDs: ", { id });
 
-          console.log(
-            "event.target.value: ",
-            event.target.value
-          );
-          console.log(
-            "globalSearch: ",
-            globalSearch
-          );
-        }}
-      />
+              console.log(
+                "event.target.value: ",
+                event.target.value
+              );
+              console.log(
+                "globalSearch: ",
+                globalSearch
+              );
+            }}
+          />
+        </label>
+      </div>
+      <button className="randomSearch">
+        Random Word
+      </button>
       <div className="globalSearchDiv">
-        <h1>Global Search Page</h1>
         <section className="globalSearchSection">
           {/* loop through our globalSearch and display them */}
           {globalSearch.map((word) => {
