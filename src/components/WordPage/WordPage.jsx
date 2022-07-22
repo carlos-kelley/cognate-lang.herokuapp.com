@@ -9,6 +9,7 @@ import {
 
 import { useHistory } from "react-router-dom";
 import GlobalSearch from "../GlobalSearchPage/GlobalSearchPage";
+import { useParams } from "react-router-dom";
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -21,6 +22,11 @@ function WordPage() {
   const words = useSelector(
     (store) => store.words
   );
+
+  //to use the id and word from the url
+  const params = useParams();
+  const wordID = params.id;
+  const wordName = params.word;
   //if i pull all the words can i map them with a filter?
   //fetch words on mount
   useEffect(() => {

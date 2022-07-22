@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 
   //have to make diff if statements to order by language alphabetically?
   const query = `SELECT *
-  FROM words
+  FROM favorites_word
   WHERE english LIKE '%${req.query.word}%'
   OR spanish LIKE '%${req.query.word}%'
   OR french LIKE '%${req.query.word}%'

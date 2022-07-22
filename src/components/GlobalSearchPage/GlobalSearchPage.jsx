@@ -20,9 +20,7 @@ function GlobalSearchPage() {
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
-  let id = useSelector(
-    (store) => store.id
-  );
+  let id = useSelector((store) => store.id);
 
   useEffect(() => {}, []);
 
@@ -40,20 +38,18 @@ function GlobalSearchPage() {
       <input
         type="text"
         placeholder="Global Search"
-        onTextChange={(event) => {
-
-          dispatch({
-            type: "SET_GLOBAL_SEARCH",
-            payload: event.target.value,
-          });
+        onChange={(event) => {
+          // dispatch({
+          //   type: "SET_GLOBAL_SEARCH",
+          //   payload: event.target.value,
+          // });
           dispatch({
             type: "FETCH_WORDS",
             payload: event.target.value,
           });
-          dispatch({
-            type: "CLEAR_ID",
-          });
-
+          // dispatch({
+          //   type: "CLEAR_ID",
+          // });
 
           console.log("IDs: ", { id });
 

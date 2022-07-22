@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
   //have to make diff if statements to order by language alphabetically?
   const query = `SELECT *
   FROM words
-  WHERE id = '1'
-  `; //what is id equal to? this is static for now
+  WHERE id = '${req.query.id}'
+  `; //when you click a word, need to navigate to a page with this query and fetch on useEffect
   pool
     .query(query)
     .then((result) => {

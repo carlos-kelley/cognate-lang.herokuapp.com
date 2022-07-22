@@ -1,9 +1,9 @@
 const id = (state = [], action) => {
   switch (action.type) {
-    case "SET_ID":
-      return [...state, action.payload];
-    case "CLEAR_ID":
-      return [];
+    // case "SET_ID":
+    //   return [...state, action.payload];
+    // case "CLEAR_ID":
+    //   return [];
     default:
       return state;
   }
