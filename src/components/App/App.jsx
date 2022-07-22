@@ -59,17 +59,17 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
+          <Route
             // logged in shows UserPage else shows LoginPage
             exact
             path="/user"
           >
             <UserPage />
-          </ProtectedRoute>
+          </Route>
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/word/:id"
+            path="/word"
           >
             <WordPage />
           </ProtectedRoute>
@@ -82,21 +82,36 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows FavoritesPage else shows LoginPage
             exact
             path="/favorites"
           >
             <FavoritesPage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/favorites"
+          >
+            <FavoritesPage />
+          </Route>
+
+          {/* <ProtectedRoute
             // logged in shows GlobalSearchPage else shows LoginPage
             exact
             path="/globalsearch"
           >
             <GlobalSearchPage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/globalsearch"
+          >
+            <GlobalSearchPage />
+          </Route>
 
           <Route exact path="/login">
             {user.id ? (
