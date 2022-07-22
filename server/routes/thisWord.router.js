@@ -5,10 +5,9 @@ const pool = require("../modules/pool");
 
 router.get("/", (req, res) => {
   console.log("req query: ", req.query);
-res.send ("hello");
   const query = `SELECT *
   FROM words
-  WHERE id = '${req.query.id}'
+  WHERE id = '${req.query.word}'
   `; //when you click a word, need to navigate to a page with this query and fetch on useEffect
   pool
     .query(query)

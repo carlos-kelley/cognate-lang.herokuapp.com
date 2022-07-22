@@ -14,10 +14,13 @@ import {
 // worker Saga: will be fired on "FETCH_THIS_WORD" actions
 function* fetchThisWord(action) {
   let word = action.payload;
-  console.log("fetching this word:", action.payload);
+  console.log(
+    "fetching this word:",
+    action.payload
+  );
   try {
     const response = yield axios.get(
-      `/api/words?word=${word}`
+      `/api/thisWord?word=${word}`
     );
     console.log("get this words:", response.data);
     yield put({
@@ -30,7 +33,10 @@ function* fetchThisWord(action) {
 }
 //ignore this comment
 function* fetchThisWordSaga() {
-  yield takeLatest("FETCH_THIS_WORD", fetchThisWord);
+  yield takeLatest(
+    "FETCH_THIS_WORD",
+    fetchThisWord
+  );
 }
 
 export default fetchThisWordSaga;
