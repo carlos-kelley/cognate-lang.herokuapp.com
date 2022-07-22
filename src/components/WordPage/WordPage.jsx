@@ -39,9 +39,34 @@ function WordPage() {
     <div className="container">
       <h1>Words Page</h1>
       <GlobalSearch />
-      {JSON.stringify({ thisWord })}
+      {/* map through thisWord array */}
+      {thisWord.map((word) => {
+        return(
+        <div key={word.id}>
+        <h3>
+              {word.english}
+            </h3>
+            <h3>
+              {word.french}
+            </h3>
+            <h3>
+              {word.spanish}
+            </h3>
+              <h3>
+              {word.italian}
+            </h3>
+            <h3>
+              {word.portuguese}
+                
+        </h3>
+        
+          
+      </div>
+        
+      );
+        })}
     </div>
-  );
+  )
 }
 
 export default WordPage;
