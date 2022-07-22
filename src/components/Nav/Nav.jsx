@@ -10,9 +10,20 @@ function Nav() {
   const history = useHistory();
   return (
     <div className="nav">
-      <Link to="/login">
-        <h2 className="nav-title">Cognate</h2>
-      </Link>
+      <div class="navLogoContainer">
+        <Link to="/login">
+          <img src="/images/Cognate_Logo.png" className="navLogo"/>
+        </Link>
+      </div>
+      <ul className="navList">
+      <li><Link to="/favorites">
+        <img src="/images/favorite.png" className="navFav"/>
+      </Link></li>
+      <li><Link to="/globalsearch">
+        <img src="/images/search.png" className="navSearch"/>
+      </Link></li>
+      </ul>
+     
       <div>
         {/* If no user is logged in, show these links */}
         {/* {!user.id && (
@@ -32,16 +43,16 @@ function Nav() {
         </button> */}
 
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {/* {user.id && ( */}
           <>
             {/* <Link className="navLink" to="/user">
               Home
             </Link> */}
 
 
-            <LogOutButton className="navLink" />
+            {/* <LogOutButton className="navLink" /> */}
           </>
-        )}
+        {/* )} */}
 
         {/* <Link className="navLink" to="/about">
           About

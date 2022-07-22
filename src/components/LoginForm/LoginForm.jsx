@@ -35,7 +35,7 @@ function LoginForm() {
         </h3>
       )}
       
-      <div>
+      <div className="loginPanel">
         <label htmlFor="username">
           
           <input
@@ -62,7 +62,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="btn" type="submit" name="submit" value="Login" />
       </div>
       <button
           type="button"
