@@ -12,7 +12,6 @@ function Footer() {
   const location = useLocation();
   return (
     <div>
-      {JSON.stringify(location.pathname)}
       <footer>
         {location.pathname === "/login" ? (
           <p>
