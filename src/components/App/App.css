@@ -8,6 +8,7 @@ body {
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-family: stolzl, sans-serif;
   margin: 0px;
+  background-color: #3d3d3d;
 }
 
 img {
@@ -98,16 +99,85 @@ Form Treatment
 
 .formPanel {
   box-sizing: border-box;
-  width: 400px;
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  display: inline-block;
+  width: 100%;
 }
 
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+input.btn,
+button {
+  border: 3px solid;
+  border-image: linear-gradient(90deg,rgba(5,169,78,1) 0%,rgba(77,193,255,1));
+  border-image-slice: 1;
+  color: #fff;
+  background: none!important;
+  font-family: inherit;
+  float: left;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px 30px !important;
+}
+
+input.btn:hover {
+  background: linear-gradient(90deg,rgba(5,169,78,1) 0%,rgba(77,193,255,1)) !important;
+  border-radius: 0px;
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: #282526;
+  border: none;
+  color: #fff;
+  padding: 25px;
+  font-size: 18px;
+  font-family: "stolzl", sans-serif;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  width: calc(100% - 50px);
+  margin: 10px 0px;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #fff;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline:#fff;
+}
+
+h2 {
+  color: #fff;
+  font-size: 20px;
+  padding-left: 8px;
+}
+
+.btn_asLink {
+  padding: 35px 10px;
+  border-width: 0;
+  background: none;
+  font: inherit;
+  color: #fff;
+  font-weight: bold;
+  float: left;
+}
+
+.loginPanel {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+
+button.btn.btn_asLink {
+  margin-top: 25px;
 }
