@@ -69,7 +69,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/word"
+            path="/word/:id"
           >
             <WordPage />
           </ProtectedRoute>
