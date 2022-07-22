@@ -37,19 +37,15 @@ function GlobalSearchPage() {
 
   return (
     <div className="container">
-      {/* {location.pathname === "/" ? (
-        <Link to="/contact">Contact</Link>
-      ) : (
-        <Link to="/">Back</Link>
-      )} */}
-      {JSON.stringify(location.pathname)}
+      
       {location.pathname === "/globalsearch" ? (
-        <h2>Welcome!</h2>
-        // <p className="welcomeText">
-        //   Search a word in English, French, Spanish,
-        //   Italian, or Portuguese to see its
-        //   cognates. Or, find a random word.
-        // </p>
+       <div> <h2>Welcome!</h2>
+        <p className="welcomeText">
+          Search a word in English, French, Spanish,
+          Italian, or Portuguese to see its
+          cognates. Or, find a random word.
+          </p>
+          </div>
       )
         : (
           <h2>Not Global Search</h2>
