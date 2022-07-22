@@ -20,6 +20,9 @@ function FavoritesPage() {
   const favorites = useSelector(
     (store) => store.favorites
   );
+  let favoritesSearch = useSelector(
+    (store) => store.favoritesSearch
+  );
   //if i pull all the words can i map them with a filter?
   //fetch words on mount -
   useEffect(() => {
@@ -37,21 +40,17 @@ function FavoritesPage() {
             <h1>Favorites Page</h1>
             {/* <FavoritesSearch /> */}
           </div>
-            <input
-              type="text"
-              placeholder="Search favorites"
-              onChange={(event) => {
-                dispatch({
-                  type: "FETCH_FAVORITES_SEARCH",
-                  payload: event.target.value,
-                });
-              }
-              }
-            />
+          <input
+            type="text"
+            placeholder="Search favorites"
+            onChange={(event) => {
+              dispatch({
+                type: "FETCH_FAVORITES_SEARCH",
+                payload: event.target.value,
+              });
+            }}
+          />
 
-              
-
-              
           <section className="favoritesSection">
             {/* loop through our favorites and display them */}
             {favorites.map((favorite) => {

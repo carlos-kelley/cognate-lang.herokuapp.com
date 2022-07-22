@@ -14,7 +14,7 @@ function* fetchFavoritesSearch(action) {
   );
   try {
     const response = yield axios.get(
-      `/api/favoritesSearch?word=${word}`
+      `/api/favoritesSearch?word=${action.payload}`
     );
     console.log(
       "get favorites search:",
