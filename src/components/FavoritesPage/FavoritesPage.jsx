@@ -9,7 +9,6 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
-import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
 
 
 function FavoritesPage() {

@@ -17,7 +17,7 @@ import Footer from "../Footer/Footer";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import AboutPage from "../AboutPage/AboutPage";
+
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
@@ -26,8 +26,6 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import WordPage from "../WordPage/WordPage";
-import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
-
 import "./App.css";
 
 function App() {
@@ -48,39 +46,16 @@ function App() {
           <Redirect exact from="/" to="/login" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <Route
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
-            <UserPage />
+          <Route exact path="/globalsearch">
+            <GlobalSearchPage />
           </Route>
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/word"
-          >
+          <ProtectedRoute exact path="/word">
             <WordPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
@@ -91,34 +66,27 @@ function App() {
             <FavoritesPage />
           </ProtectedRoute> */}
 
-          <Route
-            // shows AboutPage at all times (logged in or not)
+          <ProtectedRoute
+            // logged in shows FavoritesPage else shows LoginPage
             exact
             path="/favorites"
           >
             <FavoritesPage />
-          </Route>
+          </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows GlobalSearchPage else shows LoginPage
             exact
             path="/globalsearch"
           >
             <GlobalSearchPage />
-          </ProtectedRoute> */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/globalsearch"
-          >
-            <GlobalSearchPage />
-          </Route>
+          </ProtectedRoute>
 
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
-              // redirect to the /user page
-              <Redirect to="/user" />
+              // redirect to the /globalsearch page
+              <Redirect to="/globalsearch" />
             ) : (
               // Otherwise, show the login page
               <LoginPage />
