@@ -1,7 +1,9 @@
+//server imports
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
+//query to get all favorites
 router.get("/", (req, res) => {
   const query = `SELECT * FROM words 
   JOIN favorites_word
@@ -20,7 +22,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// delete word from favorites -this is not quite right
+//delete a word from favorites
 router.delete("/", (req, res) => {
   console.log("req query: ", req.query);
   pool
@@ -38,7 +40,7 @@ router.delete("/", (req, res) => {
     });
 });
 
-// add word to favorites
+// add word to favorites - NEXT STEP
 router.post("/", (req, res) => {
   console.log("req body: ", req.body);
   pool

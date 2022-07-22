@@ -1,7 +1,9 @@
+//router imports
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
+//query to get favorites based on search 
 router.get("/", (req, res) => {
   console.log("req query: ", req.query);
 

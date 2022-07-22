@@ -1,3 +1,5 @@
+//currently unused. attempt to use this to get the word from the database
+
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");

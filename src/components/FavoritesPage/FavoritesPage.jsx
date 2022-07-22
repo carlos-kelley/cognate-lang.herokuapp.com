@@ -1,3 +1,4 @@
+//imports
 import React, {
   useEffect,
   useState,
@@ -9,6 +10,7 @@ import {
 
 import { useHistory } from "react-router-dom";
 import FavoritesSearch from "../FavoritesSearch/FavoritesSearch";
+
 
 function FavoritesPage() {
   const navToWord = () => {
