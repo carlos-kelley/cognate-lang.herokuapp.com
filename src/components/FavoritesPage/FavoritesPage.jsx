@@ -37,6 +37,21 @@ function FavoritesPage() {
             <h1>Favorites Page</h1>
             {/* <FavoritesSearch /> */}
           </div>
+            <input
+              type="text"
+              placeholder="Search favorites"
+              onChange={(event) => {
+                dispatch({
+                  type: "FETCH_FAVORITES_SEARCH",
+                  payload: event.target.value,
+                });
+              }
+              }
+            />
+
+              
+
+              
           <section className="favoritesSection">
             {/* loop through our favorites and display them */}
             {favorites.map((favorite) => {
@@ -61,7 +76,7 @@ function FavoritesPage() {
                     onClick={() => {
                       dispatch({
                         type: "DELETE_FAVORITE",
-                        payload: favorite.word_id, //i think this is wrong
+                        payload: favorite.id, //i think this is wrong
                       });
                     }}
                   >

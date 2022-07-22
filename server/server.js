@@ -12,6 +12,7 @@ const userRouter = require("./routes/user.router");
 const wordsRouter = require("./routes/words.router");
 const favoritesRouter = require("./routes/favorites.router");
 const thisWordRouter = require("./routes/thisWord.router");
+const favoritesSearchRouter = require("./routes/favoritesSearch.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,7 +31,7 @@ app.use(passport.session());
 app.use("/api/user", userRouter);
 app.use("/api/words", wordsRouter);
 app.use("/api/favorites", favoritesRouter);
-app.use("/api/thisWord", thisWordRouter);
+app.use("/api/favoritesSearch", favoritesSearchRouter);
 
 // Serve static files
 app.use(express.static("build"));

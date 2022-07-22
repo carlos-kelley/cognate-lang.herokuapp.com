@@ -5,6 +5,7 @@ import {
 } from "redux-saga/effects";
 
 // worker Saga: will be fired on "FETCH_WORDS" actions
+
 function* fetchFavorites() {
   console.log("fetching favs");
   try {

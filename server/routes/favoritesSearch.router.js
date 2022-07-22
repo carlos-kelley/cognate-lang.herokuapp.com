@@ -4,7 +4,7 @@ const pool = require("../modules/pool");
 
 router.get("/", (req, res) => {
   console.log("req query: ", req.query);
-
+  res.send("hello");
   //have to make diff if statements to order by language alphabetically?
   const query = `SELECT *
   FROM favorites_word
