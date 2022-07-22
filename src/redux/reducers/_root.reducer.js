@@ -5,6 +5,7 @@ import globalSearch from "./globalSearch.reducer";
 import favorites from "./favorites.reducer";
 import id from "./id.reducer";
 import favoritesSearch from "./favoritesSearch.reducer";
+import thisWord from "./thisWord.reducer";
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   globalSearch, //will have the global search entry
   favorites,
   id,
-  favoritesSearch
+  favoritesSearch,
+  thisWord,
 });
 
 export default rootReducer;

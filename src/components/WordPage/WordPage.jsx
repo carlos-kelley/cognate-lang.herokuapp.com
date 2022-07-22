@@ -14,8 +14,8 @@ import { useParams } from "react-router-dom";
 function WordPage() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const words = useSelector(
-    (store) => store.words
+  const thisWord = useSelector(
+    (store) => store.thisWord
   );
 
   //to use the id and word from the url
@@ -34,10 +34,12 @@ function WordPage() {
       payload: Number(wordID),
     });
   }, []);
+
   return (
     <div className="container">
       <h1>Words Page</h1>
       <GlobalSearch />
+      {JSON.stringify({ thisWord })}
     </div>
   );
 }

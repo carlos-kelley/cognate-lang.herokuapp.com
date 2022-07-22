@@ -6,6 +6,7 @@ import userSaga from "./user.saga";
 import globalSearchSaga from "./globalSearch.saga";
 import favoritesSaga from "./favorites.saga";
 
+
 import favoritesSearchSaga from "./favoritesSearch.saga";
 import fetchThisWordSaga from "./thisWord.saga";
 // rootSaga is the primary saga.
