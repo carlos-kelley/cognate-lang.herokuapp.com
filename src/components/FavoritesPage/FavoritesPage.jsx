@@ -61,7 +61,7 @@ function FavoritesPage() {
                     onClick={() => {
                       dispatch({
                         type: "DELETE_FAVORITE",
-                        payload: favorite.id, //i think this is wrong
+                        payload: favorite.word_id, //i think this is wrong
                       });
                     }}
                   >

@@ -24,7 +24,8 @@ function* fetchFavorites() {
 // worker Saga: will be fired on "DELETE_FAVORITE" actions
 function* deleteFavorite(action) {
   console.log("deleting fav");
-  let deleteWord = 4; //THIS IS WRONG. It should be action.payload, but the IDs are incorrect in the database so it won't work
+  
+  let deleteWord = action.payload; //THIS IS WRONG. It should be action.payload, but the IDs are incorrect in the database so it won't work
   try {
     console.log("delete action.payload:", deleteWord);
     yield axios.delete(

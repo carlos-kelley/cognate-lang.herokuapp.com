@@ -25,7 +25,7 @@ router.delete("/", (req, res) => {
   console.log("req query: ", req.query);
   pool
     .query(
-      `DELETE FROM "favorites_word" WHERE "id" = ${req.query.id};`
+      `DELETE FROM "favorites_word" WHERE "word_id" = ${req.query.id};`
     )
     .then((result) => {
       res.sendStatus(200);
