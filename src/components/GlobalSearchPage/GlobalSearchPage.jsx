@@ -97,44 +97,50 @@ function GlobalSearchPage() {
       </div>
 
       {/* random word button */}
-      <button className="randomSearch">
-        Random Word
-      </button>
+      {location.pathname === "/globalsearch" ? (
+        <>
+          <button className="randomSearch">
+            Random Word
+          </button>
+        </>
+      ) : (
+        <></>
+      )}
 
       <div className="globalSearchDiv">
         {search !== "" ? (
-        <section className="globalSearchSection">
-          {/* loop through our globalSearch and display them */}
+          <section className="globalSearchSection">
+            {/* loop through our globalSearch and display them */}
 
-          {globalSearch.map((word) => {
-            dispatch({
-              type: "SET_ID",
-              payload: word.id,
-            }); //this needs to happen for each INDIVIDUAL word
-            return (
-              <div>
-                {/* display the words in globalSearch array */}
-                <h3
-                // onChangText={() =>
-                //   // history.push(
-                //   //   `/api/words?word=${word.english}`
-                //   // )
-                //   //dispatch a SET_ID action to set the id to the word.id
+            {globalSearch.map((word) => {
+              dispatch({
+                type: "SET_ID",
+                payload: word.id,
+              }); //this needs to happen for each INDIVIDUAL word
+              return (
+                <div>
+                  {/* display the words in globalSearch array */}
+                  <h3
+                  // onChangText={() =>
+                  //   // history.push(
+                  //   //   `/api/words?word=${word.english}`
+                  //   // )
+                  //   //dispatch a SET_ID action to set the id to the word.id
 
-                // }
-                >
-                  {word.english},{word.french},
-                  {word.italian},{word.spanish},
-                  {word.portuguese}, {word.id}
-                </h3>
-                <AddFavoriteButton />
-              </div>
-            );
-          })}
+                  // }
+                  >
+                    {word.english},{word.french},
+                    {word.italian},{word.spanish},
+                    {word.portuguese}, {word.id}
+                  </h3>
+                  <AddFavoriteButton />
+                </div>
+              );
+            })}
           </section>
         ) : (
-            <></>
-          )}
+          <></>
+        )}
       </div>
     </div>
   );
