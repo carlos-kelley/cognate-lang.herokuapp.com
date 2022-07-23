@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
-import AddFavoriteButton from "../AddFavoriteButton/AddFavoriteButton";
+import AddFavoriteButtonSearchResult from "../AddFavoriteButtonSearchResult/AddFavoriteButtonSearchResult";
 import "./GlobalSearchPage.css";
 
 function GlobalSearchPage() {
@@ -96,17 +96,6 @@ function GlobalSearchPage() {
         </label>
       </div>
 
-      {/* random word button */}
-      {location.pathname === "/globalsearch" ? (
-        <>
-          <button className="randomSearch">
-            Random Word
-          </button>
-        </>
-      ) : (
-        <></>
-      )}
-
       <div className="globalSearchDiv">
         {search !== "" ? (
           <section className="globalSearchSection">
@@ -118,22 +107,26 @@ function GlobalSearchPage() {
                 payload: word.id,
               }); //this needs to happen for each INDIVIDUAL word
               return (
-                <div>
+                <div className="resultContainer">
                   {/* display the words in globalSearch array */}
                   <h3
-                  // onChangText={() =>
-                  //   // history.push(
-                  //   //   `/api/words?word=${word.english}`
-                  //   // )
-                  //   //dispatch a SET_ID action to set the id to the word.id
+                    className="searchResult"
+                    // onChangText={() =>
+                    //   // history.push(
+                    //   //   `/api/words?word=${word.english}`
+                    //   // )
+                    //   //dispatch a SET_ID action to set the id to the word.id
 
-                  // }
+                    // }
                   >
-                    {word.english},{word.french},
-                    {word.italian},{word.spanish},
-                    {word.portuguese}, {word.id}
+                    {word.english},&nbsp;
+                    {word.french},&nbsp;
+                    {word.italian},&nbsp;
+                    {word.spanish},&nbsp;
+                    {word.portuguese},&nbsp;
+                    {word.id}
                   </h3>
-                  <AddFavoriteButton />
+                  <AddFavoriteButtonSearchResult />
                 </div>
               );
             })}
@@ -142,6 +135,17 @@ function GlobalSearchPage() {
           <></>
         )}
       </div>
+
+      {/* random word button */}
+      {location.pathname === "/globalsearch" ? (
+        <>
+          <button className="randomSearch">
+            Random Word
+          </button>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
