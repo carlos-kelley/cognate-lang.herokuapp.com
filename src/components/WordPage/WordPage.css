@@ -1,0 +1,102 @@
+button.randomSearch {
+  display: none;
+}
+
+.wordSearchContainer {
+  background-color: #282526;
+}
+
+.containerWordPage {
+  width: 100%;
+  margin-top: -30px;
+}
+
+.searchResults {
+  margin: 25px;
+}
+
+.searchResults h3 {
+  background-color: #282526;
+  padding: 15px 25px;
+  border-radius: 0px 10px 10px 0px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 40px;
+  font-weight: 300;
+  margin-top: 50px;
+}
+
+h3.englishWord {
+  border-left: #d6d6d6 4px solid;
+}
+
+h3.frenchWord {
+  border-left: #ced10a 4px solid;
+}
+
+h3.spanishWord {
+  border-left: #05a229 4px solid;
+}
+
+h3.italianWord {
+  border-left: #24c2e1 4px solid;
+}
+
+h3.portugueseWord {
+  border-left: #d82f58 4px solid;
+}
+
+h3.englishWord::before {
+  content: "English";
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: 250px;
+  left: 25px;
+  font-weight: 500;
+  color: #d6d6d6;
+}
+
+h3.frenchWord::before {
+  content: "French";
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: 353px;
+  left: 25px;
+  font-weight: 500;
+  color: #ced10a;
+}
+
+h3.spanishWord::before {
+  content: "Spanish";
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: 456px;
+  left: 25px;
+  font-weight: 500;
+  color: #05a229;
+}
+
+h3.italianWord::before {
+  content: "Italian";
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: 558px;
+  left: 25px;
+  font-weight: 500;
+  color: #24c2e1;
+}
+
+h3.portugueseWord::before {
+  content: "Portuguese";
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: 660px;
+  left: 25px;
+  font-weight: 500;
+  color: #d82f58;
+}

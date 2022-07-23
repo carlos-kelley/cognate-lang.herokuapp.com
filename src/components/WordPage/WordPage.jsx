@@ -1,4 +1,4 @@
-//imports 
+//imports
 import React, {
   useEffect,
   useState,
@@ -11,6 +11,7 @@ import {
 import { useHistory } from "react-router-dom";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
+import "./WordPage.css";
 import {
   Route,
   useLocation,
@@ -44,37 +45,24 @@ function WordPage() {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Words Page</h1>
-      <GlobalSearchPage />
+    <div className="containerWordPage">
+      <div className="wordSearchContainer">
+        <GlobalSearchPage />
+      </div>
       {/* map through thisWord array */}
       {thisWord.map((word) => {
-        return(
-        <div key={word.id}>
-        <h3>
-              {word.english}
-            </h3>
-            <h3>
-              {word.french}
-            </h3>
-            <h3>
-              {word.spanish}
-            </h3>
-              <h3>
-              {word.italian}
-            </h3>
-            <h3>
-              {word.portuguese}
-                
-        </h3>
-        
-          
-      </div>
-        
-      );
-        })}
+        return (
+          <div className="searchResults" key={word.id}>
+            <h3 className="englishWord">{word.english}</h3>
+            <h3 className="frenchWord">{word.french}</h3>
+            <h3 className="spanishWord">{word.spanish}</h3>
+            <h3 className="italianWord">{word.italian}</h3>
+            <h3 className="portugueseWord">{word.portuguese}</h3>
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 }
 
 export default WordPage;
