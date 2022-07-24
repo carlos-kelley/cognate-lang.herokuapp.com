@@ -9,6 +9,7 @@ import {
 } from "react-redux";
 
 import { useHistory } from "react-router-dom";
+import "./FavoritesPage.css";
 
 function FavoritesPage() {
   //handle pushing to word page onclick
@@ -28,7 +29,6 @@ function FavoritesPage() {
 
   //set search hook
   const [search, setSearch] = useState("");
-  
 
   //fetch words on mount -
   useEffect(() => {
@@ -42,28 +42,28 @@ function FavoritesPage() {
     console.log("in seeID: ");
     console.log("id: ", id);
     history.push(`/word/${id}`);
-
-  }
+  };
 
   return (
-    <div className="container">
+    <div className="containerFavs">
       <div>
-        <div className="favoritesDiv">
-          <h1>Favorites</h1>
-        </div>
-
         {/* Search favorites bar, dispatches FETCH_FAVORITES_SEARCH */}
-        <input
-          type="text"
-          placeholder="Search favorites..."
-          onChange={(event) => {
-            dispatch({
-              type: "FETCH_FAVORITES_SEARCH",
-              payload: event.target.value,
-            });
-            setSearch(event.target.value);
-          }}
-        />
+        <div className="searchFavsContainer">
+          <label>
+            <input
+              className="searchFavs"
+              type="text"
+              placeholder="Search favorites..."
+              onChange={(event) => {
+                dispatch({
+                  type: "FETCH_FAVORITES_SEARCH",
+                  payload: event.target.value,
+                });
+                setSearch(event.target.value);
+              }}
+            />
+          </label>
+        </div>
 
         {/* only render fav list if nothing is in search bar */}
         {search === "" ? (
@@ -73,8 +73,13 @@ function FavoritesPage() {
               return (
                 <div>
                   {/* display the favorite in all its languages */}
-                  <h3 onClick={() =>
-                   history.push(`/word/${favorite.word_id}`)} >
+                  <h3
+                    onClick={() =>
+                      history.push(
+                        `/word/${favorite.word_id}`
+                      )
+                    }
+                  >
                     {favorite.english},
                     {favorite.french},
                     {favorite.italian},
@@ -108,7 +113,13 @@ function FavoritesPage() {
                 return (
                   <div key={favoriteSearch.id}>
                     {/* display the favoriteSearch in all its languages */}
-                    <h3 onClick={navToWord}>
+                    <h3
+                      onClick={() =>
+                        history.push(
+                          `/word/${favoriteSearch.id}`
+                        )
+                      }
+                    >
                       {favoriteSearch.english},
                       {favoriteSearch.french},
                       {favoriteSearch.italian},

@@ -5,6 +5,7 @@ import {
   useSelector,
 } from "react-redux";
 import axios from "axios";
+import "./LanguageTogglesButton.css";
 
 function LanguageToggleButton() {
   //create store
@@ -37,6 +38,7 @@ function LanguageToggleButton() {
         type: "TOGGLE_ENGLISH",
         payload: false,
       });
+      
     }
     //else if toggleEnglish is false, set it to true
     else if (toggleEnglish === false) {
@@ -151,19 +153,19 @@ function LanguageToggleButton() {
 
   return (
     <div>
-      <button onClick={handleEnglishClick}>
+      <button onClick={handleEnglishClick} className="ENtoggle">
         EN
       </button>
-      <button onClick={handleFrenchClick}>
+      <button onClick={handleFrenchClick} className="FRtoggle">
         FR
       </button>
-      <button onClick={handleSpanishClick}>
+      <button onClick={handleSpanishClick} className="SPtoggle">
         SP
       </button>
-      <button onClick={handleItalianClick}>
+      <button onClick={handleItalianClick} className="ITtoggle">
         IT
       </button>
-      <button onClick={handlePortugueseClick}>
+      <button onClick={handlePortugueseClick} className="POtoggle">
         PO
       </button>
     </div>

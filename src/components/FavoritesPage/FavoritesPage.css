@@ -1,0 +1,43 @@
+input.searchFavs {
+  background-color: #fff !important;
+  border: none;
+  color: #282526 !important;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-family: "stolzl", sans-serif;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  width: calc(100% - 50px);
+  margin: 10px 0px;
+}
+
+input.searchFavs::placeholder {
+  color: #282526 !important;
+}
+
+.containerFavs {
+  width: 100%;
+  margin-top: -30px;
+}
+
+.searchFavsContainer {
+  padding: 20px;
+  background-color: #282526;
+}
+
+.searchFavsContainer label::before {
+  height: 52px;
+  width: 52px;
+  border-radius: 0px 10px 10px 0px;
+  background-image: url("../../../public/images/search_bw.png");
+  display: block;
+  position: absolute;
+  z-index: 999;
+  content: " ";
+  background-size: 21px;
+  background-repeat: no-repeat;
+  right: 40px;
+  margin-top: 10px;
+  background-position: center;
+}

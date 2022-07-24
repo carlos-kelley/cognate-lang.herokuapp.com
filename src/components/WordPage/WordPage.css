@@ -8,6 +8,10 @@
   margin-top: -30px;
 }
 
+.wordSearchContainer .container {
+  padding: 20px;
+}
+
 .searchResults {
   margin: 25px;
 }
@@ -17,10 +21,8 @@
   padding: 15px 25px;
   border-radius: 0px 10px 10px 0px;
   color: #fff;
-  font-weight: 400;
-  margin-bottom: 40px;
   font-weight: 300;
-  margin-top: 50px;
+  margin: 55px auto;
 }
 
 h3.englishWord {
@@ -45,55 +47,70 @@ h3.portugueseWord {
 
 h3.englishWord::before {
   content: "English";
+  color: #d6d6d6;
   font-size: 12px;
   display: block;
-  position: absolute;
-  top: 250px;
-  left: 25px;
+  position: relative;
+  top: -33px;
+  left: -30px;
   font-weight: 500;
-  color: #d6d6d6;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
 }
 
 h3.frenchWord::before {
   content: "French";
+  color: #ced10a;
   font-size: 12px;
   display: block;
-  position: absolute;
-  top: 353px;
-  left: 25px;
+  position: relative;
+  top: -33px;
+  left: -30px;
   font-weight: 500;
-  color: #ced10a;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
 }
 
 h3.spanishWord::before {
   content: "Spanish";
+  color: #05a229;
   font-size: 12px;
   display: block;
-  position: absolute;
-  top: 456px;
-  left: 25px;
+  position: relative;
+  top: -33px;
+  left: -30px;
   font-weight: 500;
-  color: #05a229;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
 }
 
 h3.italianWord::before {
   content: "Italian";
+  color: #24c2e1;
   font-size: 12px;
   display: block;
-  position: absolute;
-  top: 558px;
-  left: 25px;
+  position: relative;
+  top: -33px;
+  left: -30px;
   font-weight: 500;
-  color: #24c2e1;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
 }
 
 h3.portugueseWord::before {
   content: "Portuguese";
+  color: #d82f58;
   font-size: 12px;
   display: block;
-  position: absolute;
-  top: 660px;
-  left: 25px;
+  position: relative;
+  top: -33px;
+  left: -30px;
   font-weight: 500;
-  color: #d82f58;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
 }

@@ -28,8 +28,7 @@ button.randomSearch {
   height: 52px;
   width: 52px;
   border-radius: 0px 10px 10px 0px;
-  background-image: url("/Users/carloskelley/Documents/dorian/tier2/week18/auth/public/images/search_bw.png");
-  background-color: #fff;
+  background-image: url("../../../public/images/search_bw.png");
   display: block;
   position: absolute;
   z-index: 999;
