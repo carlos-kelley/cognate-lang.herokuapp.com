@@ -6,7 +6,6 @@ import {
 } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
 import "./LanguageTogglesButton.css";
 
 function LanguageToggleButton() {

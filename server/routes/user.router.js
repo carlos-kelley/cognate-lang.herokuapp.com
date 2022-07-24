@@ -33,15 +33,31 @@ router.post("/register", (req, res, next) => {
     VALUES ($1, $2, $3) RETURNING id`;
   pool
     .query(queryText, [username, password, role])
-    .then(() => res.sendStatus(201))
-    .catch((err) => {
-      console.log(
-        "User registration failed: ",
-        err
-      );
-      res.sendStatus(500);
+    .then((result) => {
+      const newPostId = result.rows[0].id;
+      console.log("new user id:", newPostId);
+      const newTableQueryString = `INSERT INTO "favorites" (user_id)
+      VALUES ($1)`;
+      pool
+        .query(newTableQueryString, [newPostId])
+        .then((result) => {
+          res.sendStatus(200);
+        })
+        .catch((err) => {
+          console.log("Error creating new table:", err);
+          res.sendStatus(500);
+        }
+      )
+    }
+    )
+        .catch((err) => {
+          console.log(
+            "User registration failed: ",
+            err
+          );
+          res.sendStatus(500);
+        });
     });
-});
 
 //Handles POST request to Favorites List
 
@@ -62,7 +78,6 @@ router.post("/register", (req, res, next) => {
 //       res.sendStatus(500);
 //     });
 // });
-
 
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
