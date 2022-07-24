@@ -5,6 +5,8 @@ const togglePortugueseReducer = (
   switch (action.type) {
     case "TOGGLE_PORTUGUESE":
       return action.payload;
+    case "TOGGLE_REFRESH":
+      return true;
     default:
       return state;
   }

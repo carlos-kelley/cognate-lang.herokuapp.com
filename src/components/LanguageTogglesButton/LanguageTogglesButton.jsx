@@ -4,6 +4,7 @@ import {
   useDispatch,
   useSelector,
 } from "react-redux";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "./LanguageTogglesButton.css";
@@ -28,6 +29,12 @@ function LanguageToggleButton() {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  useEffect(() => {
+    console.log("refreshing");
+    dispatch({ type: "TOGGLE_REFRESH" });
+  }, []);
+  //end useEffect
+
   const handleEnglishClick = () => {
     console.log("in handleEnglishClick");
     //if toggleEnglish is true, set it to false
@@ -40,7 +47,7 @@ function LanguageToggleButton() {
         type: "TOGGLE_ENGLISH",
         payload: false,
       });
-       event.target.classList.add("ENtoggleOff");
+      event.target.classList.add("ENtoggleOff");
     }
     //else if toggleEnglish is false, set it to true
     else if (toggleEnglish === false) {
