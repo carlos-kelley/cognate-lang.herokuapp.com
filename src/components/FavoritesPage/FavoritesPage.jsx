@@ -28,6 +28,7 @@ function FavoritesPage() {
 
   //set search hook
   const [search, setSearch] = useState("");
+  
 
   //fetch words on mount -
   useEffect(() => {
@@ -36,6 +37,13 @@ function FavoritesPage() {
     console.log("favs", favorites);
     console.log("favs search", favoritesSearch);
   }, []);
+
+  const seeID = (id) => {
+    console.log("in seeID: ");
+    console.log("id: ", id);
+    history.push(`/word/${id}`);
+
+  }
 
   return (
     <div className="container">
@@ -65,12 +73,14 @@ function FavoritesPage() {
               return (
                 <div>
                   {/* display the favorite in all its languages */}
-                  <h3 onClick={navToWord}>
+                  <h3 onClick={() =>
+                   history.push(`/word/${favorite.word_id}`)} >
                     {favorite.english},
                     {favorite.french},
                     {favorite.italian},
                     {favorite.spanish},
                     {favorite.portuguese}
+                    {favorite.word_id}
                   </h3>
 
                   {/* render a delete button */}
@@ -103,7 +113,8 @@ function FavoritesPage() {
                       {favoriteSearch.french},
                       {favoriteSearch.italian},
                       {favoriteSearch.spanish},
-                      {favoriteSearch.portuguese}
+                      {favoriteSearch.portuguese},
+                      {favoriteSearch.id}
                     </h3>
                     {/* render a delete button */}
                     <button
