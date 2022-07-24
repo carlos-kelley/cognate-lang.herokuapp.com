@@ -6,8 +6,11 @@ import {
 
 // worker Saga: will be fired on "FETCH_WORDS" actions
 
-function* fetchForvoEnglish() {
-  console.log("fetching forvo english");
+function* fetchForvoEnglish(action) {
+  console.log(
+    "fetching forvo english action payload:",
+    action.payload
+  );
   try {
     const response = yield axios.get(
       `https://apifree.forvo.com/key/6ecbcf479748597038b9c3d34a1bbd4a/format/json/action/word-pronunciations/word/${action.payload}/language/en`
@@ -28,29 +31,29 @@ function* fetchForvoEnglish() {
   }
 }
 
-function* fetchForvoFrench() {
-    console.log("fetching forvo frech");
-    try {
-        const response = yield axios.get(
-            `https://apifree.forvo.com/key/6ecbcf479748597038b9c3d34a1bbd4a/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
-        );
-        console.log(
-            "get forvo french:",
-            response.data
-        );
-        yield put({
-            type: "SET_FORVO_FRENCH",
-            payload: response.data,
-        });
-    } catch (error) {
-        console.log(
-            "error in fetchForvoFrench:",
-            error
-        );
-    }
+function* fetchForvoFrench(action) {
+  console.log("fetching forvo frech");
+  try {
+    const response = yield axios.get(
+      `https://apifree.forvo.com/key/6ecbcf479748597038b9c3d34a1bbd4a/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
+    );
+    console.log(
+      "get forvo french:",
+      response.data
+    );
+    yield put({
+      type: "SET_FORVO_FRENCH",
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(
+      "error in fetchForvoFrench:",
+      error
+    );
+  }
 }
 
-function* fetchForvoSpanish() {
+function* fetchForvoSpanish(action) {
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
@@ -72,7 +75,7 @@ function* fetchForvoSpanish() {
   }
 }
 
-function* fetchForvoItalian() {
+function* fetchForvoItalian(action) {
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
@@ -94,7 +97,7 @@ function* fetchForvoItalian() {
   }
 }
 
-function* fetchForvoPortuguese() {
+function* fetchForvoPortuguese(action) {
   console.log("fetching forvo Portuguese");
   try {
     const response = yield axios.get(
@@ -138,6 +141,5 @@ function* forvoSaga() {
     fetchForvoPortuguese
   );
 }
-
 
 export default forvoSaga;

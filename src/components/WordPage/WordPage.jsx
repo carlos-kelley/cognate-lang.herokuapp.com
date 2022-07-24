@@ -71,18 +71,18 @@ function WordPage() {
     });
   }, []);
 
-  const handleForvoEnglish = (action) => {
-    console.log("in forvo english");
-    //send word to saga to get forvo audio
-    dispatch({
-      type: "FETCH_FORVO_ENGLISH",
-      payload: word.english,
-    });
-    console.log(
-      "action.payload in forvo eng: ",
-      action.payload
-    );
-  };
+  // const handleForvoEnglish = (action) => {
+  //   console.log("in forvo english");
+  //   //send word to saga to get forvo audio
+  //   dispatch({
+  //     type: "FETCH_FORVO_ENGLISH",
+  //     payload: word.english,
+  //   });
+  //   console.log(
+  //     "action.payload in forvo eng: ",
+  //     action.payload
+  //   );
+  // };
 
   const handleForvoFrench = (action) => {
     //send word to saga to get forvo audio
@@ -133,9 +133,14 @@ function WordPage() {
               <h3
                 className="englishWord"
                 onClick={() => {
-                  handleForvoEnglish({
+                  dispatch({
+                    type: "FETCH_FORVO_ENGLISH",
                     payload: word.english,
                   });
+                  console.log(
+                    "action.payload in forvo eng: ",
+                    word.english
+                  );
                 }}
               >
                 {word.english}
