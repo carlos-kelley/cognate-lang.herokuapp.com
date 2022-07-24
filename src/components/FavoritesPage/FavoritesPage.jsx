@@ -60,11 +60,11 @@ function FavoritesPage() {
             />
           </label>
         </div>
-        {favorites.length === 0 && search === "" &&
+        {favorites.length === 0 && search === "" && (
           <div className="noFavorites">
-            <h1>No favorites yet!</h1>
+            <h3>No favorites yet!</h3>
           </div>
-        }
+        )}
         {/* only render fav list if nothing is in search bar */}
         {search === "" ? (
           <section className="favoritesSection">
@@ -107,6 +107,14 @@ function FavoritesPage() {
           //if there is a search term, render the filtered list
           <section className="favoritesSearchSection">
             {/* loop through our favoritesSearch and display them */}
+            {favoritesSearch.length === 0 &&
+              search !== "" && (
+                <>
+                  <h3>
+                    No matching search results!
+                  </h3>
+                </>
+              )}
             {favoritesSearch.map(
               (favoriteSearch) => {
                 return (
