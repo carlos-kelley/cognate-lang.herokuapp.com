@@ -3,19 +3,20 @@ import React, {
   useEffect,
   useState,
 } from "react";
+
 import {
   useDispatch,
   useSelector,
 } from "react-redux";
-
 import { useHistory } from "react-router-dom";
+
 import "./FavoritesPage.css";
 
 function FavoritesPage() {
   //handle pushing to word page onclick
-  const navToWord = () => {
-    history.push("/word");
-  };
+  // const navToWord = () => {
+  //   history.push("/word");
+  // };
 
   //declare variables and stores
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function FavoritesPage() {
   const favorites = useSelector(
     (store) => store.favorites
   );
+
   let favoritesSearch = useSelector(
     (store) => store.favoritesSearch
   );
@@ -38,12 +40,6 @@ function FavoritesPage() {
     console.log("favs search", favoritesSearch);
   }, []);
 
-  const seeID = (id) => {
-    console.log("in seeID: ");
-    console.log("id: ", id);
-    history.push(`/word/${id}`);
-  };
-
   return (
     <div className="containerFavs">
       <div>
@@ -56,7 +52,7 @@ function FavoritesPage() {
               placeholder="Search favorites..."
               onChange={(event) => {
                 dispatch({
-                  type: "FETCH_FAVORITES_SEARCH",
+                  type: "FETCH_FAVORITES_SEARCH", //!!!
                   payload: event.target.value,
                 });
                 setSearch(event.target.value);
@@ -80,11 +76,11 @@ function FavoritesPage() {
                       )
                     }
                   >
-                    {favorite.english},
-                    {favorite.french},
-                    {favorite.italian},
-                    {favorite.spanish},
-                    {favorite.portuguese}
+                    {favorite.english},&nbsp;
+                    {favorite.french},&nbsp;
+                    {favorite.italian},&nbsp;
+                    {favorite.spanish},&nbsp;
+                    {favorite.portuguese}&nbsp;
                     {favorite.word_id}
                   </h3>
 
@@ -94,7 +90,7 @@ function FavoritesPage() {
                     onClick={() => {
                       dispatch({
                         type: "DELETE_FAVORITE",
-                        payload: favorite.word_id, //i think this is wrong
+                        payload: favorite.word_id,
                       });
                     }}
                   >
@@ -111,12 +107,14 @@ function FavoritesPage() {
             {favoritesSearch.map(
               (favoriteSearch) => {
                 return (
-                  <div key={favoriteSearch.id}>
+                  <div
+                    key={favoriteSearch.word_id}
+                  >
                     {/* display the favoriteSearch in all its languages */}
                     <h3
                       onClick={() =>
                         history.push(
-                          `/word/${favoriteSearch.id}`
+                          `/word/${favoriteSearch.word_id}`
                         )
                       }
                     >
@@ -125,7 +123,7 @@ function FavoritesPage() {
                       {favoriteSearch.italian},
                       {favoriteSearch.spanish},
                       {favoriteSearch.portuguese},
-                      {favoriteSearch.id}
+                      {favoriteSearch.word_id}
                     </h3>
                     {/* render a delete button */}
                     <button
@@ -134,7 +132,7 @@ function FavoritesPage() {
                         dispatch({
                           type: "DELETE_FAVORITE",
                           payload:
-                            favoriteSearch.id,
+                            favoriteSearch.word_id,
                         });
                       }}
                     >

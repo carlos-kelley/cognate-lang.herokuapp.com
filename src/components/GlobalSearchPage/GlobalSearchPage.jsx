@@ -3,40 +3,41 @@ import React, {
   useEffect,
   useState,
 } from "react";
+
 import {
   useDispatch,
   useSelector,
 } from "react-redux";
+
 import {
   Route,
   useLocation,
   Link,
 } from "react-router-dom";
-
 import { useHistory } from "react-router-dom";
+
 import AddFavoriteButtonSearchResult from "../AddFavoriteButtonSearchResult/AddFavoriteButtonSearchResult";
+
 import LanguageTogglesButton from "../LanguageTogglesButton/LanguageTogglesButton";
+
 import "./GlobalSearchPage.css";
 
 function GlobalSearchPage() {
   //handle pushing to word page onclick
-  const navToWord = () => {
-    // history.push("/word/");
-  };
 
   //declare variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(""); //!!!
   const [random, setRandom] = useState(random);
+
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
-  let id = useSelector((store) => store.id);
+
+  let id = useSelector((store) => store.id); //!!!
   const location = useLocation();
-  let user = useSelector(
-    (store) => store.user
-  );
+  let user = useSelector((store) => store.user);
 
   //useEffect
   useEffect(() => {
@@ -62,6 +63,7 @@ function GlobalSearchPage() {
       history.push(`/word/${random}`);
     }
   };
+
   return (
     <div className="container">
       {location.pathname === "/globalsearch" ? (
@@ -78,15 +80,6 @@ function GlobalSearchPage() {
         <></>
       )}
 
-      {/* <button
-        onClick={() => {
-          console.log("global:", globalSearch);
-          console.log("id: ", id);
-        }}
-      >
-        Log Global Search and ID
-      </button>
-      ; */}
       <div className="searchContainer">
         <label>
           <input
@@ -94,18 +87,11 @@ function GlobalSearchPage() {
             type="text"
             placeholder="Search word..."
             onChange={(event) => {
-              // dispatch({
-              //   type: "SET_GLOBAL_SEARCH",
-              //   payload: event.target.value,
-              // });
               dispatch({
                 type: "FETCH_WORDS",
                 payload: event.target.value,
               });
               setSearch(event.target.value);
-              // dispatch({
-              //   type: "CLEAR_ID",
-              // });
 
               console.log("IDs: ", { id });
 
@@ -129,10 +115,6 @@ function GlobalSearchPage() {
             {/* loop through our globalSearch and display them */}
 
             {globalSearch.map((word) => {
-              dispatch({
-                type: "SET_ID",
-                payload: word.id,
-              }); //this needs to happen for each INDIVIDUAL word
               return (
                 <div className="resultContainer">
                   {/* display the words in globalSearch array */}
@@ -143,20 +125,12 @@ function GlobalSearchPage() {
                       )
                     }
                     className="searchResult"
-                    // onChangText={() =>
-                    //   // history.push(
-                    //   //   `/api/words?word=${word.english}`
-                    //   // )
-                    //   //dispatch a SET_ID action to set the id to the word.id
-
-                    // }
                   >
                     {word.english},&nbsp;
                     {word.french},&nbsp;
                     {word.italian},&nbsp;
                     {word.spanish},&nbsp;
-                    {word.portuguese},&nbsp;
-                    {word.id}
+                    {word.portuguese}
                   </h3>
                   <AddFavoriteButtonSearchResult />
                 </div>
