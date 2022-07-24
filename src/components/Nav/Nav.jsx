@@ -15,7 +15,7 @@ function Nav() {
     <div className="nav">
       {location.pathname === "/globalsearch" ? (
         <>
-          <div class="navLogoContainer">
+          <div className="navLogoContainer">
             <Link to="/login">
               <img
                 src="/images/Cognate_Logo.png"
@@ -36,7 +36,7 @@ function Nav() {
         </>
       ) : location.pathname === "/favorites" ? (
         <>
-          <div class="navLogoContainer">
+          <div className="navLogoContainer">
             <Link to="/login">
               <img
                 src="/images/Cognate_Logo.png"
@@ -58,7 +58,7 @@ function Nav() {
         </>
       ) : (
         <>
-          <div class="navLogoContainer">
+          <div className="navLogoContainer">
             <Link to="/login">
               <img
                 src="/images/Cognate_Logo.png"

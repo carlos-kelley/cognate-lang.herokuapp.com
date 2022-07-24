@@ -32,7 +32,7 @@ function GlobalSearchPage() {
   );
   let id = useSelector((store) => store.id);
   const location = useLocation();
-
+  
   //useEffect
   useEffect(() => {}, []);
 

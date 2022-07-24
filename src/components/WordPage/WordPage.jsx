@@ -20,6 +20,22 @@ import {
 import LanguageToggleButton from "../LanguageToggleButton/LanguageTogglesButton";
 
 function WordPage() {
+  //console log toggleEnlish on mount
+  useEffect(() => {
+    console.log(
+      "toggleEnglish: ",
+      toggleEnglish,
+      "toggleFrench: ",
+      toggleFrench,
+      "toggleSpanish: ",
+      toggleSpanish,
+      "toggleItalian: ",
+      toggleItalian,
+      "togglePortuguese: ",
+      togglePortuguese
+    );
+  });
+
   //import variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
@@ -31,6 +47,21 @@ function WordPage() {
   //to use the id and word from the url
   const params = useParams();
   const wordID = params.id;
+  const toggleEnglish = useSelector(
+    (store) => store.toggleEnglish
+  );
+  const toggleFrench = useSelector(
+    (store) => store.toggleFrench
+  );
+  const toggleSpanish = useSelector(
+    (store) => store.toggleSpanish
+  );
+  const toggleItalian = useSelector(
+    (store) => store.toggleItalian
+  );
+  const togglePortuguese = useSelector(
+    (store) => store.togglePortuguese
+  );
 
   const [word, setWord] = useState(null);
   //if i pull all the words can i map them with a filter?
@@ -58,21 +89,31 @@ function WordPage() {
             className="searchResults"
             key={word.id}
           >
-            <h3 className="englishWord">
-              {word.english}
-            </h3>
-            <h3 className="frenchWord">
-              {word.french}
-            </h3>
-            <h3 className="spanishWord">
-              {word.spanish}
-            </h3>
-            <h3 className="italianWord">
-              {word.italian}
-            </h3>
-            <h3 className="portugueseWord">
-              {word.portuguese}
-            </h3>
+            {toggleEnglish && (
+              <h3 className="englishWord">
+                {word.english}
+              </h3>
+            )}
+            {toggleFrench && (
+              <h3 className="frenchWord">
+                {word.french}
+              </h3>
+            )}
+            {toggleSpanish && (
+              <h3 className="spanishWord">
+                {word.spanish}
+              </h3>
+            )}
+            {toggleItalian && (
+              <h3 className="italianWord">
+                {word.italian}
+              </h3>
+            )}
+            {togglePortuguese && (
+              <h3 className="portugueseWord">
+                {word.portuguese}
+              </h3>
+            )}
           </div>
         );
       })}
