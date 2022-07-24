@@ -27,15 +27,34 @@ function GlobalSearchPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [search, setSearch] = useState("");
+   const [random, setRandom] = useState(null);
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
   let id = useSelector((store) => store.id);
   const location = useLocation();
+ 
   
   //useEffect
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("random: ", random);
+  }, []);
 
+  const randomNumberInRange = (min, max) => {
+    console.log("in randomNumberInRange: ");
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+
+  const handleRandom = () => {
+    console.log("in handleRandom: ");
+    setRandom(randomNumberInRange(3, 352));
+    console.log("random becomes: ", random);
+    //if random is not null or 0 push to the word page of the random number
+    if (random !== null && random !== 0) {
+      history.push(`/word/${random}`);
+    }
+  }
   return (
     <div className="container">
       {location.pathname === "/globalsearch" ? (
@@ -139,7 +158,7 @@ function GlobalSearchPage() {
       {/* random word button */}
       {location.pathname === "/globalsearch" ? (
         <>
-          <button className="randomSearch">
+          <button onClick = {handleRandom} className="randomSearch">
             Random Word
           </button>
         </>
