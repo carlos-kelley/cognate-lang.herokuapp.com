@@ -36,7 +36,7 @@ function AddFavoriteButton() {
       onClick={handleAddFavorite}
       className="searchFav"
     >
-      <img src="/images/favorite.png" />
+      <img src="/images/favorite_gb.png" />
     </button>
   );
 }

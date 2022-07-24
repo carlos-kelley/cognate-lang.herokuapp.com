@@ -3,7 +3,7 @@ p.welcomeText {
   padding-left: 8px;
   font-size: 16px;
   line-height: 1.4;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 input.searchField {
@@ -28,8 +28,8 @@ button.randomSearch {
   height: 52px;
   width: 52px;
   border-radius: 0px 10px 10px 0px;
-  background-image: url("/Users/carloskelley/Documents/dorian/tier2/week18/auth/public/images/search.png");
-  background-color: #000;
+  background-image: url("/Users/carloskelley/Documents/dorian/tier2/week18/auth/public/images/search_bw.png");
+  background-color: #fff;
   display: block;
   position: absolute;
   z-index: 999;
@@ -41,12 +41,18 @@ button.randomSearch {
   background-position: center;
 }
 
+.searchContainer {
+    z-index: 99999999;
+    position: relative;
+    display: block;
+}
+
 h3.searchResult {
     color: #000;
     font-weight: 300;
     font-size: 18px;
     line-height: 1.4;
-    width: 80%;
+    width: calc(100% - 59px);
     display: inline-block;
     position: relative;
 }
@@ -54,9 +60,14 @@ h3.searchResult {
 .globalSearchDiv {
     background-color: #fff;
     margin-top: -46px;
-    padding: 36px 25px 0px 25px;
+    padding: 36px 0px 0px 25px;
     border-radius: 0px 0px 10px 10px;
-    width: calc(100% - 50px);
+    width: calc(100% - 35px);
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 999;
+    position: relative;
+    display: block;
 }
 
 .resultContainer {
@@ -67,15 +78,15 @@ h3.searchResult {
 }
 
 button.searchFav {
-    background-color: red !important;
-    width: 30px;
+    width: 25px;
     height: 30px;
     position: relative;
     display: inline-block;
     float: right;
-    margin-left: 5%;
+    margin-left: 20px;
     border: none;
     padding: 0px !important;
+    margin-right: 14px !important;
 }
 
 .resultContainer:last-of-type {
