@@ -22,7 +22,7 @@ import LanguageToggleButton from "../LanguageToggleButton/LanguageTogglesButton"
 function WordPage() {
   //console log toggleEnlish on mount
   useEffect(() => {
-    console.log(
+    console.log("refreshing", 
       "toggleEnglish: ",
       toggleEnglish,
       "toggleFrench: ",
@@ -93,7 +93,7 @@ function WordPage() {
               <h3 className="englishWord">
                 {word.english}
               </h3>
-            )}
+            ) }
             {toggleFrench && (
               <h3 className="frenchWord">
                 {word.french}
