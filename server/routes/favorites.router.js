@@ -9,11 +9,12 @@ router.get("/", (req, res) => {
   JOIN favorites_word
   ON words.id = favorites_word.word_id 
   JOIN favorites 
-  ON favorites_word.favorites_id = favorites.id;
-  WHERE favorites_word.favorites_id = ${req.user.id}
+  ON favorites_word.favorites_id = favorites.id
+  WHERE favorites.user_id = ($1)
   `;
+  const values = [req.user.id];
   pool
-    .query(query)
+    .query(query, values)
     .then((result) => {
       res.send(result.rows);
     })
@@ -44,7 +45,7 @@ router.delete("/", (req, res) => {
 // add word to favorites - NEXT STEP
 router.post("/", (req, res) => {
   console.log("req body: ", req.body);
-  res.send ("woof")
+  res.send("woof");
   pool
     .query(
       `INSERT INTO "favorites_word" ("favorites_id", "word_id")
