@@ -1,4 +1,4 @@
-const forvoReducer = (state = '', action) => {
+const forvoReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_FORVO_ENGLISH":
       return action.payload;

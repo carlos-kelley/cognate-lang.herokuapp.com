@@ -57,6 +57,9 @@ function WordPage() {
   const togglePortuguese = useSelector(
     (store) => store.togglePortuguese
   );
+  const forvo = useSelector(
+    (store) => store.forvo
+  );
 
   const [word, setWord] = useState(null);
   //if i pull all the words can i map them with a filter?
@@ -121,6 +124,7 @@ function WordPage() {
       <div className="wordSearchContainer">
         <GlobalSearchPage />
       </div>
+
       {/* map through thisWord array */}
 
       {thisWord.map((word) => {
@@ -182,6 +186,16 @@ function WordPage() {
         );
       })}
       <div>
+        <button
+          onClick={() => {
+            console.log(
+              "forvo is: ",
+              forvo.items[0].pathmp3
+            );
+          }}
+        >
+          show forvo
+        </button>
         <AddFavoriteWordPage />
       </div>
     </div>
