@@ -17,6 +17,7 @@ import {
   useLocation,
   Link,
 } from "react-router-dom";
+import LanguageToggleButton from "../LanguageToggleButton/LanguageTogglesButton";
 
 function WordPage() {
   //import variables and stores
@@ -48,16 +49,30 @@ function WordPage() {
     <div className="containerWordPage">
       <div className="wordSearchContainer">
         <GlobalSearchPage />
+        <LanguageToggleButton />
       </div>
       {/* map through thisWord array */}
       {thisWord.map((word) => {
         return (
-          <div className="searchResults" key={word.id}>
-            <h3 className="englishWord">{word.english}</h3>
-            <h3 className="frenchWord">{word.french}</h3>
-            <h3 className="spanishWord">{word.spanish}</h3>
-            <h3 className="italianWord">{word.italian}</h3>
-            <h3 className="portugueseWord">{word.portuguese}</h3>
+          <div
+            className="searchResults"
+            key={word.id}
+          >
+            <h3 className="englishWord">
+              {word.english}
+            </h3>
+            <h3 className="frenchWord">
+              {word.french}
+            </h3>
+            <h3 className="spanishWord">
+              {word.spanish}
+            </h3>
+            <h3 className="italianWord">
+              {word.italian}
+            </h3>
+            <h3 className="portugueseWord">
+              {word.portuguese}
+            </h3>
           </div>
         );
       })}

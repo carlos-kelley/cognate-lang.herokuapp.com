@@ -42,53 +42,53 @@ button.randomSearch {
 }
 
 .searchContainer {
-    z-index: 99999999;
-    position: relative;
-    display: block;
+  z-index: 99999999;
+  position: relative;
+  display: block;
 }
 
 h3.searchResult {
-    color: #000;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 1.4;
-    width: calc(100% - 59px);
-    display: inline-block;
-    position: relative;
+  color: #000;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.4;
+  width: calc(100% - 59px);
+  display: inline-block;
+  position: relative;
 }
 
 .globalSearchDiv {
-    background-color: #fff;
-    margin-top: -46px;
-    padding: 36px 0px 0px 25px;
-    border-radius: 0px 0px 10px 10px;
-    width: calc(100% - 35px);
-    max-height: 350px;
-    overflow-y: auto;
-    z-index: 999;
-    position: relative;
-    display: block;
+  background-color: #fff;
+  margin-top: -46px;
+  padding: 36px 0px 0px 25px;
+  border-radius: 0px 0px 10px 10px;
+  width: calc(100% - 35px);
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 999;
+  position: relative;
+  display: block;
 }
 
 .resultContainer {
-    border-bottom: 1px solid black;
-    width: 100%;
-    display: block;
-    position: relative;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 
 button.searchFav {
-    width: 25px;
-    height: 30px;
-    position: relative;
-    display: inline-block;
-    float: right;
-    margin-left: 20px;
-    border: none;
-    padding: 0px !important;
-    margin-right: 14px !important;
+  width: 25px;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin-left: 20px;
+  border: none;
+  padding: 0px !important;
+  margin-right: 14px !important;
 }
 
 .resultContainer:last-of-type {
-    border: none;
+  border: none;
 }

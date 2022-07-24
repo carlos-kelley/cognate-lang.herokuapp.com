@@ -6,6 +6,11 @@ import favorites from "./favorites.reducer";
 import id from "./id.reducer";
 import favoritesSearch from "./favoritesSearch.reducer";
 import thisWord from "./thisWord.reducer";
+import toggleSpanish from "./toggleSpanish.reducer";
+import toggleItalian from "./toggleItalian.reducer";
+import toggleFrench from "./toggleFrench.reducer";
+import toggleEnglish from "./toggleEnglish.reducer";
+import togglePortuguese from "./togglePortuguese.reducer";
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +26,11 @@ const rootReducer = combineReducers({
   id,
   favoritesSearch,
   thisWord,
+  toggleEnglish,
+  toggleSpanish,
+  toggleItalian,
+  toggleFrench,
+  togglePortuguese
 });
 
 export default rootReducer;
