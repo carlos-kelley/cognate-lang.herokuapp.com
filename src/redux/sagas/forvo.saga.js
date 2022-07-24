@@ -50,7 +50,7 @@ function* fetchForvoFrench() {
     }
 }
 
-function* fetchForvoSpanosh() {
+function* fetchForvoSpanish() {
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
@@ -139,24 +139,5 @@ function* forvoSaga() {
   );
 }
 
-// function* addFavorite (action) {
-//   console.log("adding fav");
-//   let addWord = action.payload;
-//   try {
-//     console.log("add action.payload:", addWord);
-//     yield axios.post(
-//       "/api/favorites",
-//       {
-//         favorites_id: 1, //should be the id of the user
-//         word_id: addWord,
-//       }
-//     );
-//     yield put({
-//       type: "FETCH_FAVORITES",
-//     });
-//   } catch (error) {
-//     console.log("error in addFavorite:", error);
-//   }
-// }
 
 export default forvoSaga;

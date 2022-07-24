@@ -1,13 +1,10 @@
 import { all } from "redux-saga/effects";
-import ReactDOM from "react-dom";
+
 import loginSaga from "./login.saga";
 import registrationSaga from "./registration.saga";
 import userSaga from "./user.saga";
 import globalSearchSaga from "./globalSearch.saga";
 import favoritesSaga from "./favorites.saga";
-import forvoSaga from "./forvo.saga";
-
-
 import favoritesSearchSaga from "./favoritesSearch.saga";
 import fetchThisWordSaga from "./thisWord.saga";
 import forvoSaga from "./forvo.saga";

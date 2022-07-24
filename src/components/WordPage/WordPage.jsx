@@ -12,15 +12,14 @@ import { useHistory } from "react-router-dom";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
 import "./WordPage.css";
-import {
-  useLocation,
-} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
 
 function WordPage() {
   //console log toggleEnlish on mount
   useEffect(() => {
-    console.log("refreshing", 
+    console.log(
+      "refreshing",
       "toggleEnglish: ",
       toggleEnglish,
       "toggleFrench: ",
@@ -72,45 +71,50 @@ function WordPage() {
     });
   }, []);
 
-  const handleForvoEnglish = () => {
+  const handleForvoEnglish = (action) => {
+    console.log("in forvo english");
     //send word to saga to get forvo audio
     dispatch({
       type: "FETCH_FORVO_ENGLISH",
       payload: word.english,
     });
-  }
+    console.log(
+      "action.payload in forvo eng: ",
+      action.payload
+    );
+  };
 
-  const handleForvoFrench = () => {
+  const handleForvoFrench = (action) => {
     //send word to saga to get forvo audio
     dispatch({
       type: "FETCH_FORVO_FRENCH",
       payload: word.french,
     });
-  }
+  };
 
-  const handleForvoSpanish = () => {
+  const handleForvoSpanish = (action) => {
     //send word to saga to get forvo audio
     dispatch({
       type: "FETCH_FORVO_SPANISH",
       payload: word.spanish,
     });
-  }
+  };
 
-  const handleForvoItalian = () => {
+  const handleForvoItalian = (action) => {
     //send word to saga to get forvo audio
     dispatch({
       type: "FETCH_FORVO_ITALIAN",
       payload: word.italian,
     });
-  }
+  };
 
-  const handleForvoPortuguese = () => {
+  const handleForvoPortuguese = (action) => {
     //send word to saga to get forvo audio
     dispatch({
       type: "FETCH_FORVO_PORTUGUESE",
       payload: word.portuguese,
     });
-  }
+  };
 
   return (
     <div className="containerWordPage">
@@ -126,32 +130,46 @@ function WordPage() {
             key={word.id}
           >
             {toggleEnglish && (
-              <h3 className="englishWord"
-              onClick = {handleForvoEnglish}>
+              <h3
+                className="englishWord"
+                onClick={() => {
+                  handleForvoEnglish({
+                    payload: word.english,
+                  });
+                }}
+              >
                 {word.english}
               </h3>
             )}
             {toggleFrench && (
-              <h3 className="frenchWord"
-              onClick = {handleForvoFrench}>
+              <h3
+                className="frenchWord"
+                onClick={handleForvoFrench}
+              >
                 {word.french}
               </h3>
             )}
             {toggleSpanish && (
-              <h3 className="spanishWord"
-              onClick = {handleForvoSpanish}>
+              <h3
+                className="spanishWord"
+                onClick={handleForvoSpanish}
+              >
                 {word.spanish}
               </h3>
             )}
             {toggleItalian && (
-              <h3 className="italianWord"
-              onClick = {handleForvoItalian}>
+              <h3
+                className="italianWord"
+                onClick={handleForvoItalian}
+              >
                 {word.italian}
               </h3>
             )}
             {togglePortuguese && (
-              <h3 className="portugueseWord"
-              onClick = {handleForvoPortuguese}>
+              <h3
+                className="portugueseWord"
+                onClick={handleForvoPortuguese}
+              >
                 {word.portuguese}
               </h3>
             )}
@@ -160,7 +178,7 @@ function WordPage() {
       })}
       <div>
         <AddFavoriteWordPage />
-        </div>
+      </div>
     </div>
   );
 }
