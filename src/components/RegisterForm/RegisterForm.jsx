@@ -3,6 +3,7 @@ import {
   useDispatch,
   useSelector,
 } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -11,6 +12,7 @@ function RegisterForm() {
     (store) => store.errors
   );
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -38,9 +40,8 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-          
           <input
-          placeholder = "Username"
+            placeholder="Username"
             type="text"
             name="username"
             value={username}
@@ -53,9 +54,8 @@ function RegisterForm() {
       </div>
       <div>
         <label htmlFor="password">
-          
           <input
-          placeholder = "Password"
+            placeholder="Password"
             type="password"
             name="password"
             value={password}
@@ -74,6 +74,15 @@ function RegisterForm() {
           value="Submit"
         />
       </div>
+      <button
+        type="button"
+        className="btn btn_asLink"
+        onClick={() => {
+          history.push("/login");
+        }}
+      >
+        Back to login
+      </button>
     </form>
   );
 }
