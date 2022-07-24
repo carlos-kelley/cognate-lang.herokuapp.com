@@ -20,52 +20,52 @@
   margin-left: 0px;
 }
 
-button.ENtoggle {
+button.ENtoggleOn {
   background: #d6d6d6 !important;
   color: #7c7a7b;
 }
 
-button.ENtoggle:active {
+button.ENtoggleOff {
   background: #7c7a7b !important;
   color: #d6d6d6;
 }
 
-button.FRtoggle {
+button.FRtoggleOn {
   background: #ced10a !important;
   color: #787815;
 }
 
-button.FRtoggle:active {
+button.FRtoggleOff {
   background: #787815 !important;
   color: #ced10a;
 }
 
-button.SPtoggle {
+button.SPtoggleOn {
   background: #05a229 !important;
   color: #146024;
 }
 
-button.SPtoggle:active {
+button.SPtoggleOff {
   background: #146024 !important;
   color: #05a229;
 }
 
-button.ITtoggle {
+button.ITtoggleOn {
   background: #24c2e1 !important;
   color: #237080;
 }
 
-button.ITtoggle:active {
+button.ITtoggleOff {
   background: #237080 !important;
   color: #24c2e1;
 }
 
-button.POtoggle {
+button.POtoggleOn {
   background: #d82f58 !important;
   color: #7d273c;
 }
 
-button.POtoggle:active {
+button.POtoggleOff {
   background: #7d273c !important;
   color: #d82f58;
 }

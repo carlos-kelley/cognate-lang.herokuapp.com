@@ -4,7 +4,7 @@ import {
   useDispatch,
   useSelector,
 } from "react-redux";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "./LanguageTogglesButton.css";
 
@@ -40,7 +40,7 @@ function LanguageToggleButton() {
         type: "TOGGLE_ENGLISH",
         payload: false,
       });
-      
+       event.target.classList.add("ENtoggleOff");
     }
     //else if toggleEnglish is false, set it to true
     else if (toggleEnglish === false) {
@@ -52,6 +52,7 @@ function LanguageToggleButton() {
         type: "TOGGLE_ENGLISH",
         payload: true,
       });
+      event.target.classList.add("ENtoggleOn");
     }
   };
 
@@ -157,43 +158,63 @@ function LanguageToggleButton() {
     <div>
       {/* // if location.pathname is "/word/:id,
       render the buttons // else, render nothing */}
-      {location.pathname.indexOf ("/word/") === 0 ? (
+      {location.pathname.indexOf("/word/") ===
+      0 ? (
         <div className="language-toggle-button-container">
-
-      <button
-        onClick={handleEnglishClick}
-        className="ENtoggle"
-      >
-        EN
-      </button>
-      <button
-        onClick={handleFrenchClick}
-        className="FRtoggle"
-      >
-        FR
-      </button>
-      <button
-        onClick={handleSpanishClick}
-        className="SPtoggle"
-      >
-        SP
-      </button>
-      <button
-        onClick={handleItalianClick}
-        className="ITtoggle"
-      >
-        IT
-      </button>
-      <button
-        onClick={handlePortugueseClick}
-        className="POtoggle"
-      >
-        PO
+          <button
+            onClick={handleEnglishClick}
+            className={
+              toggleEnglish === true
+                ? "ENtoggleOn"
+                : "ENtoggleOff"
+            }
+          >
+            EN
           </button>
-        </div >
+          <button
+            onClick={handleFrenchClick}
+            className={
+              toggleFrench === true
+                ? "FRtoggleOn"
+                : "FRtoggleOff"
+            }
+          >
+            FR
+          </button>
+          <button
+            onClick={handleSpanishClick}
+            className={
+              toggleSpanish === true
+                ? "SPtoggleOn"
+                : "SPtoggleOff"
+            }
+          >
+            SP
+          </button>
+          <button
+            onClick={handleItalianClick}
+            className={
+              toggleItalian === true
+                ? "ITtoggleOn"
+                : "ITtoggleOff"
+            }
+          >
+            IT
+          </button>
+          <button
+            onClick={handlePortugueseClick}
+            className={
+              togglePortuguese === true
+                ? "POtoggleOn"
+                : "POtoggleOff"
+            }
+          >
+            PO
+          </button>
+        </div>
       ) : (
-          <></>
-        )}
+        <></>
+      )}
     </div>
   );
 }
