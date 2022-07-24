@@ -6,7 +6,7 @@ import {
 } from "react-redux";
 import axios from "axios";
 import { useState } from "react";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function AddFavoriteWordPage() {
   //create store
@@ -26,10 +26,10 @@ function AddFavoriteWordPage() {
     console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
-    // axios.post("/api/favorites", {
-    //   favorites_id: 1, //this should be dynamic
-    //   word_id: id, //do i have to make the ID a reducer
-    // });
+    axios.post("/api/favorites", {
+      favorites_id: 1, //this should be dynamic
+      word_id: wordID, //do i have to make the ID a reducer
+    });
   };
 
   return (
