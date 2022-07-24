@@ -34,6 +34,9 @@ function GlobalSearchPage() {
   );
   let id = useSelector((store) => store.id);
   const location = useLocation();
+  let user = useSelector(
+    (store) => store.user
+  );
 
   //useEffect
   useEffect(() => {
@@ -64,7 +67,7 @@ function GlobalSearchPage() {
       {location.pathname === "/globalsearch" ? (
         <div>
           {" "}
-          <h2>Welcome!</h2>
+          <h2>Welcome, {user.username}!</h2>
           <p className="welcomeText">
             Search a word in English, French,
             Spanish, Italian, or Portuguese to see

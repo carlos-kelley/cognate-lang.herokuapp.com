@@ -43,6 +43,27 @@ router.post("/register", (req, res, next) => {
     });
 });
 
+//Handles POST request to Favorites List
+
+// router.post("/newFavoriteList", (req, res, next) => {
+//   const username = req.body.username;
+//   const userID = req.body.id;
+
+//   const queryText = `INSERT INTO "favorites" (user_id, name)
+//     VALUES ($1, $2)`;
+//   pool
+//     .query(queryText, [userID, username])
+//     .then(() => res.sendStatus(201))
+//     .catch((err) => {
+//       console.log(
+//         "Creating favorites list failed: ",
+//         err
+//       );
+//       res.sendStatus(500);
+//     });
+// });
+
+
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful

@@ -13,6 +13,7 @@ const wordsRouter = require("./routes/words.router");
 const favoritesRouter = require("./routes/favorites.router");
 const thisWordRouter = require("./routes/thisWord.router");
 const favoritesSearchRouter = require("./routes/favoritesSearch.router");
+// const favoritesListRouter = require("./routes/favoritesList.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use("/api/words", wordsRouter);
 app.use("/api/favorites", favoritesRouter);
 app.use("/api/favoritesSearch", favoritesSearchRouter);
 app.use("/api/thisWord", thisWordRouter);
+// app.use("/api/favoritesList", favoritesListRouter);
 
 // Serve static files
 app.use(express.static("build"));
