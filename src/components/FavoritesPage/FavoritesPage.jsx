@@ -60,7 +60,11 @@ function FavoritesPage() {
             />
           </label>
         </div>
-
+        {favorites.length === 0 && search === "" &&
+          <div className="noFavorites">
+            <h1>No favorites yet!</h1>
+          </div>
+        }
         {/* only render fav list if nothing is in search bar */}
         {search === "" ? (
           <section className="favoritesSection">

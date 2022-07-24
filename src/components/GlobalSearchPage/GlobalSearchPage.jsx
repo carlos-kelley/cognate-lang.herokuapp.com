@@ -110,6 +110,14 @@ function GlobalSearchPage() {
       <LanguageTogglesButton />
 
       <div className="globalSearchDiv">
+        {globalSearch.length === 0 &&
+          search !== "" && (
+            <>
+              <h3 className="searchResult">
+                No matching search results!
+              </h3>
+            </>
+          )}
         {search !== "" ? (
           <section className="globalSearchSection">
             {/* loop through our globalSearch and display them */}
