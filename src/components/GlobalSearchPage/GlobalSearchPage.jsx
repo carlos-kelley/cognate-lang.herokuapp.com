@@ -27,7 +27,7 @@ function GlobalSearchPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [search, setSearch] = useState("");
-   const [random, setRandom] = useState(null);
+   const [random, setRandom] = useState(random);
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
@@ -38,6 +38,7 @@ function GlobalSearchPage() {
   //useEffect
   useEffect(() => {
     console.log("random: ", random);
+    setRandom(randomNumberInRange(3, 352));
   }, []);
 
   const randomNumberInRange = (min, max) => {
