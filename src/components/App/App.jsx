@@ -1,5 +1,6 @@
 //imports
 import React, { useEffect } from "react";
+
 import {
   HashRouter as Router,
   Redirect,
@@ -17,17 +18,15 @@ import Footer from "../Footer/Footer";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import UserPage from "../UserPage/UserPage";
-import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import WordPage from "../WordPage/WordPage";
+
 import "./App.css";
-import AddFavoriteButtonSearchResult from "../AddFavoriteButtonSearchResult/AddFavoriteButtonSearchResult";
-import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -43,18 +42,20 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+          {/* Visiting localhost:3000 will redirect to localhost:3000/login */}
           <Redirect exact from="/" to="/login" />
 
-          {/* Visiting localhost:3000/about will show the about page. */}
+
 
           {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
+            Visiting localhost:3000/globalsearch will show the GlobalSearch page if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <Route exact path="/globalsearch">
+          
+          <ProtectedRoute exact path="/globalsearch">
             <GlobalSearchPage />
-          </Route>
+          </ProtectedRoute>
+
           <ProtectedRoute exact path="/word/:id">
             <WordPage />
           </ProtectedRoute>
