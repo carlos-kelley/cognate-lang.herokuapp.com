@@ -36,28 +36,32 @@ router.post("/register", (req, res, next) => {
     .then((result) => {
       const newPostId = result.rows[0].id;
       console.log("new user id:", newPostId);
-      const newTableQueryString = `INSERT INTO "favorites" (user_id)
-      VALUES ($1)`;
+      const newTableQueryString = `INSERT INTO "favorites" (user_id, name)
+      VALUES ($1, $2)`;
       pool
-        .query(newTableQueryString, [newPostId])
+        .query(newTableQueryString, [
+          newPostId,
+          username,
+        ])
         .then((result) => {
           res.sendStatus(200);
         })
         .catch((err) => {
-          console.log("Error creating new table:", err);
-          res.sendStatus(500);
-        }
-      )
-    }
-    )
-        .catch((err) => {
           console.log(
-            "User registration failed: ",
+            "Error creating new table:",
             err
           );
           res.sendStatus(500);
         });
+    })
+    .catch((err) => {
+      console.log(
+        "User registration failed: ",
+        err
+      );
+      res.sendStatus(500);
     });
+});
 
 //Handles POST request to Favorites List
 

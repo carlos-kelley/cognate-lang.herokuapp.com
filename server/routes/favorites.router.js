@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
   ON words.id = favorites_word.word_id 
   JOIN favorites 
   ON favorites_word.favorites_id = favorites.id;
+  WHERE favorites_word.favorites_id = ${req.user.id}
   `;
   pool
     .query(query)
