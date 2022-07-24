@@ -67,7 +67,7 @@ function FavoritesPage() {
             {/* loop through our favorites and display them */}
             {favorites.map((favorite) => {
               return (
-                <div>
+                <div key={favorite.word_id}>
                   {/* display the favorite in all its languages */}
                   <h3
                     onClick={() =>
@@ -80,8 +80,7 @@ function FavoritesPage() {
                     {favorite.french},&nbsp;
                     {favorite.italian},&nbsp;
                     {favorite.spanish},&nbsp;
-                    {favorite.portuguese}&nbsp;
-                    {favorite.word_id}
+                    {favorite.portuguese}
                   </h3>
 
                   {/* render a delete button */}

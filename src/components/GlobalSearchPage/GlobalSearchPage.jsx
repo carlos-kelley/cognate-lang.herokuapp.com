@@ -116,7 +116,10 @@ function GlobalSearchPage() {
 
             {globalSearch.map((word) => {
               return (
-                <div className="resultContainer">
+                <div
+                  className="resultContainer"
+                  key={word.id}
+                >
                   {/* display the words in globalSearch array */}
                   <h3
                     onClick={() =>
