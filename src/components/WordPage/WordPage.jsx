@@ -72,6 +72,46 @@ function WordPage() {
     });
   }, []);
 
+  const handleForvoEnglish = () => {
+    //send word to saga to get forvo audio
+    dispatch({
+      type: "FETCH_FORVO_ENGLISH",
+      payload: word.english,
+    });
+  }
+
+  const handleForvoFrench = () => {
+    //send word to saga to get forvo audio
+    dispatch({
+      type: "FETCH_FORVO_FRENCH",
+      payload: word.french,
+    });
+  }
+
+  const handleForvoSpanish = () => {
+    //send word to saga to get forvo audio
+    dispatch({
+      type: "FETCH_FORVO_SPANISH",
+      payload: word.spanish,
+    });
+  }
+
+  const handleForvoItalian = () => {
+    //send word to saga to get forvo audio
+    dispatch({
+      type: "FETCH_FORVO_ITALIAN",
+      payload: word.italian,
+    });
+  }
+
+  const handleForvoPortuguese = () => {
+    //send word to saga to get forvo audio
+    dispatch({
+      type: "FETCH_FORVO_PORTUGUESE",
+      payload: word.portuguese,
+    });
+  }
+
   return (
     <div className="containerWordPage">
       <div className="wordSearchContainer">
@@ -86,27 +126,32 @@ function WordPage() {
             key={word.id}
           >
             {toggleEnglish && (
-              <h3 className="englishWord">
+              <h3 className="englishWord"
+              onClick = {handleForvoEnglish}>
                 {word.english}
               </h3>
             )}
             {toggleFrench && (
-              <h3 className="frenchWord">
+              <h3 className="frenchWord"
+              onClick = {handleForvoFrench}>
                 {word.french}
               </h3>
             )}
             {toggleSpanish && (
-              <h3 className="spanishWord">
+              <h3 className="spanishWord"
+              onClick = {handleForvoSpanish}>
                 {word.spanish}
               </h3>
             )}
             {toggleItalian && (
-              <h3 className="italianWord">
+              <h3 className="italianWord"
+              onClick = {handleForvoItalian}>
                 {word.italian}
               </h3>
             )}
             {togglePortuguese && (
-              <h3 className="portugueseWord">
+              <h3 className="portugueseWord"
+              onClick = {handleForvoPortuguese}>
                 {word.portuguese}
               </h3>
             )}
