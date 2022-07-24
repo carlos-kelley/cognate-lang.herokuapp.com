@@ -134,6 +134,11 @@ function GlobalSearchPage() {
                 <div className="resultContainer">
                   {/* display the words in globalSearch array */}
                   <h3
+                    onClick={() =>
+                      history.push(
+                        `/word/${word.id}`
+                      )
+                    }
                     className="searchResult"
                     // onChangText={() =>
                     //   // history.push(
