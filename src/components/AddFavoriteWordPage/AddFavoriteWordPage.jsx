@@ -5,38 +5,37 @@ import {
   useSelector,
 } from "react-redux";
 import axios from "axios";
+import { useState } from "react";
 
 function AddFavoriteWordPage() {
   //create store
-  const word = useSelector(
-    (store) => store.globalSearch
+  const thisWord = useSelector(
+    (store) => store.thisWord
   );
-  const id = useSelector((store) => store.id);
+
+  const [identity, setIdentity] = useState(
+    thisWord[0].id
+  );
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
-    console.log("word in addfav: ", word);
-    console.log("id in addfav: ", word.id);
-    let favedWord = word.id;
-    console.log(
-      "favedWord in addfav: ",
-      favedWord
-    );
-    console.log;
+    console.log("word in addfav: ", thisWord);
+    console.log("identity: ", identity);
+
     //make a POST request to add a favorite
-    axios.post("/api/favorites", {
-      favorites_id: 1, //this should be dynamic
-      word_id: id, //do i have to make the ID a reducer
-    });
+    // axios.post("/api/favorites", {
+    //   favorites_id: 1, //this should be dynamic
+    //   word_id: id, //do i have to make the ID a reducer
+    // });
   };
 
   return (
     <div>
-    {/* button that says AddFav that runs handleAddFavorite when clicked */}
-    <button onClick={handleAddFavorite}>
-      Add Favorite
+      {/* button that says AddFav that runs handleAddFavorite when clicked */}
+      <button onClick={handleAddFavorite}>
+        Add Favorite
       </button>
-      </div>
+    </div>
   );
 }
 
