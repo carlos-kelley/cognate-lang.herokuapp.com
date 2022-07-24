@@ -15,29 +15,50 @@ function AddFavoriteWordPage() {
   );
   const params = useParams();
   const wordID = params.id;
+  const dispatch = useDispatch();
 
-  // const [identity, setIdentity] = useState(
-  //   thisWord[0].id
-  // );
+  const [faved, setFaved] = useState(false);
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
-    console.log("word in addfav: ", thisWord);
     console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
     axios.post("/api/favorites", {
       favorites_id: 1, //this should be dynamic
-      word_id: wordID, //do i have to make the ID a reducer
+      word_id: wordID,
     });
+    setFaved(true);
   };
+
+  const handleDeleteFavorite = () => {
+    console.log("in handleDeleteFavorite");
+    console.log("identity: ", wordID);
+    //make a Delete request to remove this favorite
+    axios.delete(
+      `/api/favorites?id=${wordID}`,
+      {}
+    );
+    setFaved(false);
+  };
+  // axios.delete("/api/favorites", {
+  //   favorites_id: 1, //this should be dynamic
+  //   word_id: wordID,
+  // });
+  // setFaved(false);
 
   return (
     <div>
       {/* button that says AddFav that runs handleAddFavorite when clicked */}
-      <button onClick={handleAddFavorite}>
-        Add Favorite
-      </button>
+      {!faved ? (
+        <button onClick={handleAddFavorite}>
+          Add Favorite
+        </button>
+      ) : (
+        <button onClick={handleDeleteFavorite}>
+          Delete Favorite
+        </button>
+      )}
     </div>
   );
 }
