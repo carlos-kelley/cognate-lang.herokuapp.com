@@ -17,7 +17,8 @@ import {
   useLocation,
   Link,
 } from "react-router-dom";
-import LanguageToggleButton from "../LanguageToggleButton/LanguageTogglesButton";
+import LanguageTogglesButton from "../LanguageTogglesButton/LanguageTogglesButton";
+import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
 
 function WordPage() {
   //console log toggleEnlish on mount
@@ -80,9 +81,9 @@ function WordPage() {
     <div className="containerWordPage">
       <div className="wordSearchContainer">
         <GlobalSearchPage />
-        <LanguageToggleButton />
       </div>
       {/* map through thisWord array */}
+
       {thisWord.map((word) => {
         return (
           <div
@@ -93,7 +94,7 @@ function WordPage() {
               <h3 className="englishWord">
                 {word.english}
               </h3>
-            ) }
+            )}
             {toggleFrench && (
               <h3 className="frenchWord">
                 {word.french}
@@ -117,6 +118,9 @@ function WordPage() {
           </div>
         );
       })}
+      <div>
+        <AddFavoriteWordPage />
+        </div>
     </div>
   );
 }

@@ -15,6 +15,7 @@ import {
 
 import { useHistory } from "react-router-dom";
 import AddFavoriteButtonSearchResult from "../AddFavoriteButtonSearchResult/AddFavoriteButtonSearchResult";
+import LanguageTogglesButton from "../LanguageTogglesButton/LanguageTogglesButton";
 import "./GlobalSearchPage.css";
 
 function GlobalSearchPage() {
@@ -27,14 +28,13 @@ function GlobalSearchPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [search, setSearch] = useState("");
-   const [random, setRandom] = useState(random);
+  const [random, setRandom] = useState(random);
   let globalSearch = useSelector(
     (store) => store.globalSearch
   );
   let id = useSelector((store) => store.id);
   const location = useLocation();
- 
-  
+
   //useEffect
   useEffect(() => {
     console.log("random: ", random);
@@ -43,9 +43,12 @@ function GlobalSearchPage() {
 
   const randomNumberInRange = (min, max) => {
     console.log("in randomNumberInRange: ");
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
+    return (
+      Math.floor(
+        Math.random() * (max - min + 1)
+      ) + min
+    );
+  };
 
   const handleRandom = () => {
     console.log("in handleRandom: ");
@@ -55,7 +58,7 @@ function GlobalSearchPage() {
     if (random !== null && random !== 0) {
       history.push(`/word/${random}`);
     }
-  }
+  };
   return (
     <div className="container">
       {location.pathname === "/globalsearch" ? (
@@ -115,6 +118,7 @@ function GlobalSearchPage() {
           />
         </label>
       </div>
+      <LanguageTogglesButton />
 
       <div className="globalSearchDiv">
         {search !== "" ? (
@@ -159,7 +163,10 @@ function GlobalSearchPage() {
       {/* random word button */}
       {location.pathname === "/globalsearch" ? (
         <>
-          <button onClick = {handleRandom} className="randomSearch">
+          <button
+            onClick={handleRandom}
+            className="randomSearch"
+          >
             Random Word
           </button>
         </>

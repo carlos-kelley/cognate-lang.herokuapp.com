@@ -27,6 +27,7 @@ import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import WordPage from "../WordPage/WordPage";
 import "./App.css";
 import AddFavoriteButtonSearchResult from "../AddFavoriteButtonSearchResult/AddFavoriteButtonSearchResult";
+import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
 
 function App() {
   const dispatch = useDispatch();
