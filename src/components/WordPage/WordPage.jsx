@@ -16,9 +16,6 @@ import { useLocation } from "react-router-dom";
 import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
 
 function WordPage() {
-
-
-  
   //console log toggleEnlish on mount
   useEffect(() => {
     console.log(
@@ -63,6 +60,17 @@ function WordPage() {
   const forvo = useSelector(
     (store) => store.forvo
   );
+  const start = () => {
+    console.log(
+      "in start, forvo path is: ",
+      forvo.items[0].pathmp3
+    );
+    const audio = new Audio(
+      forvo.items[0].pathmp3
+    );
+
+    audio.play();
+  };
 
   const [word, setWord] = useState(null);
   // const [audioPath, setAudioPath] = useState(null);
@@ -149,6 +157,7 @@ function WordPage() {
                     "action.payload in forvo eng: ",
                     word.english
                   );
+                  start();
                   // console.log ("forvo in func is: ", forvo);
                   // const audio = new Audio(
                   //   forvo.items[0].pathmp3
@@ -195,7 +204,7 @@ function WordPage() {
         );
       })}
       <div>
-        <button
+        {/* <button
           onClick={() => {
             console.log(
               "forvo is: ",
@@ -208,7 +217,7 @@ function WordPage() {
           }}
         >
           show forvo
-        </button>
+        </button> */}
         <AddFavoriteWordPage />
       </div>
     </div>
