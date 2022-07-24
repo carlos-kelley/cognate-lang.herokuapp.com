@@ -45,8 +45,10 @@ h3.searchResult {
     color: #000;
     font-weight: 300;
     font-size: 18px;
-    line-height: 1.5;
-    width: 75%;
+    line-height: 1.4;
+    width: 80%;
+    display: inline-block;
+    position: relative;
 }
 
 .globalSearchDiv {
@@ -60,5 +62,22 @@ h3.searchResult {
 .resultContainer {
     border-bottom: 1px solid black;
     width: 100%;
-    padding-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+button.searchFav {
+    background-color: red !important;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-left: 5%;
+    border: none;
+    padding: 0px !important;
+}
+
+.resultContainer:last-of-type {
+    border: none;
 }

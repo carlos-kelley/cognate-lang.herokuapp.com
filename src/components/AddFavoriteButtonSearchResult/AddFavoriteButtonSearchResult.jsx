@@ -32,8 +32,11 @@ function AddFavoriteButton() {
 
   return (
     //button that says AddFav that runs handleAddFavorite when clicked
-    <button onClick={handleAddFavorite} className="searchFav">
-      AddFav
+    <button
+      onClick={handleAddFavorite}
+      className="searchFav"
+    >
+      <img src="/images/favorite.png" />
     </button>
   );
 }
