@@ -6,21 +6,24 @@ import {
 } from "react-redux";
 import axios from "axios";
 import { useState } from "react";
+import {useParams} from "react-router-dom";
 
 function AddFavoriteWordPage() {
   //create store
   const thisWord = useSelector(
     (store) => store.thisWord
   );
+  const params = useParams();
+  const wordID = params.id;
 
-  const [identity, setIdentity] = useState(
-    thisWord[0].id
-  );
+  // const [identity, setIdentity] = useState(
+  //   thisWord[0].id
+  // );
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
     console.log("word in addfav: ", thisWord);
-    console.log("identity: ", identity);
+    console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
     // axios.post("/api/favorites", {
