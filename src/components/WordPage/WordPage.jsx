@@ -16,6 +16,9 @@ import { useLocation } from "react-router-dom";
 import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
 
 function WordPage() {
+
+
+  
   //console log toggleEnlish on mount
   useEffect(() => {
     console.log(
@@ -62,6 +65,7 @@ function WordPage() {
   );
 
   const [word, setWord] = useState(null);
+  // const [audioPath, setAudioPath] = useState(null);
   //if i pull all the words can i map them with a filter?
 
   useEffect(() => {
@@ -145,6 +149,11 @@ function WordPage() {
                     "action.payload in forvo eng: ",
                     word.english
                   );
+                  // console.log ("forvo in func is: ", forvo);
+                  // const audio = new Audio(
+                  //   forvo.items[0].pathmp3
+                  // );
+                  // audio.play();
                 }}
               >
                 {word.english}
@@ -192,6 +201,10 @@ function WordPage() {
               "forvo is: ",
               forvo.items[0].pathmp3
             );
+            const audio = new Audio(forvo.items[0].pathmp3);
+           
+              audio.play();
+            
           }}
         >
           show forvo
