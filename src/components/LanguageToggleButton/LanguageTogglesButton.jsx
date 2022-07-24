@@ -53,64 +53,107 @@ function LanguageToggleButton() {
 
   const handleFrenchClick = () => {
     console.log("in handleFrenchClick");
-    //if toggleFrench true dispatch FRENCH_FALSE
-    if (toggleFrench) {
+    //if toggleEnglish is true, set it to false
+    if (toggleFrench === true) {
+      console.log(
+        "toggleFrench:",
+        toggleFrench
+      );
       dispatch({
-        type: "FRENCH_FALSE",
+        type: "TOGGLE_FRENCH",
+        payload: false,
       });
     }
-    //if toggleFrench false dispatch FRENCH_TRUE
-    else {
+    //else if toggleFrench is false, set it to true
+    else if (toggleFrench === false) {
+      console.log(
+        "toggleFrench:",
+        toggleFrench
+      );
       dispatch({
-        type: "FRENCH_TRUE",
+        type: "TOGGLE_FRENCH",
+        payload: true,
       });
     }
   };
+    
+    const handleSpanishClick = () => {
+      console.log("in handleSpanishClick");
+      //if toggleSpanish is true, set it to false
+      if (toggleSpanish === true) {
+        console.log(
+          "toggleSpanish:",
+          toggleSpanish
+        );
+        dispatch({
+          type: "TOGGLE_SPANISH",
+          payload: false,
+        });
+      }
+      //else if toggleSpanish is false, set it to true
+      else if (toggleSpanish === false) {
+        console.log(
+          "toggleSpanish:",
+          toggleSpanish
+        );
+        dispatch({
+          type: "TOGGLE_SPANISH",
+          payload: true,
+        });
+      }
+    };
 
-  const handleSpanishClick = () => {
-    console.log("in handleSpanishClick");
-    //if toggleSpanish true dispatch SPANISH_FALSE
-    if (toggleSpanish) {
-      dispatch({
-        type: "SPANISH_FALSE",
-      });
-      //if toggleSpanish false dispatch SPANISH_TRUE
-    } else {
-      dispatch({
-        type: "SPANISH_TRUE",
-      });
-    }
-  };
+    const handleItalianClick = () => {
+      console.log("in handleItalianClick");
+      //if toggleItalian is true, set it to false
+      if (toggleItalian === true) {
+        console.log(
+          "toggleItalian:",
+          toggleItalian
+        );
+        dispatch({
+          type: "TOGGLE_ITALIAN",
+          payload: false,
+        });
+      }
+      //else if toggleItalian is false, set it to true
+      else if (toggleItalian === false) {
+        console.log(
+          "toggleItalian:",
+          toggleItalian
+        );
+        dispatch({
+          type: "TOGGLE_ITALIAN",
+          payload: true,
+        });
+      }
+    };
 
-  const handleItalianClick = () => {
-    console.log("in handleItalianClick");
-    //if toggleItalian true dispatch ITALIAN_FALSE
-    if (toggleItalian) {
-      dispatch({
-        type: "ITALIAN_FALSE",
-      });
-      //if toggleItalian false dispatch ITALIAN_TRUE
-    } else {
-      dispatch({
-        type: "ITALIAN_TRUE",
-      });
-    }
-  };
-
-  const handlePortugueseClick = () => {
-    console.log("in handlePortugueseClick");
-    //if togglePortuguese true dispatch PORTUGUESE_FALSE
-    if (togglePortuguese) {
-      dispatch({
-        type: "PORTUGUESE_FALSE",
-      });
-      //if togglePortuguese false dispatch PORTUGUESE_TRUE
-    } else {
-      dispatch({
-        type: "PORTUGUESE_TRUE",
-      });
-    }
-  };
+    const handlePortugueseClick = () => {
+      console.log("in handlePortugueseClick");
+      //if togglePortuguese is true, set it to false
+      if (togglePortuguese === true) {
+        console.log(
+          "togglePortuguese:",
+          togglePortuguese
+        );
+        dispatch({
+          type: "TOGGLE_PORTUGUESE",
+          payload: false,
+        });
+      }
+      //else if togglePortuguese is false, set it to true
+      else if (togglePortuguese === false) {
+        console.log(
+          "togglePortuguese:",
+          togglePortuguese
+        );
+        dispatch({
+          type: "TOGGLE_PORTUGUESE",
+          payload: true,
+        });
+      }
+    };
 
   return (
     <div>

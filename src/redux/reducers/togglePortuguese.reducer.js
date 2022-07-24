@@ -3,15 +3,12 @@ const togglePortugueseReducer = (
   action
 ) => {
   switch (action.type) {
-    case "PORTUGUESE_TRUE":
-      state = true;
-    case "PORTUGUESE_FALSE":
-      state = false;
+    case "TOGGLE_PORTUGUESE":
+      return action.payload;
     default:
       return state;
   }
 };
-
 // user will be on the redux state at:
 // state.user
 export default togglePortugueseReducer;
