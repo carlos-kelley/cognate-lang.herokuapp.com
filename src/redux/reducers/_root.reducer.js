@@ -11,7 +11,12 @@ import toggleItalian from "./toggleItalian.reducer";
 import toggleFrench from "./toggleFrench.reducer";
 import toggleEnglish from "./toggleEnglish.reducer";
 import togglePortuguese from "./togglePortuguese.reducer";
-import forvo from "./forvo.reducer";
+import forvoEnglish from "./forvoEnglish.reducer";
+import forvoPortuguese from "./forvoPortuguese.reducer";
+import forvoSpanish from "./forvoSpanish.reducer";
+import forvoItalian from "./forvoItalian.reducer";
+import forvoFrench from "./forvoFrench.reducer";
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -32,7 +37,11 @@ const rootReducer = combineReducers({
   toggleItalian,
   toggleFrench,
   togglePortuguese,
-  forvo,
+  forvoEnglish, 
+  forvoSpanish,
+  forvoItalian,
+  forvoFrench,
+  forvoPortuguese
 });
 
 export default rootReducer;

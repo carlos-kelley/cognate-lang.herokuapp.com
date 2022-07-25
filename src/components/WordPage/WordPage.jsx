@@ -57,18 +57,70 @@ function WordPage() {
   const togglePortuguese = useSelector(
     (store) => store.togglePortuguese
   );
-  const forvo = useSelector(
-    (store) => store.forvo
+  const forvoEnglish = useSelector(
+    (store) => store.forvoEnglish
   );
-  const start = () => {
+  const forvoFrench = useSelector(
+    (store) => store.forvoFrench
+  );
+  const forvoSpanish = useSelector(
+    (store) => store.forvoSpanish
+  );
+  const forvoItalian = useSelector(
+    (store) => store.forvoItalian
+  );
+  const forvoPortuguese = useSelector(
+    (store) => store.forvoPortuguese
+  );
+
+  const startEnglish = () => {
     console.log(
-      "in start, forvo path is: ",
-      forvo.items[0].pathmp3
+      "in starteng, forvo path is: ",
+      forvoEnglish
     );
     const audio = new Audio(
-      forvo.items[0].pathmp3
+      forvoEnglish.items[0].pathmp3
     );
-
+    audio.play();
+  };
+  const startFrench = () => {
+    console.log(
+      "in startfr, forvo path is: ",
+      forvoFrench
+    );
+    const audio = new Audio(
+      forvoFrench.items[0].pathmp3
+    );
+    audio.play();
+  };
+  const startSpanish = () => {
+    console.log(
+      "in startsp, forvo path is: ",
+      forvoSpanish
+    );
+    const audio = new Audio(
+      forvoSpanish.items[0].pathmp3
+    );
+    audio.play();
+  };
+  const startItalian = () => {
+    console.log(
+      "in startit, forvo path is: ",
+      forvoItalian
+    );
+    const audio = new Audio(
+      forvoItalian.items[0].pathmp3
+    );
+    audio.play();
+  };
+  const startPortuguese = () => {
+    console.log(
+      "in startpo, forvo path is: ",
+      forvoPortuguese.items[0].pathmp3
+    );
+    const audio = new Audio(
+      forvoPortuguese.items[0].pathmp3
+    );
     audio.play();
   };
 
@@ -157,7 +209,7 @@ function WordPage() {
                     "action.payload in forvo eng: ",
                     word.english
                   );
-                  start();
+                  startEnglish();
                   // console.log ("forvo in func is: ", forvo);
                   // const audio = new Audio(
                   //   forvo.items[0].pathmp3
