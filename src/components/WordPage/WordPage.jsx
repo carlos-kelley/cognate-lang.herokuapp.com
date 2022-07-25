@@ -225,32 +225,54 @@ function WordPage() {
                 className="frenchWord"
                 onClick={() => {
                   //create regex to remove "l'"" and "la " and "le " from word.french
-                  const regex = /(^l'|^le |^la )/gi;
-                   const newFrench =
-                     word.french.replace(
-                       regex,
-                       ""
-                     );
-                    console.log(
-                      "new french is: ",
-                      newFrench
+                  const regex =
+                    /(^l'|^le |^la )/gi;
+                  const newFrench =
+                    word.french.replace(
+                      regex,
+                      ""
                     );
+                  console.log(
+                    "new french is: ",
+                    newFrench
+                  );
                   //use last regex and remove anything inside parentheses from newFrench
                   const regex2 = /\((.*?)\)/gi;
                   const newFrench2 =
-                    newFrench.replace(
-                      regex2,
+                    newFrench.replace(regex2, "");
+                  console.log(
+                    "newFrench2 is: ",
+                    newFrench2
+                  );
+                  //regex to remove anything after a comma from newFrench2
+                  const regex3 = /, (.*)/gi;
+                  const newFrench3 =
+                    newFrench2.replace(
+                      regex3,
                       ""
                     );
-                  console.log("newFrench2 is: ", newFrench2);
+                  console.log(
+                    "newFrench3 is: ",
+                    newFrench3
+                  );
+                  //regex to remove "les " from newFrench3
+                  const regex4 = /les /gi;
+                  const newFrench4 =
+                    newFrench3.replace(
+                      regex4,
+                      ""
+                    );
+                  console.log(
+                    "newFrench4 is: ",
+                    newFrench4
+                  );
                   //send word to saga to get forvo audio
                   dispatch({
                     type: "FETCH_FORVO_FRENCH",
-                    payload: newFrench2,
+                    payload: newFrench4,
                   });
                   startFrench();
-                 
-                
+
                   // const regex = /\(([^)]+)\)/;
                   // const regexResult = regex.exec(word.french);
                   // console.log( "regexResult is: ", regexResult);
@@ -259,10 +281,25 @@ function WordPage() {
                 {word.french}
               </h3>
             )}
+            {/* el la () los las  , */}
             {toggleSpanish && (
               <h3
                 className="spanishWord"
-                onClick={handleForvoSpanish}
+                onClick={() => {
+                  //create regex to remove "la " and "el " and "los " and "las " and anything after a comma and anything in parentheses from word.spanish
+                  const regex =
+                    /(^la |^el |^los |^las |, (.*)|\((.*?)\))/gi;
+                  const newSpanish =
+                    word.spanish.replace(
+                      regex,
+                      ""
+                    );
+                  console.log(
+                    "new Spanish is: ",
+                    newSpanish
+                  );
+                }
+                }
               >
                 {word.spanish}
               </h3>
