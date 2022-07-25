@@ -201,9 +201,13 @@ function WordPage() {
               <h3
                 className="englishWord"
                 onClick={() => {
+                  //create regex to remove everything inside parentheses or after a comma
+                  const regex = /(, (.*)|\((.*?)\))/g;
+                  const newEnglish = word.english.replace(regex, "");
+
                   dispatch({
                     type: "FETCH_FORVO_ENGLISH",
-                    payload: word.english,
+                    payload: newEnglish,
                   });
                   console.log(
                     "action.payload in forvo eng: ",
@@ -298,6 +302,12 @@ function WordPage() {
                     "new Spanish is: ",
                     newSpanish
                   );
+                  //send word to saga to get forvo audio
+                  dispatch({
+                    type: "FETCH_FORVO_SPANISH",
+                    payload: newSpanish,
+                  });
+                  startSpanish();
                 }
                 }
               >
@@ -307,7 +317,28 @@ function WordPage() {
             {toggleItalian && (
               <h3
                 className="italianWord"
-                onClick={handleForvoItalian}
+                onClick={() => {
+                  //create regex to remove "il " and "lo " and "la " and "gli " and "l'" and "i " and "le " and anything after a comma and anything in parentheses from word.spanish
+                  const regex =
+                    /(^il |^lo |^la |^gli |^l'|^i |^le |, (.*)|\((.*?)\))/gi;
+                  const newItalian =
+                    word.italian.replace(
+                      regex,
+                      ""
+                    );
+                  console.log(
+                    "new Italian is: ",
+                    newItalian
+                  );
+                  //send word to saga to get forvo audio
+                  dispatch({
+                    type: "FETCH_FORVO_ITALIAN",
+                    payload: newItalian,
+                  });
+                  startItalian();
+                }
+                }
+                
               >
                 {word.italian}
               </h3>
@@ -315,7 +346,27 @@ function WordPage() {
             {togglePortuguese && (
               <h3
                 className="portugueseWord"
-                onClick={handleForvoPortuguese}
+                onClick={() => {
+                  //create regex to remove "o " "a " "os " "as " and anything after a comma and anything in parentheses from word.portuguese
+                  const regex =
+                    /(^o |^a |^os |^as |, (.*)|\((.*?)\))/gi;
+                  const newPortuguese =
+                    word.portuguese.replace(
+                      regex,
+                      ""
+                    );
+                  console.log(
+                    "new Portuguese is: ",
+                    newPortuguese
+                  );
+                  //send word to saga to get forvo audio
+                  dispatch({
+                    type: "FETCH_FORVO_PORTUGUESE",
+                    payload: newPortuguese,
+                  });
+                  startPortuguese();
+                }
+                }
               >
                 {word.portuguese}
               </h3>
