@@ -231,6 +231,10 @@ function WordPage() {
                        regex,
                        ""
                      );
+                    console.log(
+                      "new french is: ",
+                      newFrench
+                    );
                   //use last regex and remove anything inside parentheses from newFrench
                   const regex2 = /\((.*?)\)/gi;
                   const newFrench2 =
@@ -239,8 +243,14 @@ function WordPage() {
                       ""
                     );
                   console.log("newFrench2 is: ", newFrench2);
+                  //send word to saga to get forvo audio
+                  dispatch({
+                    type: "FETCH_FORVO_FRENCH",
+                    payload: newFrench2,
+                  });
+                  startFrench();
                  
-                  console.log("new french is: ", newFrench);
+                
                   // const regex = /\(([^)]+)\)/;
                   // const regexResult = regex.exec(word.french);
                   // console.log( "regexResult is: ", regexResult);
