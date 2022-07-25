@@ -97,6 +97,7 @@ function AddFavoriteWordPage() {
         autoHideDuration={1500}
         onClose={handleClose}
         // if button says "Add Favorite" then snackbar should say "Added to Favorites"
+        // if button says "Delete Favorite" then class sould be "delete-favorite"
         // if button says "Delete Favorite" then snackbar should say "Removed from Favorites"
         message={faved ? "Favorite added!" : "Favorite removed!"}
         action={action}
