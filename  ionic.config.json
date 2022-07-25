@@ -1,0 +1,7 @@
+{
+  "name": "cognate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

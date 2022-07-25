@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "cognate",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
