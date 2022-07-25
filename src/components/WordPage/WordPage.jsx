@@ -223,7 +223,28 @@ function WordPage() {
             {toggleFrench && (
               <h3
                 className="frenchWord"
-                onClick={handleForvoFrench}
+                onClick={() => {
+                  //create regex to remove "l'"" and "la " and "le " from word.french
+                  const regex = /(^l'|^le |^la )/gi;
+                   const newFrench =
+                     word.french.replace(
+                       regex,
+                       ""
+                     );
+                  //use last regex and remove anything inside parentheses from newFrench
+                  const regex2 = /\((.*?)\)/gi;
+                  const newFrench2 =
+                    newFrench.replace(
+                      regex2,
+                      ""
+                    );
+                  console.log("newFrench2 is: ", newFrench2);
+                 
+                  console.log("new french is: ", newFrench);
+                  // const regex = /\(([^)]+)\)/;
+                  // const regexResult = regex.exec(word.french);
+                  // console.log( "regexResult is: ", regexResult);
+                }}
               >
                 {word.french}
               </h3>
