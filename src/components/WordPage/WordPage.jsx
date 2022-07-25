@@ -8,11 +8,11 @@ import {
   useSelector,
 } from "react-redux";
 
-import { useHistory } from "react-router-dom";
+
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
 import "./WordPage.css";
-import { useLocation } from "react-router-dom";
+
 import AddFavoriteWordPage from "../AddFavoriteWordPage/AddFavoriteWordPage";
 
 function WordPage() {

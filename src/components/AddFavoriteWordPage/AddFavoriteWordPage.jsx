@@ -7,6 +7,10 @@ import {
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 function AddFavoriteWordPage() {
   //create store
@@ -18,6 +22,13 @@ function AddFavoriteWordPage() {
   const dispatch = useDispatch();
 
   const [faved, setFaved] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const styles = {
+    snackbarStyleViaContentProps: {
+      backgroundColor: "white",
+    },
+  };
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
@@ -29,7 +40,27 @@ function AddFavoriteWordPage() {
       word_id: wordID,
     });
     setFaved(true);
+    setOpen(true);
   };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   const handleDeleteFavorite = () => {
     console.log("in handleDeleteFavorite");
@@ -59,6 +90,28 @@ function AddFavoriteWordPage() {
           Delete Favorite
         </button>
       )}
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="Favorite added!"
+        action={action}
+        color="secondary"
+        
+        ContentProps={{
+          sx: {
+            background: "white",
+            font: "inherit",
+            
+            "& .MuiSnackbarContent-message": {
+              color: "black",
+            },
+          },
+        }}
+//900 gradient posit
+
+        
+      />
     </div>
   );
 }

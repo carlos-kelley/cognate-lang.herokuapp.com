@@ -7,6 +7,13 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@fontsource/roboto": "^4.5.7",
+    "@material-ui/styles": "^4.11.5",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.1",
+    "@mui/styles": "^5.9.1",
     "axios": "^0.21.4",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",

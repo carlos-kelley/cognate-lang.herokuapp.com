@@ -1,3 +1,5 @@
+
+
 html,
 body,
 #react-root {
@@ -114,10 +116,14 @@ input {
 input.btn,
 button {
   border: 3px solid;
-  border-image: linear-gradient(90deg,rgba(5,169,78,1) 0%,rgba(77,193,255,1));
+  border-image: linear-gradient(
+    90deg,
+    rgba(5, 169, 78, 1) 0%,
+    rgba(77, 193, 255, 1)
+  );
   border-image-slice: 1;
   color: #fff;
-  background: none!important;
+  background: none !important;
   font-family: inherit;
   float: left;
   margin-right: 10px;
@@ -126,7 +132,11 @@ button {
 }
 
 input.btn:hover {
-  background: linear-gradient(90deg,rgba(5,169,78,1) 0%,rgba(77,193,255,1)) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 169, 78, 1) 0%,
+    rgba(77, 193, 255, 1)
+  ) !important;
   border-radius: 0px;
 }
 
@@ -152,7 +162,7 @@ input[type="password"]::placeholder {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-  outline:#fff;
+  outline: #fff;
 }
 
 h2 {
