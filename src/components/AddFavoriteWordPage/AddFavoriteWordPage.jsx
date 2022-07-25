@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import "./AddFavoriteWordPage.css";
 
 function AddFavoriteWordPage() {
   //create store
@@ -35,10 +36,10 @@ function AddFavoriteWordPage() {
     console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
-    axios.post("/api/favorites", {
-      favorites_id: 1, //this should be dynamic
-      word_id: wordID,
-    });
+    // axios.post("/api/favorites", {
+    //   favorites_id: 1, //this should be dynamic
+    //   word_id: wordID,
+    // });
     setFaved(true);
     setOpen(true);
   };
@@ -66,11 +67,12 @@ function AddFavoriteWordPage() {
     console.log("in handleDeleteFavorite");
     console.log("identity: ", wordID);
     //make a Delete request to remove this favorite
-    axios.delete(
-      `/api/favorites?id=${wordID}`,
-      {}
-    );
+    // axios.delete(
+    //   `/api/favorites?id=${wordID}`,
+    //   {}
+    // );
     setFaved(false);
+    setOpen(true);
   };
   // axios.delete("/api/favorites", {
   //   favorites_id: 1, //this should be dynamic
@@ -92,25 +94,26 @@ function AddFavoriteWordPage() {
       )}
       <Snackbar
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={1500}
         onClose={handleClose}
-        message="Favorite added!"
+        // if button says "Add Favorite" then snackbar should say "Added to Favorites"
+        // if button says "Delete Favorite" then snackbar should say "Removed from Favorites"
+        message={faved ? "Favorite added!" : "Favorite removed!"}
         action={action}
         color="secondary"
-        
         ContentProps={{
           sx: {
             background: "white",
             font: "inherit",
-            
             "& .MuiSnackbarContent-message": {
               color: "black",
             },
           },
         }}
-//900 gradient posit
-
-        
+        sx={{
+          //width 250
+          // width: "250px",
+        }}
       />
     </div>
   );

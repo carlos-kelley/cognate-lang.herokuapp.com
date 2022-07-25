@@ -1,0 +1,39 @@
+.css-1mbbh8w-MuiPaper-root-MuiSnackbarContent-root {
+  width: 135px;
+  display: block !important;
+  position: absolute;
+  padding: 20px !important;
+  height: 15px;
+  margin: 72px 10px !important;
+  bottom: unset !important;
+  line-height: 0px !important;
+  /* background: linear-gradient(
+    90deg,
+    rgba(5, 169, 78, 1) 0%,
+    rgba(77, 193, 255, 1) 100%
+  ) !important; */
+  color: #fff !important;
+  border-radius: 10px !important;
+  background-color: #05a94e !important;
+}
+
+.MuiSnackbarContent-action.css-1kr9x0n-MuiSnackbarContent-action {
+  display: none !important;
+}
+
+.MuiSnackbarContent-message.css-1exqwzz-MuiSnackbarContent-message {
+  color: #fff !important;
+  /* text-shadow: 0px 0px 20px rgba(0,0,0,0.75)!important; */
+}
+
+.css-cpgvjg-MuiSnackbar-root {
+    width: 50% !important;
+    margin: 0 auto !important;
+    padding: 0px !important;
+    display: block !important;
+    position: relative !important;
+    bottom: 0px !important;
+    left: unset !important;
+    right: unset !important;
+    top: unset !important;
+}
