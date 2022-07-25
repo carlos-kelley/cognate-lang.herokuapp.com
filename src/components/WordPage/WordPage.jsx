@@ -116,7 +116,7 @@ function WordPage() {
   const startPortuguese = () => {
     console.log(
       "in startpo, forvo path is: ",
-      forvoPortuguese.items[0].pathmp3
+      forvoPortuguese
     );
     const audio = new Audio(
       forvoPortuguese.items[0].pathmp3
