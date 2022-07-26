@@ -40,9 +40,35 @@ function* deleteFavorite(action) {
   }
 }
 
+// axios.post("/api/favorites", {
+//   //this should be dynamic
+//   word_id: wordID,
+// });
+
+function* addFavorite(action) {
+  console.log("adding fav");
+  let wordID = action.payload;
+  try {
+    yield axios.post(
+      "/api/favorites",
+      {
+        word_id: wordID,
+      }
+    );
+    yield put({
+      type: "FETCH_FAVORITES",
+    });
+  } catch (error) {
+    console.log("error in addFavorite:", error);
+  }
+}
+
+    
+
 function* favoritesSaga() {
   yield takeLatest("FETCH_FAVORITES", fetchFavorites);
   yield takeLatest("DELETE_FAVORITE", deleteFavorite);
+  yield takeLatest("ADD_FAVORITE", addFavorite);
   // yield takeLatest("ADD_FAVORITE", addFavorite);
 }
 

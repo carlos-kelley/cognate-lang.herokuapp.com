@@ -36,9 +36,13 @@ function AddFavoriteWordPage() {
     console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
-    axios.post("/api/favorites", {
-//this should be dynamic
-      word_id: wordID,
+//     axios.post("/api/favorites", {
+// //this should be dynamic
+//       word_id: wordID,
+//     });
+    dispatch({
+      type: "ADD_FAVORITE",
+      payload: wordID,
     });
     setFaved(true);
     setOpen(true);
