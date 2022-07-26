@@ -1,4 +1,4 @@
-//imports 
+//imports
 import React from "react";
 import {
   useDispatch,
@@ -22,10 +22,10 @@ function AddFavoriteButton() {
       "favedWord in addfav: ",
       favedWord
     );
-    console.log;
+    console.log("id in addfav: ", id);
     //make a POST request to add a favorite
     axios.post("/api/favorites", {
-      favorites_id: 1, //this should be dynamic
+      // favorites_id: 1, //this should be dynamic
       word_id: id, //do i have to make the ID a reducer
     });
   };

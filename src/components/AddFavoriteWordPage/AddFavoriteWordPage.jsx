@@ -36,10 +36,10 @@ function AddFavoriteWordPage() {
     console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
-    // axios.post("/api/favorites", {
-    //   favorites_id: 1, //this should be dynamic
-    //   word_id: wordID,
-    // });
+    axios.post("/api/favorites", {
+//this should be dynamic
+      word_id: wordID,
+    });
     setFaved(true);
     setOpen(true);
   };
@@ -93,7 +93,7 @@ function AddFavoriteWordPage() {
         </button>
       )}
       <Snackbar
-        class = {faved ? "faved" : "notFaved"}
+        className = {faved ? "faved" : "notFaved"}
         open={open}
         autoHideDuration={1500}
         onClose={handleClose}

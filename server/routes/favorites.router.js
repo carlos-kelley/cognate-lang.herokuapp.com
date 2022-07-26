@@ -45,14 +45,32 @@ router.delete("/", (req, res) => {
 // add word to favorites - NEXT STEP
 router.post("/", (req, res) => {
   console.log("req body: ", req.body);
-  res.send("woof");
   pool
     .query(
-      `INSERT INTO "favorites_word" ("favorites_id", "word_id")
-      VALUES (${req.body.favorites_id}, ${req.body.word_id});`
+      `UPDATE "favorites"
+      SET "user_id" = ${req.user.id}
+      WHERE "user_id" = ${req.user.id}
+      RETURNING "id";`
     )
     .then((result) => {
-      res.sendStatus(200);
+      const favoritesId = result.rows[0].id;
+      wordId = req.body.id;
+      console.log("favoritesId: ", favoritesId);
+      const query = `INSERT INTO "favorites_word" ("favorites_id", "word_id")
+      VALUES ($1, ${req.body.word_id})`;
+      pool
+        .query(query, [favoritesId])
+        // `INSERT INTO "favorites_word" ("favorites_id", "word_id")
+        // VALUES (${req.body.favorites_id}, ${req.body.word_id});`
+        .then((result) => {
+          res.sendStatus(200);
+        })
+        .catch((error) => {
+          console.log(
+            `ERROR: Add weirdness wrong: ${error}`
+          );
+          res.sendStatus(500);
+        });
     })
     .catch((error) => {
       console.log(
