@@ -7,7 +7,7 @@ import {
   useDispatch,
   useSelector,
 } from "react-redux";
-
+import { useRef } from "react";
 
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
@@ -38,6 +38,7 @@ function WordPage() {
   const thisWord = useSelector(
     (store) => store.thisWord
   );
+  const isMounted = useRef(false);
 
   //to use the id and word from the url
   const params = useParams();
@@ -73,16 +74,21 @@ function WordPage() {
     (store) => store.forvoPortuguese
   );
 
-  const startEnglish = () => {
-    console.log(
-      "in starteng, forvo path is: ",
-      forvoEnglish
-    );
-    const audio = new Audio(
-      forvoEnglish.items[0].pathmp3
-    );
-    audio.play();
-  };
+  useEffect(() => {
+    if (isMounted.current) {
+      console.log(
+        "in starteng, forvo path is: ",
+        forvoEnglish
+      );
+      const audio = new Audio(
+        forvoEnglish.items[0].pathmp3
+      );
+      audio.play();
+    } else {
+      isMounted.current = true;
+    }
+  }, [forvoEnglish]);
+
   const startFrench = () => {
     console.log(
       "in startfr, forvo path is: ",
@@ -202,8 +208,13 @@ function WordPage() {
                 className="englishWord"
                 onClick={() => {
                   //create regex to remove everything inside parentheses or after a comma
-                  const regex = /(, (.*)|\((.*?)\))/g;
-                  const newEnglish = word.english.replace(regex, "");
+                  const regex =
+                    /(, (.*)|\((.*?)\))/g;
+                  const newEnglish =
+                    word.english.replace(
+                      regex,
+                      ""
+                    );
 
                   dispatch({
                     type: "FETCH_FORVO_ENGLISH",
@@ -213,7 +224,6 @@ function WordPage() {
                     "action.payload in forvo eng: ",
                     word.english
                   );
-                  startEnglish();
                   // console.log ("forvo in func is: ", forvo);
                   // const audio = new Audio(
                   //   forvo.items[0].pathmp3
@@ -308,8 +318,7 @@ function WordPage() {
                     payload: newSpanish,
                   });
                   startSpanish();
-                }
-                }
+                }}
               >
                 {word.spanish}
               </h3>
@@ -336,9 +345,7 @@ function WordPage() {
                     payload: newItalian,
                   });
                   startItalian();
-                }
-                }
-                
+                }}
               >
                 {word.italian}
               </h3>
@@ -365,8 +372,7 @@ function WordPage() {
                     payload: newPortuguese,
                   });
                   startPortuguese();
-                }
-                }
+                }}
               >
                 {word.portuguese}
               </h3>
