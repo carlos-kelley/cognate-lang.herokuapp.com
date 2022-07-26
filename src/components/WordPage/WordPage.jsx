@@ -38,7 +38,11 @@ function WordPage() {
   const thisWord = useSelector(
     (store) => store.thisWord
   );
-  const isMounted = useRef(false);
+  const isMountedEnglish = useRef(false);
+  const isMountedFrench = useRef(false);
+  const isMountedItalian = useRef(false);
+  const isMountedSpanish = useRef(false);
+  const isMountedPortuguese = useRef(false);
 
   //to use the id and word from the url
   const params = useParams();
@@ -75,7 +79,7 @@ function WordPage() {
   );
 
   useEffect(() => {
-    if (isMounted.current) {
+    if (isMountedEnglish.current) {
       console.log(
         "in starteng, forvo path is: ",
         forvoEnglish
@@ -85,50 +89,69 @@ function WordPage() {
       );
       audio.play();
     } else {
-      isMounted.current = true;
+      isMountedEnglish.current = true;
     }
   }, [forvoEnglish]);
 
-  const startFrench = () => {
-    console.log(
-      "in startfr, forvo path is: ",
-      forvoFrench
-    );
-    const audio = new Audio(
-      forvoFrench.items[0].pathmp3
-    );
-    audio.play();
-  };
-  const startSpanish = () => {
-    console.log(
-      "in startsp, forvo path is: ",
-      forvoSpanish
-    );
-    const audio = new Audio(
-      forvoSpanish.items[0].pathmp3
-    );
-    audio.play();
-  };
-  const startItalian = () => {
-    console.log(
-      "in startit, forvo path is: ",
-      forvoItalian
-    );
-    const audio = new Audio(
-      forvoItalian.items[0].pathmp3
-    );
-    audio.play();
-  };
-  const startPortuguese = () => {
-    console.log(
-      "in startpo, forvo path is: ",
-      forvoPortuguese
-    );
-    const audio = new Audio(
-      forvoPortuguese.items[0].pathmp3
-    );
-    audio.play();
-  };
+  useEffect(() => {
+    if (isMountedFrench.current) {
+      console.log(
+        "in startfr, forvo path is: ",
+        forvoFrench
+      );
+      const audio = new Audio(
+        forvoFrench.items[0].pathmp3
+      );
+      audio.play();
+    } else {
+      isMountedFrench.current = true;
+    }
+  }, [forvoFrench]);
+
+  useEffect(() => {
+    if (isMountedSpanish.current) {
+      console.log(
+        "in startsp, forvo path is: ",
+        forvoSpanish
+      );
+      const audio = new Audio(
+        forvoSpanish.items[0].pathmp3
+      );
+      audio.play();
+    } else {
+      isMountedSpanish.current = true;
+    }
+  }, [forvoSpanish]);
+
+  useEffect(() => {
+    if (isMountedItalian.current) {
+      console.log(
+        "in startit, forvo path is: ",
+        forvoItalian
+      );
+      const audio = new Audio(
+        forvoItalian.items[0].pathmp3
+      );
+      audio.play();
+    } else {
+      isMountedItalian.current = true;
+    }
+  }, [forvoItalian]);
+
+  useEffect(() => {
+    if (isMountedPortuguese.current) {
+      console.log(
+        "in startpo, forvo path is: ",
+        forvoPortuguese
+      );
+      const audio = new Audio(
+        forvoPortuguese.items[0].pathmp3
+      );
+      audio.play();
+    } else {
+      isMountedPortuguese.current = true;
+    }
+  }, [forvoPortuguese]);
 
   const [word, setWord] = useState(null);
   // const [audioPath, setAudioPath] = useState(null);
