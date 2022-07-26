@@ -4,7 +4,6 @@ import {
   useDispatch,
   useSelector,
 } from "react-redux";
-import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -25,21 +24,11 @@ function AddFavoriteWordPage() {
   const [faved, setFaved] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const styles = {
-    snackbarStyleViaContentProps: {
-      backgroundColor: "white",
-    },
-  };
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
     console.log("identity: ", wordID);
 
-    //make a POST request to add a favorite
-    //     axios.post("/api/favorites", {
-    // //this should be dynamic
-    //       word_id: wordID,
-    //     });
     dispatch({
       type: "ADD_FAVORITE",
       payload: wordID,
@@ -47,6 +36,7 @@ function AddFavoriteWordPage() {
     setFaved(true);
     setOpen(true);
   };
+  
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
