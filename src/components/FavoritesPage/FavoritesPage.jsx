@@ -13,10 +13,6 @@ import { useHistory } from "react-router-dom";
 import "./FavoritesPage.css";
 
 function FavoritesPage() {
-  //handle pushing to word page onclick
-  // const navToWord = () => {
-  //   history.push("/word");
-  // };
 
   //declare variables and stores
   const dispatch = useDispatch();
@@ -75,21 +71,6 @@ function FavoritesPage() {
                   className="favContainer"
                   key={favorite.word_id}
                 >
-                  {/* display the favorite in all its languages */}
-                  {/* <h3
-                    onClick={() =>
-                      history.push(
-                        `/word/${favorite.word_id}`
-                      )
-                    }
-                  >
-                    {favorite.english},&nbsp;
-                    {favorite.french},&nbsp;
-                    {favorite.italian},&nbsp;
-                    {favorite.spanish},&nbsp;
-                    {favorite.portuguese}
-                  </h3> */}
-
                   <div
                     className="favInsideContainer"
                     onClick={() =>

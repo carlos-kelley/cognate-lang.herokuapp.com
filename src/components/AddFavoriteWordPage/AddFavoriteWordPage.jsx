@@ -5,6 +5,7 @@ import {
   useSelector,
 } from "react-redux";
 import { useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
@@ -14,9 +15,6 @@ import "./AddFavoriteWordPage.css";
 
 function AddFavoriteWordPage() {
   //create store
-  const thisWord = useSelector(
-    (store) => store.thisWord
-  );
   const params = useParams();
   const wordID = params.id;
   const dispatch = useDispatch();
@@ -24,19 +22,47 @@ function AddFavoriteWordPage() {
   const [faved, setFaved] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const favorites = useSelector(
+    (store) => store.favorites
+  );
+
+  const checkIfFaved = () => {
+    console.log("in compareFavorites: ");
+    console.log(
+      "compare with favorites: ",
+      favorites
+    );
+    console.log("compare with wordID: ", wordID);
+    const check = favorites.findIndex(function (favorite) {
+      return favorite.word_id === Number(wordID);
+    }
+    );
+    //if word is in favorites, set faved to true
+    if (check !== -1) {
+      setFaved(true);
+    }
+    //if word is not in favorites, set faved to false
+    else {
+      setFaved(false);
+    }
+  }
+
+
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
     console.log("identity: ", wordID);
-
-    dispatch({
-      type: "ADD_FAVORITE",
-      payload: wordID,
-    });
-    setFaved(true);
+    //if word is not in favorites, add it
+    if (faved === false) {
+      dispatch({
+        type: "ADD_FAVORITE",
+        payload: wordID,
+      });
+    }
+    // setFaved(true);
     setOpen(true);
   };
-  
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -64,9 +90,14 @@ function AddFavoriteWordPage() {
       type: "DELETE_FAVORITE",
       payload: wordID,
     });
-    setFaved(false);
+    // setFaved(false);
     setOpen(true);
   };
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_FAVORITES" });
+    checkIfFaved();
+  }, []);
 
   return (
     <div>

@@ -42,7 +42,7 @@ function GlobalSearchPage() {
   //useEffect
   useEffect(() => {
     console.log("random: ", random);
-    setRandom(randomNumberInRange(3, 352));
+    setRandom(randomNumberInRange(3, 339));
   }, []);
 
   const randomNumberInRange = (min, max) => {
