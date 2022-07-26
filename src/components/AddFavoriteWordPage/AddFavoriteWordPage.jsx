@@ -52,13 +52,11 @@ function AddFavoriteWordPage() {
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
     console.log("identity: ", wordID);
-    //if word is not in favorites, add it
-    if (faved === false) {
-      dispatch({
-        type: "ADD_FAVORITE",
-        payload: wordID,
-      });
-    }
+
+    dispatch({
+      type: "ADD_FAVORITE",
+      payload: wordID,
+    });
     // setFaved(true);
     setOpen(true);
   };
