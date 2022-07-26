@@ -29,7 +29,19 @@ router.delete("/", (req, res) => {
   console.log("req query: ", req.query);
   pool
     .query(
-      `DELETE FROM "favorites_word" WHERE "word_id" = ${req.query.id};`
+      `UPDATE favorites
+      SET user_id = ${req.user.id}
+      WHERE user_id = ${req.user.id}
+      RETURNING id;`
+  )
+    .then((result) => {
+      const favoritesId = result.rows[0].id;
+      console.log("favoritesId: ", favoritesId);
+  pool
+    .query(
+      `DELETE FROM "favorites_word" 
+      WHERE "word_id" = ${req.query.id}
+      AND favorites_id = ${favoritesId};`
     )
     .then((result) => {
       res.sendStatus(200);
@@ -40,7 +52,16 @@ router.delete("/", (req, res) => {
       );
       res.sendStatus(500);
     });
-});
+    }) 
+    .catch((error) => {
+      console.log(
+        `ERROR: Delete Favorite: ${error}`
+      );
+      res.sendStatus(500);
+    }
+  );
+}
+);
 
 // add word to favorites - NEXT STEP
 router.post("/", (req, res) => {
