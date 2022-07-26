@@ -1,4 +1,3 @@
-
 .wordSearchContainer {
   background-color: #282526;
 }
@@ -29,7 +28,7 @@
 }
 
 h3.englishWord {
-  border-left: #d6d6d6 4px solid;
+  border-left: #d71fc1 4px solid;
 }
 
 h3.frenchWord {
@@ -50,7 +49,7 @@ h3.portugueseWord {
 
 h3.englishWord::before {
   content: "English";
-  color: #d6d6d6;
+  color: #D71FC1;
   font-size: 12px;
   display: block;
   position: relative;
@@ -118,7 +117,9 @@ h3.portugueseWord::before {
   line-height: 0px;
 }
 
-.wordSearchContainer.withToggle .container .globalSearchDiv {
+.wordSearchContainer.withToggle
+  .container
+  .globalSearchDiv {
   margin-top: -50px !important;
   position: absolute;
   width: calc(100% - 60px);
@@ -155,11 +156,84 @@ button.deleteFavbutton:after {
   content: " ";
   background-size: 16px;
   background-repeat: no-repeat;
-  margin-left: 8px;  
+  margin-left: 8px;
 }
 
-button.deleteFavbutton{
-  border-image-source: linear-gradient( 90deg, #d82f58 0%, #c06c6c 100%);
+button.deleteFavbutton {
+  border-image-source: linear-gradient(
+    90deg,
+    #d82f58 0%,
+    #c06c6c 100%
+  );
   padding: 10px 40px 10px 20px !important;
 }
 
+.englishWord:after {
+  height: 20px;
+  width: 30px;
+  background-image: url(/public/images/ENvolume.png);
+  display: inline-block;
+  position: relative;
+  content: " ";
+  background-size: 18px;
+  background-repeat: no-repeat;
+  top: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.frenchWord:after {
+  height: 20px;
+  width: 30px;
+  background-image: url(/public/images/FRvolume.png);
+  display: inline-block;
+  position: relative;
+  content: " ";
+  background-size: 18px;
+  background-repeat: no-repeat;
+  top: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.spanishWord:after {
+  height: 20px;
+  width: 30px;
+  background-image: url(/public/images/SPvolume.png);
+  display: inline-block;
+  position: relative;
+  content: " ";
+  background-size: 18px;
+  background-repeat: no-repeat;
+  top: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.italianWord:after {
+  height: 20px;
+  width: 30px;
+  background-image: url(/public/images/ITvolume.png);
+  display: inline-block;
+  position: relative;
+  content: " ";
+  background-size: 18px;
+  background-repeat: no-repeat;
+  top: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.portugueseWord:after {
+  height: 20px;
+  width: 30px;
+  background-image: url(/public/images/POvolume.png);
+  display: inline-block;
+  position: relative;
+  content: " ";
+  background-size: 18px;
+  background-repeat: no-repeat;
+  top: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}

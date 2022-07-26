@@ -5,8 +5,12 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background: rgb(5,169,78);
-  background: linear-gradient(90deg, rgba(5,169,78,1) 0%, rgba(77,193,255,1) 100%);
+  background: rgb(5, 169, 78);
+  background: linear-gradient(
+    90deg,
+    rgba(5, 169, 78, 1) 0%,
+    rgba(77, 193, 255, 1) 100%
+  );
   overflow: hidden;
   padding: 30px 30px 15px 30px;
 }
@@ -48,7 +52,8 @@ img.navLogo {
   width: auto;
 }
 
-img.navSearch, img.navFav {
+img.navSearch,
+img.navFav {
   width: 30px;
   padding: 0px;
 }
@@ -57,7 +62,7 @@ ul.navList {
   list-style-type: none;
   display: block;
   position: relative;
-  width: 33%;
+  width: 35%;
 }
 
 ul.navList li {
