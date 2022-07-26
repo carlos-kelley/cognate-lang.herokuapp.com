@@ -33,16 +33,18 @@ function AddFavoriteWordPage() {
       favorites
     );
     console.log("compare with wordID: ", wordID);
+
     const check = favorites.findIndex(function (favorite) {
       return favorite.word_id === Number(wordID);
     }
     );
+    console.log("check: ", check);
     //if word is in favorites, set faved to true
     if (check !== -1) {
       setFaved(true);
     }
     //if word is not in favorites, set faved to false
-    else {
+    else if (check === -1) {
       setFaved(false);
     }
   }
@@ -95,7 +97,7 @@ function AddFavoriteWordPage() {
   useEffect(() => {
     dispatch({ type: "FETCH_FAVORITES" });
     checkIfFaved();
-  }, []);
+  }, [checkIfFaved]);
 
   return (
     <div>
