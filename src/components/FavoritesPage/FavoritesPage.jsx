@@ -13,7 +13,6 @@ import { useHistory } from "react-router-dom";
 import "./FavoritesPage.css";
 
 function FavoritesPage() {
-
   //declare variables and stores
   const dispatch = useDispatch();
   const history = useHistory();
@@ -102,7 +101,9 @@ function FavoritesPage() {
                   <button
                     className="btn btn_sizeSm"
                     onClick={() => {
-                      console.log ("in fav delete")
+                      console.log(
+                        "in fav delete"
+                      );
                       dispatch({
                         type: "DELETE_FAVORITE",
                         payload: favorite.word_id,
@@ -155,7 +156,7 @@ function FavoritesPage() {
                       <p className="SPfav">
                         {favoriteSearch.spanish}
                       </p>
-                      <p className="ITfav">
+                      <p className="POfav">
                         {
                           favoriteSearch.portuguese
                         }
@@ -165,7 +166,9 @@ function FavoritesPage() {
                     <button
                       className="btn btn_sizeSm"
                       onClick={() => {
-                        console.log ("in fav search delete");
+                        console.log(
+                          "in fav search delete"
+                        );
                         dispatch({
                           type: "DELETE_FAVORITE_SEARCH",
                           payload:
