@@ -308,11 +308,6 @@ function WordPage() {
                     type: "FETCH_FORVO_FRENCH",
                     payload: newFrench4,
                   });
-                  startFrench();
-
-                  // const regex = /\(([^)]+)\)/;
-                  // const regexResult = regex.exec(word.french);
-                  // console.log( "regexResult is: ", regexResult);
                 }}
               >
                 {word.french}
@@ -340,7 +335,6 @@ function WordPage() {
                     type: "FETCH_FORVO_SPANISH",
                     payload: newSpanish,
                   });
-                  startSpanish();
                 }}
               >
                 {word.spanish}
@@ -367,7 +361,6 @@ function WordPage() {
                     type: "FETCH_FORVO_ITALIAN",
                     payload: newItalian,
                   });
-                  startItalian();
                 }}
               >
                 {word.italian}
@@ -394,7 +387,6 @@ function WordPage() {
                     type: "FETCH_FORVO_PORTUGUESE",
                     payload: newPortuguese,
                   });
-                  startPortuguese();
                 }}
               >
                 {word.portuguese}
@@ -404,20 +396,6 @@ function WordPage() {
         );
       })}
       <div className="addFavContainer">
-        {/* <button
-          onClick={() => {
-            console.log(
-              "forvo is: ",
-              forvo.items[0].pathmp3
-            );
-            const audio = new Audio(forvo.items[0].pathmp3);
-           
-              audio.play();
-            
-          }}
-        >
-          show forvo
-        </button> */}
         <AddFavoriteWordPage />
       </div>
     </div>
