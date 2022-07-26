@@ -36,10 +36,10 @@ function AddFavoriteWordPage() {
     console.log("identity: ", wordID);
 
     //make a POST request to add a favorite
-//     axios.post("/api/favorites", {
-// //this should be dynamic
-//       word_id: wordID,
-//     });
+    //     axios.post("/api/favorites", {
+    // //this should be dynamic
+    //       word_id: wordID,
+    //     });
     dispatch({
       type: "ADD_FAVORITE",
       payload: wordID,
@@ -70,41 +70,45 @@ function AddFavoriteWordPage() {
   const handleDeleteFavorite = () => {
     console.log("in handleDeleteFavorite");
     console.log("identity: ", wordID);
-    //make a Delete request to remove this favorite
-    // axios.delete(
-    //   `/api/favorites?id=${wordID}`,
-    //   {}
-    // );
+    dispatch({
+      type: "DELETE_FAVORITE",
+      payload: wordID,
+    });
     setFaved(false);
     setOpen(true);
   };
-  // axios.delete("/api/favorites", {
-  //   favorites_id: 1, //this should be dynamic
-  //   word_id: wordID,
-  // });
-  // setFaved(false);
 
   return (
     <div>
       {/* button that says AddFav that runs handleAddFavorite when clicked */}
       {!faved ? (
-        <button onClick={handleAddFavorite} className="addFavbutton">
+        <button
+          onClick={handleAddFavorite}
+          className="addFavbutton"
+        >
           Add Favorite
         </button>
       ) : (
-        <button onClick={handleDeleteFavorite} className="deleteFavbutton">
+        <button
+          onClick={handleDeleteFavorite}
+          className="deleteFavbutton"
+        >
           Delete Favorite
         </button>
       )}
       <Snackbar
-        className = {faved ? "faved" : "notFaved"}
+        class={faved ? "faved" : "notFaved"}
         open={open}
         autoHideDuration={1500}
         onClose={handleClose}
         // if button says "Add Favorite" then snackbar should say "Added to Favorites"
         // if button says "Delete Favorite" then class sould be "delete-favorite"
         // if button says "Delete Favorite" then snackbar should say "Removed from Favorites"
-        message={faved ? "Favorite added!" : "Favorite removed!"}
+        message={
+          faved
+            ? "Favorite added!"
+            : "Favorite removed!"
+        }
         action={action}
         color="secondary"
         ContentProps={{
@@ -116,10 +120,12 @@ function AddFavoriteWordPage() {
             },
           },
         }}
-        sx={{
-          //width 250
-          // width: "250px",
-        }}
+        sx={
+          {
+            //width 250
+            // width: "250px",
+          }
+        }
       />
     </div>
   );
