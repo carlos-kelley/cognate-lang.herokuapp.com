@@ -71,9 +71,11 @@ function FavoritesPage() {
             {/* loop through our favorites and display them */}
             {favorites.map((favorite) => {
               return (
-                <div key={favorite.word_id}>
+                <div
+                className="favContainer"
+                key={favorite.word_id}>
                   {/* display the favorite in all its languages */}
-                  <h3
+                  {/* <h3
                     onClick={() =>
                       history.push(
                         `/word/${favorite.word_id}`
@@ -85,7 +87,22 @@ function FavoritesPage() {
                     {favorite.italian},&nbsp;
                     {favorite.spanish},&nbsp;
                     {favorite.portuguese}
-                  </h3>
+                  </h3> */}
+
+                  <div
+                  className="favInsideContainer"
+                    onClick={() =>
+                      history.push(
+                        `/word/${favorite.word_id}`
+                      )
+                    }
+                  >
+                    <p className="ENfav">{favorite.english}</p>
+                    <p className="FRfav">{favorite.french}</p>
+                    <p className="SPfav">{favorite.spanish}</p>
+                    <p className="ITfav">{favorite.italian}</p>
+                    <p className="POfav">{favorite.portuguese}</p>
+                  </div>
 
                   {/* render a delete button */}
                   <button
@@ -97,7 +114,7 @@ function FavoritesPage() {
                       });
                     }}
                   >
-                    Delete
+                     X
                   </button>
                 </div>
               );
@@ -110,7 +127,8 @@ function FavoritesPage() {
             {favoritesSearch.length === 0 &&
               search !== "" && (
                 <>
-                  <h3>
+                  <h3
+                  className = "noFavResults">
                     No matching search results!
                   </h3>
                 </>
@@ -119,23 +137,25 @@ function FavoritesPage() {
               (favoriteSearch) => {
                 return (
                   <div
+                  className="favContainer"
                     key={favoriteSearch.word_id}
                   >
                     {/* display the favoriteSearch in all its languages */}
-                    <h3
+                    <div
+                    className ="FavInsideContainer"
                       onClick={() =>
                         history.push(
                           `/word/${favoriteSearch.word_id}`
                         )
                       }
                     >
-                      {favoriteSearch.english},
-                      {favoriteSearch.french},
-                      {favoriteSearch.italian},
-                      {favoriteSearch.spanish},
-                      {favoriteSearch.portuguese},
-                      {favoriteSearch.word_id}
-                    </h3>
+                      <p className="ENfav">{favoriteSearch.english}</p>
+                      <p className="FRfav">{favoriteSearch.french}</p>
+                      <p className="ITfav">{favoriteSearch.italian}</p>
+                      <p className="SPfav">{favoriteSearch.spanish}</p>
+                      <p className="ITfav">{favoriteSearch.portuguese}</p>
+                      <p className="POfav">{favoriteSearch.word_id}</p>
+                    </div>
                     {/* render a delete button */}
                     <button
                       className="btn btn_sizeSm"
@@ -147,7 +167,7 @@ function FavoritesPage() {
                         });
                       }}
                     >
-                      Delete
+                      X
                     </button>
                   </div>
                 );

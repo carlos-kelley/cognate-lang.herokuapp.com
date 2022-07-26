@@ -1,5 +1,5 @@
 .css-1mbbh8w-MuiPaper-root-MuiSnackbarContent-root {
-  width: 135px;
+  /* width: 135px; */
   display: block !important;
   position: absolute;
   padding: 20px !important;
@@ -26,14 +26,32 @@
   /* text-shadow: 0px 0px 20px rgba(0,0,0,0.75)!important; */
 }
 
-.css-cpgvjg-MuiSnackbar-root {
-    width: 50% !important;
-    margin: 0 auto !important;
-    padding: 0px !important;
-    display: block !important;
-    position: relative !important;
-    bottom: 0px !important;
-    left: unset !important;
-    right: unset !important;
-    top: unset !important;
+.faved .MuiPaper-root {
+  width: 135px;
+  z-index: 9999;
+  display: block !important;
+  position: absolute;
+  padding: 20px !important;
+  height: 15px;
+  margin: 86px 10px 10px 0px !important;
+  bottom: initial !important;
+  line-height: 0px !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  background-color: #05a94e !important;
+}
+
+.notFaved .MuiPaper-root {
+  width: 155px;
+  z-index: 9999;
+  display: block !important;
+  position: absolute;
+  padding: 20px !important;
+  height: 15px;
+  margin: 86px 10px 10px 0px !important;
+  bottom: initial !important;
+  line-height: 0px !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  background-color: #d82f58 !important;
 }

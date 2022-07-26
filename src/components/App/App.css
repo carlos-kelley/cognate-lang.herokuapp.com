@@ -151,7 +151,7 @@ input[type="password"] {
   border-radius: 10px;
   display: inline-block;
   position: relative;
-  width: calc(100% - 50px);
+  width: calc(100% - 35px);
   margin: 10px 0px;
 }
 

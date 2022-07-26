@@ -12,7 +12,7 @@ function Footer() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div>
+    <div className="footerContainer">
       <footer>
         {!user.id && (
           <p>

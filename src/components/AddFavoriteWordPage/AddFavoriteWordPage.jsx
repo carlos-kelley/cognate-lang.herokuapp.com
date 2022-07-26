@@ -84,17 +84,16 @@ function AddFavoriteWordPage() {
     <div>
       {/* button that says AddFav that runs handleAddFavorite when clicked */}
       {!faved ? (
-        <button onClick={handleAddFavorite}>
+        <button onClick={handleAddFavorite} className="addFavbutton">
           Add Favorite
         </button>
       ) : (
-        <button onClick={handleDeleteFavorite}>
+        <button onClick={handleDeleteFavorite} className="deleteFavbutton">
           Delete Favorite
         </button>
       )}
       <Snackbar
-//if faved is true, className="faved", else className="notFaved"
-        className={faved ? "faved" : "notFaved"}
+        class = {faved ? "faved" : "notFaved"}
         open={open}
         autoHideDuration={1500}
         onClose={handleClose}

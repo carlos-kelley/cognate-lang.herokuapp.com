@@ -6,6 +6,9 @@
 .containerWordPage {
   width: 100%;
   margin-top: -30px;
+  display: block;
+  margin-bottom: 0px;
+  position: relative;
 }
 
 .wordSearchContainer .container {
@@ -22,7 +25,7 @@
   border-radius: 0px 10px 10px 0px;
   color: #fff;
   font-weight: 300;
-  margin: 55px auto;
+  margin: 45px auto;
 }
 
 h3.englishWord {
@@ -114,3 +117,49 @@ h3.portugueseWord::before {
   padding: 0px;
   line-height: 0px;
 }
+
+.wordSearchContainer.withToggle .container .globalSearchDiv {
+  margin-top: -50px !important;
+  position: absolute;
+  width: calc(100% - 60px);
+}
+
+.addFavContainer {
+  display: block;
+  width: calc(100% - 25px);
+  position: relative;
+  margin-left: 25px;
+  margin-top: -45px;
+}
+
+button.addFavbutton:after {
+  background-image: url(/public/images/favorite.png);
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  content: " ";
+  background-size: 16px;
+  background-repeat: no-repeat;
+  margin-left: 8px;
+}
+
+button.addFavbutton {
+  padding: 10px 38px 10px 20px !important;
+}
+
+button.deleteFavbutton:after {
+  background-image: url(/public/images/favorite_full.png);
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  content: " ";
+  background-size: 16px;
+  background-repeat: no-repeat;
+  margin-left: 8px;  
+}
+
+button.deleteFavbutton{
+  border-image-source: linear-gradient( 90deg, #d82f58 0%, #c06c6c 100%);
+  padding: 10px 40px 10px 20px !important;
+}
+

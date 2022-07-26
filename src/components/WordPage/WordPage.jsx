@@ -8,6 +8,7 @@ import {
   useSelector,
 } from "react-redux";
 
+
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
 import "./WordPage.css";
@@ -201,13 +202,8 @@ function WordPage() {
                 className="englishWord"
                 onClick={() => {
                   //create regex to remove everything inside parentheses or after a comma
-                  const regex =
-                    /(, (.*)|\((.*?)\))/g;
-                  const newEnglish =
-                    word.english.replace(
-                      regex,
-                      ""
-                    );
+                  const regex = /(, (.*)|\((.*?)\))/g;
+                  const newEnglish = word.english.replace(regex, "");
 
                   dispatch({
                     type: "FETCH_FORVO_ENGLISH",
@@ -312,7 +308,8 @@ function WordPage() {
                     payload: newSpanish,
                   });
                   startSpanish();
-                }}
+                }
+                }
               >
                 {word.spanish}
               </h3>
@@ -339,7 +336,9 @@ function WordPage() {
                     payload: newItalian,
                   });
                   startItalian();
-                }}
+                }
+                }
+                
               >
                 {word.italian}
               </h3>
@@ -366,7 +365,8 @@ function WordPage() {
                     payload: newPortuguese,
                   });
                   startPortuguese();
-                }}
+                }
+                }
               >
                 {word.portuguese}
               </h3>
@@ -374,7 +374,7 @@ function WordPage() {
           </div>
         );
       })}
-      <div>
+      <div className="addFavContainer">
         {/* <button
           onClick={() => {
             console.log(
