@@ -83,7 +83,12 @@ function GlobalSearchPage() {
       <div className="searchContainer">
         <label>
           <input
-            className="searchField"
+            className={
+              location.pathname ===
+              "/globalsearch"
+                ? "searchGlobal"
+                : "searchField"
+            }
             type="text"
             placeholder="Search word..."
             onChange={(event) => {

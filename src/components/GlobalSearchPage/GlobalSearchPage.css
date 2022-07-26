@@ -6,12 +6,15 @@ p.welcomeText {
   font-weight: 300;
 }
 
-input.searchField {
+input.searchField,
+input.searchGlobal {
   background: #fff !important;
   color: #231f20 !important;
 }
 
-input.searchField::placeholder {
+
+input.searchField::placeholder,
+input.searchGlobal::placeholder {
   color: #231f20 !important;
 }
 
