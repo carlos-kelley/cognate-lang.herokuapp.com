@@ -100,6 +100,7 @@ function FavoritesPage() {
                   <button
                     className="btn btn_sizeSm"
                     onClick={() => {
+                      console.log ("in fav delete")
                       dispatch({
                         type: "DELETE_FAVORITE",
                         payload: favorite.word_id,
@@ -162,6 +163,7 @@ function FavoritesPage() {
                     <button
                       className="btn btn_sizeSm"
                       onClick={() => {
+                        console.log ("in fav search delete");
                         dispatch({
                           type: "DELETE_FAVORITE",
                           payload:
