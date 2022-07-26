@@ -30,6 +30,8 @@ function FavoritesPage() {
 
   //fetch words on mount -
   useEffect(() => {
+    //if search is empty
+    //drop the fetch here?
     dispatch({ type: "FETCH_FAVORITES" });
     console.log(event.currentTarget);
     console.log("favs", favorites);
@@ -165,7 +167,7 @@ function FavoritesPage() {
                       onClick={() => {
                         console.log ("in fav search delete");
                         dispatch({
-                          type: "DELETE_FAVORITE",
+                          type: "DELETE_FAVORITE_SEARCH",
                           payload:
                             favoriteSearch.word_id,
                         });

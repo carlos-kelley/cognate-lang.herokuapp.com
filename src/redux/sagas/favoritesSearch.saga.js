@@ -32,10 +32,38 @@ function* fetchFavoritesSearch(action) {
   }
 }
 
+function* deleteFavoriteSearch(action) {
+  console.log("deleting fav search");
+
+  let deleteWord = action.payload; //THIS IS WRONG. It should be action.payload, but the IDs are incorrect in the database so it won't work
+  try {
+    console.log(
+      "delete action.payload:",
+      deleteWord
+    );
+    yield axios.delete(
+      `/api/favorites?id=${deleteWord}`
+    );
+    yield put({
+      type: "SET_FAVORITES_SEARCH",
+      //does it also need to set?
+    });
+  } catch (error) {
+    console.log(
+      "error in deleteFavoriteSearch:",
+      error
+    );
+  }
+}
+
 function* favoritesSearchSaga() {
   yield takeLatest(
     "FETCH_FAVORITES_SEARCH",
     fetchFavoritesSearch
+  );
+  yield takeLatest(
+    "DELETE_FAVORITE_SEARCH",
+    deleteFavoriteSearch
   );
 }
 
