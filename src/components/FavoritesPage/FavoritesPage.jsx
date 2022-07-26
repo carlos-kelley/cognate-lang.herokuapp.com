@@ -176,6 +176,11 @@ function FavoritesPage() {
                           // send a payload of what is in the search bar
                           payload: search,
                         });
+                        dispatch({
+                          type: "FETCH_FAVORITES_SEARCH",
+                          // send a payload of what is in the search bar
+                          payload: search,
+                        });
                       }}
                     >
                       X
