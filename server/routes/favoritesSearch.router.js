@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-//query to get favorites based on search 
+//query to get favorites based on search
 router.get("/", (req, res) => {
   console.log("req query: ", req.query);
 
@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
   OR french LIKE '%${req.query.word}%'
   OR italian LIKE '%${req.query.word}%'
   OR portuguese LIKE '%${req.query.word}%'
+  AND favorites_word.favorites_id = 1;
   `;
   pool
     .query(query)

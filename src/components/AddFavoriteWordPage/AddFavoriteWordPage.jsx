@@ -93,6 +93,8 @@ function AddFavoriteWordPage() {
         </button>
       )}
       <Snackbar
+//if faved is true, className="faved", else className="notFaved"
+        className={faved ? "faved" : "notFaved"}
         open={open}
         autoHideDuration={1500}
         onClose={handleClose}
