@@ -148,7 +148,7 @@ function GlobalSearchPage() {
                     {word.spanish},&nbsp;
                     {word.portuguese}
                   </h3>
-                  <AddFavoriteButtonSearchResult />
+                  {/* <AddFavoriteButtonSearchResult /> */}
                 </div>
               );
             })}

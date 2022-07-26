@@ -8,6 +8,7 @@ import {
   useSelector,
 } from "react-redux";
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
@@ -34,6 +35,7 @@ function WordPage() {
   });
 
   //import variables and stores
+  const history = useHistory();
   const dispatch = useDispatch();
   const thisWord = useSelector(
     (store) => store.thisWord
@@ -167,17 +169,14 @@ function WordPage() {
     });
   }, []);
 
-  // const handleForvoEnglish = (action) => {
-  //   console.log("in forvo english");
-  //   //send word to saga to get forvo audio
-  //   dispatch({
-  //     type: "FETCH_FORVO_ENGLISH",
-  //     payload: word.english,
-  //   });
-  //   console.log(
-  //     "action.payload in forvo eng: ",
-  //     action.payload
-  //   );
+  // const handleRandom = () => {
+  //   console.log("in handleRandom: ");
+  //   setRandom(randomNumberInRange(3, 352));
+  //   console.log("random becomes: ", random);
+  //   //if random is not null or 0 push to the word page of the random number
+  //   if (random !== null && random !== 0) {
+  //     history.push(`/word/${random}`);
+  //   }
   // };
 
   const handleForvoFrench = (action) => {
@@ -398,6 +397,14 @@ function WordPage() {
       <div className="addFavContainer">
         <AddFavoriteWordPage />
       </div>
+      {/* <div className="randomWordContainer">
+        <button
+          onClick={handleRandom}
+          className="randomSearch"
+        >
+          Random Word
+        </button>
+      </div> */}
     </div>
   );
 }
