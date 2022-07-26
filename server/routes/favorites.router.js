@@ -78,7 +78,8 @@ router.post("/", (req, res) => {
       wordId = req.body.id;
       console.log("favoritesId: ", favoritesId);
       const query = `INSERT INTO "favorites_word" ("favorites_id", "word_id")
-      VALUES ($1, ${req.body.word_id})`;
+      VALUES ($1, ${req.body.word_id})
+      ON CONFLICT DO NOTHING`
       pool
         .query(query, [favoritesId])
         // `INSERT INTO "favorites_word" ("favorites_id", "word_id")
