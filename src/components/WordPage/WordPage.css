@@ -49,7 +49,7 @@ h3.portugueseWord {
 
 h3.englishWord::before {
   content: "English";
-  color: #D71FC1;
+  color: #d71fc1;
   font-size: 12px;
   display: block;
   position: relative;
@@ -122,7 +122,7 @@ h3.portugueseWord::before {
   .globalSearchDiv {
   margin-top: -50px !important;
   position: absolute;
-  width: calc(100% - 60px);
+  width: calc(100% - 85px);
 }
 
 .addFavContainer {
