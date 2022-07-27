@@ -17,7 +17,7 @@ console.log ("process.env.REACT_APP_FORVOKEY in forvo saga : ", process.env.REAC
   );
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/en`
     );
     console.log(
       "get forvo english:",
@@ -42,7 +42,7 @@ function* fetchForvoFrench(action) {
   console.log("fetching forvo french");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/fr`
     );
     console.log(
       "get forvo french:",
@@ -67,7 +67,7 @@ function* fetchForvoSpanish(action) {
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/es`
     );
     console.log(
       "get forvo spanosh:",
@@ -92,7 +92,7 @@ function* fetchForvoItalian(action) {
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/it`
     );
     console.log(
       "get forvo italian:",
@@ -117,7 +117,7 @@ function* fetchForvoPortuguese(action) {
   console.log("fetching forvo Portuguese");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/po`
     );
     console.log(
       "get forvo portuguese:",
