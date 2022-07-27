@@ -4,20 +4,21 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 
-
 // worker Saga: will be fired on "FETCH_WORDS" actions
 
 function* fetchForvoEnglish(action) {
-
   const forvoKey = process.env.REACT_APP_FORVOKEY;
-console.log ("process.env.REACT_APP_FORVOKEY in forvo saga : ", process.env.REACT_APP_FORVOKEY);
+  console.log(
+    "process.env.REACT_APP_FORVOKEY in forvo saga : ",
+    process.env.REACT_APP_FORVOKEY
+  );
   console.log(
     "fetching forvo english action payload:",
     action.payload
   );
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/en`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
     );
     console.log(
       "get forvo english:",
@@ -36,13 +37,12 @@ console.log ("process.env.REACT_APP_FORVOKEY in forvo saga : ", process.env.REAC
 }
 
 function* fetchForvoFrench(action) {
-    const forvoKey =
-      process.env.REACT_APP_FORVOKEY;
+  const forvoKey = process.env.REACT_APP_FORVOKEY;
 
   console.log("fetching forvo french");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/fr`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
     );
     console.log(
       "get forvo french:",
@@ -61,13 +61,12 @@ function* fetchForvoFrench(action) {
 }
 
 function* fetchForvoSpanish(action) {
-    const forvoKey =
-      process.env.REACT_APP_FORVOKEY;
+  const forvoKey = process.env.REACT_APP_FORVOKEY;
 
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/es`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
     );
     console.log(
       "get forvo spanosh:",
@@ -86,13 +85,12 @@ function* fetchForvoSpanish(action) {
 }
 
 function* fetchForvoItalian(action) {
-    const forvoKey =
-      process.env.REACT_APP_FORVOKEY;
+  const forvoKey = process.env.REACT_APP_FORVOKEY;
 
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/it`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
     );
     console.log(
       "get forvo italian:",
@@ -111,13 +109,12 @@ function* fetchForvoItalian(action) {
 }
 
 function* fetchForvoPortuguese(action) {
-    const forvoKey =
-      process.env.REACT_APP_FORVOKEY;
+  const forvoKey = process.env.REACT_APP_FORVOKEY;
 
   console.log("fetching forvo Portuguese");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/standard-pronunciation/word/${action.payload}/language/po`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
     );
     console.log(
       "get forvo portuguese:",

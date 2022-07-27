@@ -40,10 +40,6 @@ function* deleteFavorite(action) {
   }
 }
 
-// axios.post("/api/favorites", {
-//   //this should be dynamic
-//   word_id: wordID,
-// });
 
 function* addFavorite(action) {
   console.log("adding fav");
@@ -69,27 +65,6 @@ function* favoritesSaga() {
   yield takeLatest("FETCH_FAVORITES", fetchFavorites);
   yield takeLatest("DELETE_FAVORITE", deleteFavorite);
   yield takeLatest("ADD_FAVORITE", addFavorite);
-  // yield takeLatest("ADD_FAVORITE", addFavorite);
 }
-
-// function* addFavorite (action) {
-//   console.log("adding fav");
-//   let addWord = action.payload;
-//   try {
-//     console.log("add action.payload:", addWord);
-//     yield axios.post(
-//       "/api/favorites",
-//       {
-//         favorites_id: 1, //should be the id of the user
-//         word_id: addWord,
-//       }
-//     );
-//     yield put({
-//       type: "FETCH_FAVORITES",
-//     });
-//   } catch (error) {
-//     console.log("error in addFavorite:", error);
-//   }
-// }
 
 export default favoritesSaga;

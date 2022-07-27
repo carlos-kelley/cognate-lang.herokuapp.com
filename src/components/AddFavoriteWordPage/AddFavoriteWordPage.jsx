@@ -120,7 +120,7 @@ function AddFavoriteWordPage() {
       <Snackbar
         class={faved ? "faved" : "notFaved"}
         open={open}
-        autoHideDuration={1500}
+        autoHideDuration={150000}
         onClose={handleClose}
         // if button says "Add Favorite" then snackbar should say "Added to Favorites"
         // if button says "Delete Favorite" then class sould be "delete-favorite"
