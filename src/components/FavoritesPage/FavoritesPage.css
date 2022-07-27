@@ -109,6 +109,7 @@ section.favoritesSection {
   position: relative;
   width: calc(100% - 40px);
   margin: 10px 20px 20px 20px;
+  overflow-y: scroll;
 }
 
 section.favoritesSearchSection {
@@ -127,4 +128,8 @@ h3.noFavResults {
 
 .FavInsideContainerLiveSearch {
   float: left;
+}
+
+.favContainer:last-of-type {
+  margin-bottom: 40px;
 }

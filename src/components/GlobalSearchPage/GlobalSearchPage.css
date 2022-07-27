@@ -70,6 +70,7 @@ h3.searchResult {
   z-index: 999;
   position: relative;
   display: block;
+  overflow-x: hidden;
 }
 
 .resultContainer {

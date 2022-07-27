@@ -25,6 +25,7 @@ import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import WordPage from "../WordPage/WordPage";
 
+
 import "./App.css";
 
 function App() {
@@ -91,7 +92,9 @@ function App() {
               <Redirect to="/globalsearch" />
             ) : (
               // Otherwise, show the login page
+                <div>
               <LoginPage />
+                  </div>
             )}
           </Route>
 
