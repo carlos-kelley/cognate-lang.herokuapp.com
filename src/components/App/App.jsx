@@ -27,7 +27,6 @@ import WordPage from "../WordPage/WordPage";
 
 import "./App.css";
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -39,20 +38,21 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className="bodyContainer">
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/login */}
           <Redirect exact from="/" to="/login" />
 
-
-
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/globalsearch will show the GlobalSearch page if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          
-          <ProtectedRoute exact path="/globalsearch">
+
+          <ProtectedRoute
+            exact
+            path="/globalsearch"
+          >
             <GlobalSearchPage />
           </ProtectedRoute>
 

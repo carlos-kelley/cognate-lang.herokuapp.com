@@ -146,6 +146,7 @@ button.addFavbutton:after {
 
 button.addFavbutton {
   padding: 10px 38px 10px 20px !important;
+  margin-top: 50px;
 }
 
 button.deleteFavbutton:after {
@@ -166,6 +167,7 @@ button.deleteFavbutton {
     #c06c6c 100%
   );
   padding: 10px 40px 10px 20px !important;
+  margin-top: 50px;
 }
 
 .englishWord:after {

@@ -189,3 +189,12 @@ h2 {
 button.btn.btn_asLink {
   margin-top: 25px;
 }
+
+.noFavorites h3 {
+  text-align: center;
+}
+
+.bodyContainer {
+  position: relative;
+  min-height: 100vh;
+}

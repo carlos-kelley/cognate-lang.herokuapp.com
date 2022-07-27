@@ -12,23 +12,25 @@ function Footer() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="footerContainer">
-      <footer>
+    // <div className="footerContainer">
+    <footer>
+      <div className="footerContainer">
         {!user.id && (
           <p>
             Carlos Kelley &copy; 2022. All Rights
             Reserved.
           </p>
         )}
-        {user.id &&(
+        {user.id && (
           <p>
-          Carlos Kelley &copy; 2022. All Rights
-          Reserved.
-          <LogOutButton className="navLink" />
+            Carlos Kelley &copy; 2022. All Rights
+            Reserved.
+            <LogOutButton className="navLink" />
           </p>
         )}
-      </footer>
-    </div>
+      </div>
+    </footer>
+    // </div>
   );
 }
 
