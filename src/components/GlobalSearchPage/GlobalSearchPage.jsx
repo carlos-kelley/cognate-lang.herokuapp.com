@@ -73,7 +73,7 @@ function GlobalSearchPage() {
           <p className="welcomeText">
             Search a word in English, French,
             Spanish, Italian, or Portuguese to see
-            its cognates. Or, find a random word.
+            its cognates. Or, find a random word.  
           </p>
         </div>
       ) : (

@@ -216,6 +216,8 @@ function WordPage() {
       <div className="wordSearchContainer withToggle">
         <GlobalSearchPage />
       </div>
+      
+
 
       {/* map through thisWord array */}
 

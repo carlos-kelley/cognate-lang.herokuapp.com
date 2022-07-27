@@ -1,21 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+require("dotenv").config();
 
+console.log ("process.env.REACT_APP_FORVOKEY in forvo router : ", process.env.REACT_APP_FORVOKEY);
 
 axios
   .get(
-    "https://apifree.forvo.com/key/6ecbcf479748597038b9c3d34a1bbd4a/format/json/action/word-pronunciations/word/cat/language/en"
+    `https://apifree.forvo.com/key/${process.env.REACT_APP_FORVOKEY}/format/json/action/word-pronunciations/word/cat/language/en`
   )
   .then((resp) => {
     console.log("forvo resp: ", resp.data);
   });
 
-/**
- * POST route template
- */
-router.post("/", (req, res) => {
-  // POST route code here
-});
 
 module.exports = router;
