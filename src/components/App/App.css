@@ -189,10 +189,3 @@ h2 {
 button.btn.btn_asLink {
   margin-top: 25px;
 }
-
-.favInsideContainer,
-.favInsideContainerLiveSearch {
-  width: calc(100% - 20px);
-  float: left;
-  margin-right: 10px;
-}

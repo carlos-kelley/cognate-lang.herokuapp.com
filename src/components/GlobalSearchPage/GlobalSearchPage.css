@@ -12,7 +12,6 @@ input.searchGlobal {
   color: #231f20 !important;
 }
 
-
 input.searchField::placeholder,
 input.searchGlobal::placeholder {
   color: #231f20 !important;
@@ -54,7 +53,8 @@ h3.searchResult {
   font-weight: 300;
   font-size: 18px;
   line-height: 1.4;
-  width: calc(100% - 59px);
+  /* width: calc(100% - 59px); */
+  width: 100%;
   display: inline-block;
   position: relative;
 }
@@ -62,9 +62,9 @@ h3.searchResult {
 .globalSearchDiv {
   background-color: #fff;
   margin-top: -46px;
-  padding: 36px 0px 0px 25px;
+  padding: 36px 25px 0px 25px;
   border-radius: 0px 0px 10px 10px;
-  width: calc(100% - 20px);
+  width: calc(100% - 45px);
   max-height: 350px;
   overflow-y: auto;
   z-index: 999;
