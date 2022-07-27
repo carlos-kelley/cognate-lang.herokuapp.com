@@ -137,7 +137,7 @@ function FavoritesPage() {
                   >
                     {/* display the favoriteSearch in all its languages */}
                     <div
-                      className="FavInsideContainer"
+                      className="FavInsideContainerLiveSearch"
                       onClick={() =>
                         history.push(
                           `/word/${favoriteSearch.word_id}`
@@ -150,11 +150,11 @@ function FavoritesPage() {
                       <p className="FRfav">
                         {favoriteSearch.french}
                       </p>
-                      <p className="ITfav">
-                        {favoriteSearch.italian}
-                      </p>
                       <p className="SPfav">
                         {favoriteSearch.spanish}
+                      </p>
+                      <p className="ITfav">
+                        {favoriteSearch.italian}
                       </p>
                       <p className="POfav">
                         {

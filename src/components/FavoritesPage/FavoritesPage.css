@@ -74,19 +74,13 @@ input.searchFavs::placeholder {
   position: relative;
   color: #d82f58 !important;
   color: #fff !important;
-  opacity:0.25;
+  opacity: 0.25;
   top: 0px !important;
   right: -7px !important;
 }
 
-.favInsideContainer {
-  width: calc(100% - 20px);
-  float: left;
-  margin-right: 10px;
-}
-
 p.ENfav {
-  border-left: #D71FC1 4px solid;
+  border-left: #d71fc1 4px solid;
   padding: 5px 0px 5px 10px;
 }
 
@@ -114,13 +108,23 @@ section.favoritesSection {
   display: block;
   position: relative;
   width: calc(100% - 40px);
-  margin:10px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
 }
 
 section.favoritesSearchSection {
-  margin:10px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
 }
 
 h3.noFavResults {
-    text-align: center;
+  text-align: center;
+}
+
+.favInsideContainer {
+  width: calc(100% - 20px);
+  float: left;
+  margin-right: 10px;
+}
+
+.FavInsideContainerLiveSearch {
+  float: left;
 }
