@@ -127,6 +127,7 @@ h3.noFavResults {
 }
 
 .FavInsideContainerLiveSearch {
+  width: calc(100% - 20px);
   float: left;
 }
 
