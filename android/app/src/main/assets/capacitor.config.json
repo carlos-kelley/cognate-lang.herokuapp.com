@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "cognate",
+	"appId": "com.poetrypengyou.app",
+	"appName": "Poetry Pengyou",
 	"webDir": "build",
 	"bundledWebRuntime": false
 }

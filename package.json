@@ -7,6 +7,8 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@capacitor/core": "^4.7.0",
+    "@capacitor/ios": "^4.7.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@fontsource/roboto": "^4.5.7",
@@ -41,6 +43,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@capacitor/cli": "^4.7.0",
     "nodemon": "^2.0.4"
   },
   "browserslist": [

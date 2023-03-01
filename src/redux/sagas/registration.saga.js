@@ -20,6 +20,7 @@ function* registerUser(action) {
     console.log('Error with user registration:', error);
     yield put({ type: 'REGISTRATION_FAILED' });
   }
+  
 }
 
 function* registrationSaga() {

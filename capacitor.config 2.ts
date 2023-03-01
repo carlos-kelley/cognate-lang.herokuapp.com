@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.poetrypengyou.app',
-  appName: 'Poetry Pengyou',
+  appId: 'io.ionic.starter',
+  appName: 'cognate',
   webDir: 'build',
   bundledWebRuntime: false
 };
