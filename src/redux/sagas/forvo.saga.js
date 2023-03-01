@@ -114,7 +114,7 @@ function* fetchForvoPortuguese(action) {
   console.log("fetching forvo Portuguese");
   try {
     const response = yield axios.get(
-      `https://evening-fortress-34828.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
     );
     console.log(
       "get forvo portuguese:",
