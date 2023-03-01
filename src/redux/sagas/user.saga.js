@@ -11,7 +11,7 @@ function* fetchUser() {
       headers: {
         "Access-Control-Allow-Origin":
           "https://cognate-lang.herokuapp.com",
-        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Credentials": false,
       },
       withCredentials: true,
     };
