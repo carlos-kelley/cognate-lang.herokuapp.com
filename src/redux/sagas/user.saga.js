@@ -5,7 +5,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* fetchUser() {
   try {
     const config = {
-      headers: { 'Content-Type': 'application/json' },
+      headers: {,
+      'Access-Control-Allow-Origin': "https://cognate-lang.herokuapp.com",
+        'Access-Control-Allow-Credentials': true},
       withCredentials: true,
     };
 
