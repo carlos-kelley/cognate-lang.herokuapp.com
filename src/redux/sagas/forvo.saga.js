@@ -18,7 +18,7 @@ function* fetchForvoEnglish(action) {
   );
   try {
     const response = yield axios.get(
-      `https://evening-fortress-34828.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
     );
     console.log(
       "get forvo english:",
