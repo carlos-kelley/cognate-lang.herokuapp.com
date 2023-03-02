@@ -18,7 +18,15 @@ function* fetchForvoEnglish(action) {
   );
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
+      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`,
+      {
+        headers: {
+          "Access-Control-Allow-Origin":
+            "https://cognate-lang.herokuapp.com/",
+          "Access-Control-Allow-Methods":
+            "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+      }
     );
     console.log(
       "get forvo english:",
