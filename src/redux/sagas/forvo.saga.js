@@ -18,15 +18,7 @@ function* fetchForvoEnglish(action) {
   );
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`,
-      {
-        headers: {
-          "Access-Control-Allow-Origin":
-            "https://cognate-lang.herokuapp.com/",
-          "Access-Control-Allow-Methods":
-            "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        },
-      }
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
     );
     console.log(
       "get forvo english:",
@@ -74,7 +66,7 @@ function* fetchForvoSpanish(action) {
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
     );
     console.log(
       "get forvo spanosh:",
@@ -98,7 +90,7 @@ function* fetchForvoItalian(action) {
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
     );
     console.log(
       "get forvo italian:",
@@ -122,7 +114,7 @@ function* fetchForvoPortuguese(action) {
   console.log("fetching forvo Portuguese");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
     );
     console.log(
       "get forvo portuguese:",
