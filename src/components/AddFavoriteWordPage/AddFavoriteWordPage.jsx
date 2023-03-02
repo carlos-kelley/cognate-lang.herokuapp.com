@@ -118,7 +118,7 @@ function AddFavoriteWordPage() {
         </button>
       )}
       <Snackbar
-        class={faved ? "faved" : "notFaved"}
+        className={faved ? "faved" : "notFaved"} //this should not work cus it doesnt say class but thats fine because it was annoying
         open={open}
         autoHideDuration={150000}
         onClose={handleClose}
