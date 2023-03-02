@@ -20,10 +20,10 @@ There are some styling issues on mobile and currently audio is non-functional. T
 
 - Login or create an account
 - Search for a word in English, Spanish, French, Italian, or Portuguese, and tap it to see its cognates in the other languages
-- Tap the **favorite** button at the bottom to save a word to your favorites list
+- Tap the **Favorite** button at the bottom to save a word to your favorites list
 - Tap the **Heart** button at the top right to see your saved words
 -Tap the language toggle buttons to choose which languages to display
--Tap the **audio icon** to hear the word pronounced in that language (currently disabled)
+-Tap the **Audio Icon** to hear the word pronounced in that language (currently disabled)
 -Click the **Random Word** button to see a random word from the list
 -When on the **Favorites** page, the search bar searches your favorites list. Click a favorite to see its cognates.
 
