@@ -50,7 +50,7 @@ function* fetchForvoFrench(action) {
   console.log("fetching forvo french");
   try {
     const response = yield axios.get(
-      `https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
     );
     console.log(
       "get forvo french:",
