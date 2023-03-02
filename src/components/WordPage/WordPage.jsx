@@ -9,7 +9,7 @@ import {
 } from "react-redux";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
-
+import { Howl, Howler } from "howler";
 import GlobalSearchPage from "../GlobalSearchPage/GlobalSearchPage";
 import { useParams } from "react-router-dom";
 import "./WordPage.css";
@@ -86,11 +86,10 @@ function WordPage() {
         "in starteng, forvo path is: ",
         forvoEnglish
       );
-      const audio = new Audio(
-        forvoEnglish.items[0].pathmp3
-      );
-      audio.muted = true;
-      audio.playsInline = true;
+      const audio = new Howl({
+        src: [forvoEnglish.items[0].pathmp3],
+        autoplay: true,
+      });
       audio.play();
     } else {
       isMountedEnglish.current = true;
