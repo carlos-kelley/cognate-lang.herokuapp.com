@@ -42,7 +42,7 @@ function* fetchForvoFrench(action) {
   console.log("fetching forvo french");
   try {
     const response = yield axios.get(
-      `https://evening-fortress-34828.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
     );
     console.log(
       "get forvo french:",
@@ -66,7 +66,7 @@ function* fetchForvoSpanish(action) {
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
-      `https://evening-fortress-34828.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
     );
     console.log(
       "get forvo spanosh:",
@@ -90,7 +90,7 @@ function* fetchForvoItalian(action) {
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
-      `https://evening-fortress-34828.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
+      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
     );
     console.log(
       "get forvo italian:",
@@ -139,7 +139,7 @@ function* forvoSaga() {
   );
   yield takeLatest(
     "FETCH_FORVO_FRENCH",
-    fetchForvoFrench 
+    fetchForvoFrench
   );
   yield takeLatest(
     "FETCH_FORVO_SPANISH",
