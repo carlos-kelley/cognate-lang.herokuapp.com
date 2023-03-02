@@ -6,22 +6,26 @@
 
 # Cognate
 
+This app is hosted [here](https://cognate-lang.herokuapp.com).
+
 A cognate is a word that is related to another word in another language. For example, the English word "circle" is cognate with the Spanish word "círculo" and the French word "cercle".
 
-I've been obsessed with studying languages for years, and at this point, reading any Romance language seems like reading one language with only minor variations. I created this app to quickly look up cognates between English and 4 romance languages at the same time. I also hope that those new to language learning can be inspired by exploring the similarities and differences among languages.
+I've been obsessed with studying languages for years, and at this point, reading any Romance language seems like reading one language with only minor variations. I created this app to quickly look up cognates between English and 4 Romance languages at the same time. I also hope that those new to language learning can be inspired by exploring the similarities and differences among languages.
 
-This app was tested Safari on mobile and Chrome on desktop. This is a mobile-first app, so it is best viewed on a mobile device.
+This app was tested Safari on mobile and Chrome on desktop. This is a mobile-first app.
+
+There are some styling issues on mobile and currently audio is non-functional. This will be fixed soon.
 
 ## How to Use
 
 - Login or create an account
 - Search for a word in English, Spanish, French, Italian, or Portuguese, and tap it to see its cognates in the other languages
-- Tap the Heart button to save a word to your favorites list
-- Tap the Heart button at the top right to see your saved words
-  -Tap the language toggle buttons to choose which languages to display
-  -Tap the audio icon to hear the word pronounced in that language
-  -Click the **Random Word** button to see a random word from the list
-  -When on the favorite page, the search bar searches your favorites list. Click a favorite to see its cognates.
+- Tap the favorites button at the bottom to save a word to your favorites list
+- Tap the **Heart** button at the top right to see your saved words
+-Tap the language toggle buttons to choose which languages to display
+-Tap the **audio icon** to hear the word pronounced in that language (currently disabled)
+-Click the **Random Word** button to see a random word from the list
+-When on the **Favorites** page, the search bar searches your favorites list. Click a favorite to see its cognates.
 
 ## Built With
 
@@ -36,13 +40,14 @@ This app was tested Safari on mobile and Chrome on desktop. This is a mobile-fir
 - [![Heroku][heroku]][heroku-url]
 - [![NPM][npm]][npm-url]
 - [![Forvo][forvo-shield]][forvo-url]
+- [![Bit.io][bitio-shield]][bitio-url]
   A full list of dependencies can be found in `package.json`.
 
 ## Roadmap
 
 - [ ] Add Germanic cognates and Chinese-Korean-Japanese cognates
 - [ ] Make the code more DRY!
-- [ ] Fix CORS issues with Forvo API
+- [ ] Fix audio
 - [ ] Improve accessibility by adding light mode and user-selectable tone colors
 
 See the [Projects page](https://github.com/users/sdnii/projects/1) for a full list of planned features.
@@ -58,7 +63,7 @@ See the [Projects page](https://github.com/users/sdnii/projects/1) for a full li
 
 Carlos Kelley - [LinkedIn](https://linkedin.com/in/carloskelley) - [Protonmail](mailto:carloskelley@protonmail.com)
 
-Project Link: [Poetry Pengyou](https://github.com/sdnii/cognate)
+Project Link: [Cognate](https://github.com/sdnii/cognate)
 
 ## License
 
@@ -97,4 +102,6 @@ Distributed under the MIT License.
 [protonmail-shield]: https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white
 [protonmail-url]: mailto:carloskelley@protonmail.com
 [forvo-shield]: https://img.shields.io/badge/Forvo-FF0000?style=for-the-badge&logo=forvo&logoColor=white
-[forvo-url]: https://forvo.com/
+[forvo-url]: https://forvo.com
+[bitio-shield]: https://img.shields.io/badge/Bit.io-000000?style=for-the-badge&logo=bitdotio&logoColor=white
+[bitio-url]: https://bit.io
