@@ -89,6 +89,7 @@ function WordPage() {
       const audio = new Audio(
         forvoEnglish.items[0].pathmp3
       );
+      audio.autoplay = true;
       audio.play();
     } else {
       isMountedEnglish.current = true;
@@ -104,6 +105,7 @@ function WordPage() {
       const audio = new Audio(
         forvoFrench.items[0].pathmp3
       );
+      audio.autoplay = true;
       audio.play();
     } else {
       isMountedFrench.current = true;
@@ -119,6 +121,7 @@ function WordPage() {
       const audio = new Audio(
         forvoSpanish.items[0].pathmp3
       );
+      audio.autoplay = true;
       audio.play();
     } else {
       isMountedSpanish.current = true;
@@ -134,6 +137,7 @@ function WordPage() {
       const audio = new Audio(
         forvoItalian.items[0].pathmp3
       );
+      audio.autplay = true;
       audio.play();
     } else {
       isMountedItalian.current = true;
@@ -149,6 +153,7 @@ function WordPage() {
       const audio = new Audio(
         forvoPortuguese.items[0].pathmp3
       );
+      audio.autoplay = true;
       audio.play();
     } else {
       isMountedPortuguese.current = true;
