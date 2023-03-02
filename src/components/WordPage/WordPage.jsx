@@ -102,12 +102,6 @@ function WordPage() {
         "in startfr, forvo path is: ",
         forvoFrench
       );
-      const audio = new Audio(
-        forvoFrench.items[0].pathmp3
-      );
-      audio.muted = true;
-      audio.playsInline = true;
-      audio.play();
     } else {
       isMountedFrench.current = true;
     }
@@ -315,6 +309,11 @@ function WordPage() {
                   dispatch({
                     type: "FETCH_FORVO_FRENCH",
                     payload: newFrench4,
+                  }).then(() => {
+                    const audio = new Audio(
+                      forvoFrench.items[0].pathmp3
+                    );
+                    audio.play();
                   });
                 }}
               >
