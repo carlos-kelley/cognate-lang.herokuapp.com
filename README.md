@@ -46,7 +46,7 @@ There are some styling issues on mobile and currently audio is non-functional. T
 ## Roadmap
 
 - [ ] Add Germanic cognates and Chinese-Korean-Japanese cognates
-- [ ] Make the code more DRY!
+- [ ] Make the code more DRY! Major refactoring is needed.
 - [ ] Fix audio
 - [ ] Improve accessibility by adding light mode
 
@@ -56,6 +56,7 @@ See the [Projects page](https://github.com/users/sdnii/projects/1) for a full li
 
 - `src/` contains the React application
 - `build/` contains the transpiled code from `src/` and `public/` that will be viewed on the production site
+- `public/` contains static assets for the client-side
 - `server/` contains the Express App
 - `ios/` and `android/` contain the iOS and Android apps built with Capacitor (not currently completed)
 
