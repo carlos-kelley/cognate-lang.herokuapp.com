@@ -20,7 +20,7 @@ There are some styling issues on mobile and currently audio is non-functional. T
 
 - Login or create an account
 - Search for a word in English, Spanish, French, Italian, or Portuguese, and tap it to see its cognates in the other languages
-- Tap the favorites button at the bottom to save a word to your favorites list
+- Tap the **favorite** button at the bottom to save a word to your favorites list
 - Tap the **Heart** button at the top right to see your saved words
 -Tap the language toggle buttons to choose which languages to display
 -Tap the **audio icon** to hear the word pronounced in that language (currently disabled)
@@ -48,7 +48,7 @@ There are some styling issues on mobile and currently audio is non-functional. T
 - [ ] Add Germanic cognates and Chinese-Korean-Japanese cognates
 - [ ] Make the code more DRY!
 - [ ] Fix audio
-- [ ] Improve accessibility by adding light mode and user-selectable tone colors
+- [ ] Improve accessibility by adding light mode
 
 See the [Projects page](https://github.com/users/sdnii/projects/1) for a full list of planned features.
 
@@ -57,7 +57,7 @@ See the [Projects page](https://github.com/users/sdnii/projects/1) for a full li
 - `src/` contains the React application
 - `build/` contains the transpiled code from `src/` and `public/` that will be viewed on the production site
 - `server/` contains the Express App
-- `ios/` contains the iOS app built with Capacitor (not currently completed)
+- `ios/` and `android/` contain the iOS and Android apps built with Capacitor (not currently completed)
 
 ## Contact
 
