@@ -62,7 +62,7 @@ See the [Projects page](https://github.com/users/sdnii/projects/1) for a full li
 
 Carlos Kelley - [LinkedIn](https://linkedin.com/in/carloskelley) - [Protonmail](mailto:carloskelley@protonmail.com)
 
-Project Link: [Cognate](https://github.com/sdnii/cognate)
+Project Link: [Cognate](https://github.com/carlos-kelley/cognate)
 
 ## License
 
