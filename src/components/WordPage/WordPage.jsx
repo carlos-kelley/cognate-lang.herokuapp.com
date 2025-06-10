@@ -80,7 +80,9 @@ function WordPage() {
 
   const forvoFrenchRef = useRef(null);
   const forvoEnglishRef = useRef(null);
-
+  const forvoSpanishRef = useRef(null);
+  const forvoItalianRef = useRef(null);
+  const forvoPortugueseRef = useRef(null);
 
   useEffect(() => {
     forvoFrenchRef.current = forvoFrench;
@@ -89,6 +91,18 @@ function WordPage() {
   useEffect(() => {
     forvoEnglishRef.current = forvoEnglish;
   }, [forvoEnglish]);
+
+  useEffect(() => {
+    forvoSpanishRef.current = forvoSpanish;
+  }, [forvoSpanish]);
+
+  useEffect(() => {
+    forvoItalianRef.current = forvoItalian;
+  }, [forvoItalian]);
+
+  useEffect(() => {
+    forvoPortugueseRef.current = forvoPortuguese;
+  }, [forvoPortuguese]);
 
   useEffect(() => {
     if (
@@ -154,6 +168,101 @@ function WordPage() {
     }
   }, [forvoEnglish, selectedWord]);
 
+  useEffect(() => {
+    if (
+      selectedWord &&
+      forvoSpanishRef.current === forvoSpanish &&
+      forvoSpanish &&
+      forvoSpanish.items &&
+      forvoSpanish.items.length
+    ) {
+      const audio = new Audio(
+        forvoSpanish.items[0].pathmp3
+      );
+      console.log(
+        "forvoSpanish in func is: ",
+        forvoSpanish.items[0].pathmp3
+      );
+      audioRef.current = audio;
+      Promise.resolve()
+        .then(() => {
+          audioRef.current.pause(); // pause the old audio before playing new audio
+        })
+        .then(() => {
+          audioRef.current.currentTime = 0; // reset the audio to start from the beginning
+          return new Promise((resolve) =>
+            setTimeout(resolve, 1000)
+          );
+        })
+        .then(() => {
+          audioRef.current.play(); // play the new audio
+        });
+    }
+  }, [forvoSpanish, selectedWord]);
+  useEffect(() => {
+    if (
+      selectedWord &&
+      forvoItalianRef.current === forvoItalian &&
+      forvoItalian &&
+      forvoItalian.items &&
+      forvoItalian.items.length
+    ) {
+      const audio = new Audio(
+        forvoItalian.items[0].pathmp3
+      );
+      console.log(
+        "forvoItalian in func is: ",
+        forvoItalian.items[0].pathmp3
+      );
+      audioRef.current = audio;
+      Promise.resolve()
+        .then(() => {
+          audioRef.current.pause(); // pause the old audio before playing new audio
+        })
+        .then(() => {
+          audioRef.current.currentTime = 0; // reset the audio to start from the beginning
+          return new Promise((resolve) =>
+            setTimeout(resolve, 1000)
+          );
+        })
+        .then(() => {
+          audioRef.current.play(); // play the new audio
+        });
+    }
+  }, [forvoItalian, selectedWord]);
+  useEffect(() => {
+    if (
+      selectedWord &&
+      forvoPortugueseRef.current ===
+        forvoPortuguese &&
+      forvoPortuguese &&
+      forvoPortuguese.items &&
+      forvoPortuguese.items.length
+    ) {
+      const audio = new Audio(
+        forvoPortuguese.items[0].pathmp3
+      );
+      console.log(
+        "forvoPortuguese in func is: ",
+        forvoPortuguese.items[0].pathmp3
+      );
+      audioRef.current = audio;
+      Promise.resolve()
+        .then(() => {
+          audioRef.current.pause(); // pause the old audio before playing new audio
+        })
+        .then(() => {
+          audioRef.current.currentTime = 0; // reset the audio to start from the beginning
+          return new Promise((resolve) =>
+            setTimeout(resolve, 1000)
+          );
+        })
+        .then(() => {
+          audioRef.current.play(); // play the new audio
+        });
+    }
+  }, [forvoPortuguese, selectedWord]);
+
   function cleanFrenchWord(french) {
     const regex =
       /^(l'|le |la )|(, .*?)|(\(.*?\))|(les )/gi;
@@ -163,6 +272,22 @@ function WordPage() {
     const regex =
       /^(l'|le |la )|(, .*?)|(\(.*?\))|(les )/gi;
     return english.replace(regex, "").trim();
+  }
+
+  function cleanSpanishWord(spanish) {
+    const regex =
+      /^(la |el |los |las |, .*?)|(\(.*?\))/gi;
+    return spanish.replace(regex, "").trim();
+  }
+  function cleanItalianWord(italian) {
+    const regex =
+      /^(il |lo |la |gli |l'|^i |^le |, .*?)|(\(.*?\))/gi;
+    return italian.replace(regex, "").trim();
+  }
+  function cleanPortugueseWord(portuguese) {
+    const regex =
+      /^(o |a |os |as |, .*?)|(\(.*?\))/gi;
+    return portuguese.replace(regex, "").trim();
   }
 
   // Define a new function to play the audio
@@ -181,10 +306,44 @@ function WordPage() {
     english,
     dispatch
   ) {
-    const cleanEnglish = cleanEnglishWord(english);
+    const cleanEnglish =
+      cleanEnglishWord(english);
     dispatch({
       type: "FETCH_FORVO_ENGLISH",
       payload: cleanEnglish,
+    });
+  }
+  function playForvoSpanishAudio(
+    spanish,
+    dispatch
+  ) {
+    const cleanSpanish =
+      cleanSpanishWord(spanish);
+    dispatch({
+      type: "FETCH_FORVO_SPANISH",
+      payload: cleanSpanish,
+    });
+  }
+  function playForvoItalianAudio(
+    italian,
+    dispatch
+  ) {
+    const cleanItalian =
+      cleanItalianWord(italian);
+    dispatch({
+      type: "FETCH_FORVO_ITALIAN",
+      payload: cleanItalian,
+    });
+  }
+  function playForvoPortugueseAudio(
+    portuguese,
+    dispatch
+  ) {
+    const cleanPortuguese =
+      cleanPortugueseWord(portuguese);
+    dispatch({
+      type: "FETCH_FORVO_PORTUGUESE",
+      payload: cleanPortuguese,
     });
   }
 
@@ -228,7 +387,7 @@ function WordPage() {
                     );
                   }}
                 >
-                  {cleanEnglishWord(word.english)}
+                  {word.english}
                 </h3>
               </>
             )}
@@ -247,85 +406,66 @@ function WordPage() {
                     );
                   }}
                 >
-                  {cleanFrenchWord(word.french)}
+                  {word.french}
                 </h3>
               </>
             )}
-
             {toggleSpanish && (
-              <h3
-                className="spanishWord"
-                onClick={() => {
-                  const regex =
-                    /(^la |^el |^los |^las |, (.*)|\((.*?)\))/gi;
-                  const newSpanish =
-                    word.spanish.replace(
-                      regex,
-                      ""
+              <>
+                <h3
+                  className="spanishWord"
+                  onClick={() => {
+                    console.log(
+                      "clicked play button for spanish word"
                     );
-                  console.log(
-                    "new Spanish is: ",
-                    newSpanish
-                  );
-                  //send word to saga to get forvo audio
-                  dispatch({
-                    type: "FETCH_FORVO_SPANISH",
-                    payload: newSpanish,
-                  });
-                }}
-              >
-                {word.spanish}
-              </h3>
+                    setSelectedWord(word);
+                    playForvoSpanishAudio(
+                      word.spanish,
+                      dispatch
+                    );
+                  }}
+                >
+                  {word.spanish}
+                </h3>
+              </>
             )}
             {toggleItalian && (
-              <h3
-                className="italianWord"
-                onClick={() => {
-                  const regex =
-                    /(^il |^lo |^la |^gli |^l'|^i |^le |, (.*)|\((.*?)\))/gi;
-                  const newItalian =
-                    word.italian.replace(
-                      regex,
-                      ""
+              <>
+                <h3
+                  className="italianWord"
+                  onClick={() => {
+                    console.log(
+                      "clicked play button for italian word"
                     );
-                  console.log(
-                    "new Italian is: ",
-                    newItalian
-                  );
-                  //send word to saga to get forvo audio
-                  dispatch({
-                    type: "FETCH_FORVO_ITALIAN",
-                    payload: newItalian,
-                  });
-                }}
-              >
-                {word.italian}
-              </h3>
+                    setSelectedWord(word);
+                    playForvoItalianAudio(
+                      word.italian,
+                      dispatch
+                    );
+                  }}
+                >
+                  {word.italian}
+                </h3>
+              </>
             )}
             {togglePortuguese && (
-              <h3
-                className="portugueseWord"
-                onClick={() => {
-                  const regex =
-                    /(^o |^a |^os |^as |, (.*)|\((.*?)\))/gi;
-                  const newPortuguese =
-                    word.portuguese.replace(
-                      regex,
-                      ""
+              <>
+                <h3
+                  className="portugueseWord"
+                  onClick={() => {
+                    console.log(
+                      "clicked play button for portuguese word"
                     );
-                  console.log(
-                    "new Portuguese is: ",
-                    newPortuguese
-                  );
-                  //send word to saga to get forvo audio
-                  dispatch({
-                    type: "FETCH_FORVO_PORTUGUESE",
-                    payload: newPortuguese,
-                  });
-                }}
-              >
-                {word.portuguese}
-              </h3>
+                    setSelectedWord(word);
+                    playForvoPortugueseAudio(
+                      word.portuguese,
+                      dispatch
+                    );
+                  }}
+                >
+                  {word.portuguese}
+                </h3>
+              </>
             )}
           </div>
         );
