@@ -62,7 +62,7 @@ function* addFavorite(action) {
     
 
 function* favoritesSaga() {
-  yield takeLatest("FETCH_FAVORITES", fetchFavorites);
+  // yield takeLatest("FETCH_FAVORITES", fetchFavorites);
   yield takeLatest("DELETE_FAVORITE", deleteFavorite);
   yield takeLatest("ADD_FAVORITE", addFavorite);
 }

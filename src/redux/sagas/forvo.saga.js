@@ -18,7 +18,7 @@ function* fetchForvoEnglish(action) {
   );
   try {
     const response = yield axios.get(
-      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/en`
+      `/api/forvo?word=${action.payload}&language=en`
     );
     console.log(
       "get forvo english:",
@@ -42,7 +42,7 @@ function* fetchForvoFrench(action) {
   console.log("fetching forvo french");
   try {
     const response = yield axios.get(
-      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/fr`
+      `/api/forvo?word=${action.payload}&language=fr`
     );
     console.log(
       "get forvo french:",
@@ -66,7 +66,7 @@ function* fetchForvoSpanish(action) {
   console.log("fetching forvo Spanish");
   try {
     const response = yield axios.get(
-      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/es`
+      `/api/forvo?word=${action.payload}&language=es`
     );
     console.log(
       "get forvo spanosh:",
@@ -90,7 +90,7 @@ function* fetchForvoItalian(action) {
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
-      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/it`
+      `/api/forvo?word=${action.payload}&language=eit`
     );
     console.log(
       "get forvo italian:",
@@ -114,7 +114,7 @@ function* fetchForvoPortuguese(action) {
   console.log("fetching forvo Portuguese");
   try {
     const response = yield axios.get(
-      `https://sdnii-cors-anywhere.herokuapp.com/https://apifree.forvo.com/key/${forvoKey}/format/json/action/word-pronunciations/word/${action.payload}/language/po`
+      `/api/forvo?word=${action.payload}&language=pt`
     );
     console.log(
       "get forvo portuguese:",

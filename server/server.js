@@ -4,7 +4,6 @@ require("dotenv").config();
 
 const app = express();
 
-
 const sessionMiddleware = require("./modules/session-middleware");
 const passport = require("./strategies/user.strategy");
 
@@ -14,6 +13,8 @@ const wordsRouter = require("./routes/words.router");
 const favoritesRouter = require("./routes/favorites.router");
 const thisWordRouter = require("./routes/thisWord.router");
 const favoritesSearchRouter = require("./routes/favoritesSearch.router");
+const forvoRouter = require("./routes/forvo.router");
+
 // const favoritesListRouter = require("./routes/favoritesList.router");
 
 // Body parser middleware
@@ -33,8 +34,12 @@ app.use(passport.session());
 app.use("/api/user", userRouter);
 app.use("/api/words", wordsRouter);
 app.use("/api/favorites", favoritesRouter);
-app.use("/api/favoritesSearch", favoritesSearchRouter);
+app.use(
+  "/api/favoritesSearch",
+  favoritesSearchRouter
+);
 app.use("/api/thisWord", thisWordRouter);
+app.use("/api/forvo", forvoRouter);
 // app.use("/api/favoritesList", favoritesListRouter);
 
 // Serve static files

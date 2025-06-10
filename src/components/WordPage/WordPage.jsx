@@ -79,10 +79,16 @@ function WordPage() {
   const audioRef = useRef(null);
 
   const forvoFrenchRef = useRef(null);
+  const forvoEnglishRef = useRef(null);
+
 
   useEffect(() => {
     forvoFrenchRef.current = forvoFrench;
   }, [forvoFrench]);
+
+  useEffect(() => {
+    forvoEnglishRef.current = forvoEnglish;
+  }, [forvoEnglish]);
 
   useEffect(() => {
     if (
@@ -116,10 +122,47 @@ function WordPage() {
     }
   }, [forvoFrench, selectedWord]);
 
+  useEffect(() => {
+    if (
+      selectedWord &&
+      forvoEnglishRef.current === forvoEnglish &&
+      forvoEnglish &&
+      forvoEnglish.items &&
+      forvoEnglish.items.length
+    ) {
+      const audio = new Audio(
+        forvoEnglish.items[0].pathmp3
+      );
+      console.log(
+        "forvoEnglish in func is: ",
+        forvoEnglish.items[0].pathmp3
+      );
+      audioRef.current = audio;
+      Promise.resolve()
+        .then(() => {
+          audioRef.current.pause(); // pause the old audio before playing new audio
+        })
+        .then(() => {
+          audioRef.current.currentTime = 0; // reset the audio to start from the beginning
+          return new Promise((resolve) =>
+            setTimeout(resolve, 1000)
+          );
+        })
+        .then(() => {
+          audioRef.current.play(); // play the new audio
+        });
+    }
+  }, [forvoEnglish, selectedWord]);
+
   function cleanFrenchWord(french) {
     const regex =
       /^(l'|le |la )|(, .*?)|(\(.*?\))|(les )/gi;
     return french.replace(regex, "").trim();
+  }
+  function cleanEnglishWord(english) {
+    const regex =
+      /^(l'|le |la )|(, .*?)|(\(.*?\))|(les )/gi;
+    return english.replace(regex, "").trim();
   }
 
   // Define a new function to play the audio
@@ -131,6 +174,17 @@ function WordPage() {
     dispatch({
       type: "FETCH_FORVO_FRENCH",
       payload: cleanFrench,
+    });
+  }
+
+  function playForvoEnglishAudio(
+    english,
+    dispatch
+  ) {
+    const cleanEnglish = cleanEnglishWord(english);
+    dispatch({
+      type: "FETCH_FORVO_ENGLISH",
+      payload: cleanEnglish,
     });
   }
 
@@ -160,38 +214,32 @@ function WordPage() {
             key={word.id}
           >
             {toggleEnglish && (
-              <h3
-                className="englishWord"
-                onClick={() => {
-                  const regex =
-                    /(, (.*)|\((.*?)\))/g;
-                  const newEnglish =
-                    word.english.replace(
-                      regex,
-                      ""
+              <>
+                <h3
+                  className="englishWord"
+                  onClick={() => {
+                    console.log(
+                      "clicked play button for english word"
                     );
-
-                  dispatch({
-                    type: "FETCH_FORVO_ENGLISH",
-                    payload: newEnglish,
-                  });
-                  console.log(
-                    "action.payload in forvo eng: ",
-                    word.english
-                  );
-                }}
-              >
-                {word.english}
-              </h3>
+                    setSelectedWord(word);
+                    playForvoEnglishAudio(
+                      word.english,
+                      dispatch
+                    );
+                  }}
+                >
+                  {cleanEnglishWord(word.english)}
+                </h3>
+              </>
             )}
             {toggleFrench && (
               <>
-                <h3 className="frenchWord">
-                  {cleanFrenchWord(word.french)}
-                </h3>
-                <button
-                  className="playButton"
+                <h3
+                  className="frenchWord"
                   onClick={() => {
+                    console.log(
+                      "clicked play button for french word"
+                    );
                     setSelectedWord(word);
                     playForvoFrenchAudio(
                       word.french,
@@ -199,8 +247,8 @@ function WordPage() {
                     );
                   }}
                 >
-                  Play
-                </button>
+                  {cleanFrenchWord(word.french)}
+                </h3>
               </>
             )}
 
