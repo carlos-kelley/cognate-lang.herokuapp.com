@@ -9,12 +9,12 @@ router.get("/", (req, res) => {
 
   //have to make diff if statements to order by language alphabetically?
   const query = `SELECT *
-  FROM words
-  WHERE english LIKE '%${req.query.word}%'
-  OR spanish LIKE '%${req.query.word}%'
-  OR french LIKE '%${req.query.word}%'
-  OR italian LIKE '%${req.query.word}%'
-  OR portuguese LIKE '%${req.query.word}%'
+  FROM "words"
+  WHERE "english" LIKE '%${req.query.word}%'
+  OR "spanish" LIKE '%${req.query.word}%'
+  OR "french" LIKE '%${req.query.word}%'
+  OR "italian" LIKE '%${req.query.word}%'
+  OR "portuguese" LIKE '%${req.query.word}%'
   `;
   pool
     .query(query)
@@ -22,7 +22,10 @@ router.get("/", (req, res) => {
       res.send(result.rows);
     })
     .catch((err) => {
-      console.log("ERROR: Get all words", err);
+      console.log(
+        `ERROR: Get all words failed for query ${query}:`,
+        err
+      );
       res.sendStatus(500);
     });
 });
