@@ -90,7 +90,7 @@ function* fetchForvoItalian(action) {
   console.log("fetching forvo italian");
   try {
     const response = yield axios.get(
-      `/api/forvo?word=${action.payload}&language=eit`
+      `/api/forvo?word=${action.payload}&language=it`
     );
     console.log(
       "get forvo italian:",

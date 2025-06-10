@@ -7,8 +7,7 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Button from "@mui/material/Button";
-import Snackbar from "@mui/material/Snackbar";
+// import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import "./AddFavoriteWordPage.css";
@@ -34,10 +33,11 @@ function AddFavoriteWordPage() {
     );
     console.log("compare with wordID: ", wordID);
 
-    const check = favorites.findIndex(function (favorite) {
+    const check = favorites.findIndex(function (
+      favorite
+    ) {
       return favorite.word_id === Number(wordID);
-    }
-    );
+    });
     console.log("check: ", check);
     //if word is in favorites, set faved to true
     if (check !== -1) {
@@ -47,9 +47,7 @@ function AddFavoriteWordPage() {
     else if (check === -1) {
       setFaved(false);
     }
-  }
-
-
+  };
 
   const handleAddFavorite = () => {
     console.log("in handleAddFavorite");
@@ -95,7 +93,6 @@ function AddFavoriteWordPage() {
   };
 
   useEffect(() => {
-    dispatch({ type: "FETCH_FAVORITES" });
     checkIfFaved();
   }, [checkIfFaved]);
 
@@ -117,7 +114,7 @@ function AddFavoriteWordPage() {
           Delete Favorite
         </button>
       )}
-      <Snackbar
+      {/* <Snackbar
         className={faved ? "faved" : "notFaved"} //this should not work cus it doesnt say class but thats fine because it was annoying
         open={open}
         autoHideDuration={150000}
@@ -147,7 +144,7 @@ function AddFavoriteWordPage() {
             // width: "250px",
           }
         }
-      />
+      /> */}
     </div>
   );
 }
