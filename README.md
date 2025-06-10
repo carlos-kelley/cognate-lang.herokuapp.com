@@ -6,7 +6,7 @@
 
 # Cognate
 
-This app is hosted [here](https://cognate-lang.herokuapp.com).
+This app is hosted [here](https://cognate-client.vercel.app/).
 
 A cognate is a word that is related to another word in another language. For example, the English word "circle" is cognate with the Spanish word "círculo" and the French word "cercle".
 
@@ -37,10 +37,8 @@ There are some styling issues on mobile and currently audio is non-functional. T
 - [![Node][node.js]][node-url]
 - [![Markdown][markdown]][markdown-url]
 - [![React-Router][react-router]][react-router-url]
-- [![Heroku][heroku]][heroku-url]
 - [![NPM][npm]][npm-url]
 - [![Forvo][forvo-shield]][forvo-url]
-- [![Bit.io][bitio-shield]][bitio-url]
   A full list of dependencies can be found in `package.json`.
 
 ## Roadmap
@@ -89,7 +87,6 @@ Distributed under the MIT License.
 [markdown]: https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white
 [markdown-url]: https://duckduckgo.com/?q=markdown&t=brave&ia=web
 [heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
-[heroku-url]: https://heroku.com
 [node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
 [node-url]: https://nodejs.org/en/
 [express.js]: https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white
@@ -104,5 +101,3 @@ Distributed under the MIT License.
 [protonmail-url]: mailto:carloskelley@protonmail.com
 [forvo-shield]: https://img.shields.io/badge/Forvo-FF0000?style=for-the-badge&logo=forvo&logoColor=white
 [forvo-url]: https://forvo.com
-[bitio-shield]: https://img.shields.io/badge/Bit.io-000000?style=for-the-badge&logo=bitdotio&logoColor=white
-[bitio-url]: https://bit.io
